@@ -1,0 +1,34 @@
+/*Footer Styles*/
+
+.app-footer {
+  text-align: center !important;
+  padding: 0 32px;
+  @include display-flex();
+  @include align-items(center);
+  @include justify-content(space-between);
+  @include box-shadow(0 0px 5px 0 rgba($black, 0.26));
+  background-color: rgba(3, 3, 3, 0.685);
+  color: $light-gray;
+  min-height: $footer-height;
+  height: $footer-height;
+  max-height: $footer-height;
+  text-align: center !important;
+  display: block;
+
+  .jr-link {
+    color: $sidebar-text-color;
+    &:hover {
+      color: $sidebar-hover-color;
+    }
+  }
+
+  span.d-inline-block {
+
+    margin-top: 15px !important  ;
+  }
+
+  @media screen and (max-width: 400px) {
+    font-size: 12px;
+    padding: 0 20px;
+  }
+}
