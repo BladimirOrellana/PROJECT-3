@@ -1,0 +1,17 @@
+* body{
+  background-image: url("../images/back-ground1.jpg") !important;
+  background-size: cover !important;
+  /* background-size: 100% !important; */
+  /* background-repeat: no-repeat !important; */
+  /* background-attachment: unset !important; */
+}
+
+
+.SignButton {
+  background-color: #429b45 !important;
+  color: white !important;
+}
+
+.MuiInput-underline:after {
+  border-bottom: 2px solid #429b45 !important;
+}

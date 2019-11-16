@@ -1,0 +1,37 @@
+* body{
+    background-image: url("../../../../assets/images/back-ground2.jpg") !important;
+    background-size: cover !important;
+    /* background-size: 100% !important; */
+    background-repeat: no-repeat !important;
+    /* background-attachment: unset !important; */
+}
+
+.homebuttons{
+    margin: 6% !important;
+    margin-bottom: 3% !important;
+    font-size: 38px !important;
+    border: solid 3px rgba(255, 255, 255, 0.767)!important;
+    color: rgba(255, 255, 255, 0.753)!important;
+    background-color: rgba(22, 22, 22, 0.849)!important;
+    
+}
+
+.homebuttons:hover{
+    border: solid 3px rgba(87, 247, 75, 0.925)!important;
+    color: rgba(87, 247, 75, 0.925)!important;
+    background-color: rgba(32, 32, 32, 0.692)!important;
+    
+}
+
+.app-wrapper{
+    text-align: center !important;
+    margin-top: 70px;
+    padding-bottom: 0;
+}
+
+#companyName{
+    font-family: 'Marck Script', cursive;
+    text-align: center !important;
+    color: rgba(255, 255, 255, 0.932);
+    font-size: 145px;
+}
