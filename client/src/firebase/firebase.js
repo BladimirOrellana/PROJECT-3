@@ -1,15 +1,16 @@
 import firebase from 'firebase'
+import key from 'firebase/firebasekey';
 
 // Initialize Firebase
 const config = {
-  apiKey: "AIzaSyB1cMgM9avgTPh4Wvpz2Tru5CYzhnSsjyk",
-  authDomain: "hb-fencing.firebaseapp.com",
-  databaseURL: "https://hb-fencing.firebaseio.com",
-  projectId: "hb-fencing",
-  storageBucket: "hb-fencing.appspot.com",
-  messagingSenderId: "37202084601",
-  appId: "1:37202084601:web:52ac9f36f517ace6925828",
-  measurementId: "G-JBS2ZZMTC6"
+  apiKey: key.appKey,
+  authDomain: key.authDomain,
+  databaseURL: key.databaseURL,
+  projectId: key.projectId,
+  storageBucket: key.storageBucket,
+  messagingSenderId: key.messagingSenderId,
+  appId: key.appId,
+  measurementId: key.measurementId
 };
 
 firebase.initializeApp(config);

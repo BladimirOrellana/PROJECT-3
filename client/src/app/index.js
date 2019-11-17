@@ -1,6 +1,8 @@
 import React from "react";
 import { Route, Switch, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
+import fireBaseCredentials from './../firebase/firebasekey';
+
 
 import Header from "components/Header/index";
 import Sidebar from "containers/SideNav/index";
@@ -19,7 +21,6 @@ import TopNav from "components/TopNav";
 
 class App extends React.Component {
   render() {
-    console.log("MAIN STATE ", this.props);
     const {
       match,
       drawerType,
