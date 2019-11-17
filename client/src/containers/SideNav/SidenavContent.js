@@ -119,12 +119,12 @@ class SidenavContent extends Component {
               </NavLink>
             </li>
             <li className="menu no-arrow">
-              <NavLink to="#contact-us">
+              <a href="#contact-us">
                 <FontAwesomeIcon icon={faIdCardAlt} />
                 <span className="nav-text side-nav-icons">
                   <IntlMessages id=" Contact" />{" "}
                 </span>
-              </NavLink>
+              </a>
             </li>
             <li className="menu no-arrow">
               <NavLink to="/app/get-a-free-quote">
@@ -135,12 +135,12 @@ class SidenavContent extends Component {
               </NavLink>
             </li>
             <li className="menu no-arrow">
-              <NavLink to="/app/about">
+              <a href="#about-us">
               <FontAwesomeIcon icon={faFolderMinus} />
                 <span className="nav-text side-nav-icons">
                   <IntlMessages id=" About" />{" "}
                 </span>
-              </NavLink>
+              </a>
             </li>
             <li className="menu no-arrow">
             <NavLink to="/app/your-quote">

@@ -70,6 +70,7 @@ class App extends React.Component {
                     import("./routes/public/Home")
                   )}
                 />
+                
                 <Route
                   path={`${match.url}/contact`}
                   component={asyncComponent(() =>
