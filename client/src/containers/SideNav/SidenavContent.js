@@ -103,124 +103,248 @@ class SidenavContent extends Component {
   }
 
   render() {
-    return (
-      <CustomScrollbars className=" scrollbar">
-        <ul className="nav-menu">
-          <li className="nav-header">
-            <IntlMessages id="sidebar.main" />
-          </li>
-          <li className="menu no-arrow">
-            <NavLink to="/app/home">
-            <FontAwesomeIcon icon={faHome} />
-              <span className="nav-text  side-nav-icons">
-                <IntlMessages id="   Home" />{" "}
-              </span>
-            </NavLink>
-          </li>
-          <li className="menu no-arrow">
-            <NavLink to="#contact-us">
-              <FontAwesomeIcon icon={faIdCardAlt} />
+    if (this.props.location.pathname === "/app/home") {
+      return (
+        <CustomScrollbars className=" scrollbar">
+          <ul className="nav-menu">
+            <li className="nav-header">
+              <IntlMessages id="sidebar.main" />
+            </li>
+            <li className="menu no-arrow">
+              <NavLink to="/app/home">
+              <FontAwesomeIcon icon={faHome} />
+                <span className="nav-text  side-nav-icons">
+                  <IntlMessages id="   Home" />{" "}
+                </span>
+              </NavLink>
+            </li>
+            <li className="menu no-arrow">
+              <NavLink to="#contact-us">
+                <FontAwesomeIcon icon={faIdCardAlt} />
+                <span className="nav-text side-nav-icons">
+                  <IntlMessages id=" Contact" />{" "}
+                </span>
+              </NavLink>
+            </li>
+            <li className="menu no-arrow">
+              <NavLink to="/app/get-a-free-quote">
+              <FontAwesomeIcon icon={faStar} />
+                <span className="nav-text side-nav-icons">
+                  <IntlMessages id=" Get a quote" />{" "}
+                </span>
+              </NavLink>
+            </li>
+            <li className="menu no-arrow">
+              <NavLink to="/app/about">
+              <FontAwesomeIcon icon={faFolderMinus} />
+                <span className="nav-text side-nav-icons">
+                  <IntlMessages id=" About" />{" "}
+                </span>
+              </NavLink>
+            </li>
+            <li className="menu no-arrow">
+            <NavLink to="/app/your-quote">
+            <FontAwesomeIcon icon={faFile} />
               <span className="nav-text side-nav-icons">
-                <IntlMessages id=" Contact" />{" "}
+                <IntlMessages id=" Your Quote" />{" "}
               </span>
             </NavLink>
           </li>
-          <li className="menu no-arrow">
-            <NavLink to="#reviews">
-            <FontAwesomeIcon icon={faStar} />
+  
+         
+            <li className="menu no-arrow">
+              <NavLink to="/app/add-seller">
+              <FontAwesomeIcon icon={faUserPlus} />
+                <span className="nav-text side-nav-icons">
+                  <IntlMessages id=" Add Seller" />{" "}
+                </span>
+              </NavLink>
+            </li>
+  
+            <li className="menu no-arrow">
+              <NavLink to="/app/active-projects">
+              <FontAwesomeIcon icon={faBullseye} />
+                <span className="nav-text side-nav-icons">
+                  <IntlMessages id=" Active Projects" />{" "}
+                </span>
+              </NavLink>
+            </li>
+            <li className="menu no-arrow">
+              <NavLink to="/app/add-material-to-project">
+              <FontAwesomeIcon icon={faCartPlus} />
+                <span className="nav-text side-nav-icons">
+                  <IntlMessages id=" Add Material To Project" />{" "}
+                </span>
+              </NavLink>
+            </li>
+            <li className="menu no-arrow">
+            <NavLink to="/app/add-miscellanious">
+            <FontAwesomeIcon icon={faPlusSquare} />
               <span className="nav-text side-nav-icons">
-                <IntlMessages id=" Reviews" />{" "}
+                <IntlMessages id=" Add Miscellaneous" />{" "}
               </span>
             </NavLink>
           </li>
           <li className="menu no-arrow">
-            <NavLink to="/app/about">
-            <FontAwesomeIcon icon={faFolderMinus} />
-              <span className="nav-text side-nav-icons">
-                <IntlMessages id=" About" />{" "}
-              </span>
-            </NavLink>
-          </li>
-          <li className="menu no-arrow">
-          <NavLink to="/app/your-quote">
-          <FontAwesomeIcon icon={faFile} />
+          <NavLink to="/app/all-quotes">
+          <FontAwesomeIcon icon={faFileArchive} />
             <span className="nav-text side-nav-icons">
-              <IntlMessages id=" Your Quote" />{" "}
-            </span>
-          </NavLink>
-        </li>
-
-       
-          <li className="menu no-arrow">
-            <NavLink to="/app/add-seller">
-            <FontAwesomeIcon icon={faUserPlus} />
-              <span className="nav-text side-nav-icons">
-                <IntlMessages id=" Add Seller" />{" "}
-              </span>
-            </NavLink>
-          </li>
-
-          <li className="menu no-arrow">
-            <NavLink to="/app/active-projects">
-            <FontAwesomeIcon icon={faBullseye} />
-              <span className="nav-text side-nav-icons">
-                <IntlMessages id=" Active Projects" />{" "}
-              </span>
-            </NavLink>
-          </li>
-          <li className="menu no-arrow">
-            <NavLink to="/app/add-material-to-project">
-            <FontAwesomeIcon icon={faCartPlus} />
-              <span className="nav-text side-nav-icons">
-                <IntlMessages id=" Add Material To Project" />{" "}
-              </span>
-            </NavLink>
-          </li>
-          <li className="menu no-arrow">
-          <NavLink to="/app/add-miscellanious">
-          <FontAwesomeIcon icon={faPlusSquare} />
-            <span className="nav-text side-nav-icons">
-              <IntlMessages id=" Add Miscellaneous" />{" "}
+              <IntlMessages id=" All Quotes" />{" "}
             </span>
           </NavLink>
         </li>
         <li className="menu no-arrow">
-        <NavLink to="/app/all-quotes">
-        <FontAwesomeIcon icon={faFileArchive} />
-          <span className="nav-text side-nav-icons">
-            <IntlMessages id=" All Quotes" />{" "}
-          </span>
-        </NavLink>
-      </li>
-      <li className="menu no-arrow">
-        <NavLink to="/app/confirmed-project">
-        <FontAwesomeIcon icon={faCheckCircle} />
-          <span className="nav-text side-nav-icons">
-            <IntlMessages id=" Confirmed Project" />{" "}
-          </span>
-        </NavLink>
-      </li>
-      <li className="menu no-arrow">
-        <NavLink to="/app/finished-project">
-        <FontAwesomeIcon icon={faListAlt} />
-          <span className="nav-text side-nav-icons">
-            <IntlMessages id=" Finished Project" />{" "}
-          </span>
-        </NavLink>
-      </li>
-      <li className="menu no-arrow">
-        <NavLink to="/app/raw-material">
-        <FontAwesomeIcon icon={faWarehouse} />
-          <span className="nav-text side-nav-icons">
-            <IntlMessages id="Raw Material" />{" "}
-          </span>
-        </NavLink>
-      </li>
-   
+          <NavLink to="/app/confirmed-project">
+          <FontAwesomeIcon icon={faCheckCircle} />
+            <span className="nav-text side-nav-icons">
+              <IntlMessages id=" Confirmed Project" />{" "}
+            </span>
+          </NavLink>
+        </li>
+        <li className="menu no-arrow">
+          <NavLink to="/app/finished-project">
+          <FontAwesomeIcon icon={faListAlt} />
+            <span className="nav-text side-nav-icons">
+              <IntlMessages id=" Finished Project" />{" "}
+            </span>
+          </NavLink>
+        </li>
+        <li className="menu no-arrow">
+          <NavLink to="/app/raw-material">
+          <FontAwesomeIcon icon={faWarehouse} />
+            <span className="nav-text side-nav-icons">
+              <IntlMessages id="Raw Material" />{" "}
+            </span>
+          </NavLink>
+        </li>
      
-        </ul>
-      </CustomScrollbars>
-    );
+       
+          </ul>
+        </CustomScrollbars>
+      );
+
+    }else{
+      return (
+        <CustomScrollbars className=" scrollbar">
+          <ul className="nav-menu">
+            <li className="nav-header">
+              <IntlMessages id="sidebar.main" />
+            </li>
+            <li className="menu no-arrow">
+              <NavLink to="/app/home">
+              <FontAwesomeIcon icon={faHome} />
+                <span className="nav-text  side-nav-icons">
+                  <IntlMessages id="   Home" />{" "}
+                </span>
+              </NavLink>
+            </li>
+            <li className="menu no-arrow">
+              <NavLink to="/app/home">
+                <FontAwesomeIcon icon={faIdCardAlt} />
+                <span className="nav-text side-nav-icons">
+                  <IntlMessages id=" Contact" />{" "}
+                </span>
+              </NavLink>
+            </li>
+            <li className="menu no-arrow">
+            <NavLink to="/app/get-a-free-quote">
+            <FontAwesomeIcon icon={faStar} />
+              <span className="nav-text side-nav-icons">
+                <IntlMessages id=" Get a quote" />{" "}
+              </span>
+            </NavLink>
+          </li>
+         
+            <li className="menu no-arrow">
+              <NavLink to="/app/home">
+              <FontAwesomeIcon icon={faFolderMinus} />
+                <span className="nav-text side-nav-icons">
+                  <IntlMessages id=" About" />{" "}
+                </span>
+              </NavLink>
+            </li>
+            <li className="menu no-arrow">
+            <NavLink to="/app/your-quote">
+            <FontAwesomeIcon icon={faFile} />
+              <span className="nav-text side-nav-icons">
+                <IntlMessages id=" Your Quote" />{" "}
+              </span>
+            </NavLink>
+          </li>
+  
+         
+            <li className="menu no-arrow">
+              <NavLink to="/app/add-seller">
+              <FontAwesomeIcon icon={faUserPlus} />
+                <span className="nav-text side-nav-icons">
+                  <IntlMessages id=" Add Seller" />{" "}
+                </span>
+              </NavLink>
+            </li>
+  
+            <li className="menu no-arrow">
+              <NavLink to="/app/active-projects">
+              <FontAwesomeIcon icon={faBullseye} />
+                <span className="nav-text side-nav-icons">
+                  <IntlMessages id=" Active Projects" />{" "}
+                </span>
+              </NavLink>
+            </li>
+            <li className="menu no-arrow">
+              <NavLink to="/app/add-material-to-project">
+              <FontAwesomeIcon icon={faCartPlus} />
+                <span className="nav-text side-nav-icons">
+                  <IntlMessages id=" Add Material To Project" />{" "}
+                </span>
+              </NavLink>
+            </li>
+            <li className="menu no-arrow">
+            <NavLink to="/app/add-miscellanious">
+            <FontAwesomeIcon icon={faPlusSquare} />
+              <span className="nav-text side-nav-icons">
+                <IntlMessages id=" Add Miscellaneous" />{" "}
+              </span>
+            </NavLink>
+          </li>
+          <li className="menu no-arrow">
+          <NavLink to="/app/all-quotes">
+          <FontAwesomeIcon icon={faFileArchive} />
+            <span className="nav-text side-nav-icons">
+              <IntlMessages id=" All Quotes" />{" "}
+            </span>
+          </NavLink>
+        </li>
+        <li className="menu no-arrow">
+          <NavLink to="/app/confirmed-project">
+          <FontAwesomeIcon icon={faCheckCircle} />
+            <span className="nav-text side-nav-icons">
+              <IntlMessages id=" Confirmed Project" />{" "}
+            </span>
+          </NavLink>
+        </li>
+        <li className="menu no-arrow">
+          <NavLink to="/app/finished-project">
+          <FontAwesomeIcon icon={faListAlt} />
+            <span className="nav-text side-nav-icons">
+              <IntlMessages id=" Finished Project" />{" "}
+            </span>
+          </NavLink>
+        </li>
+        <li className="menu no-arrow">
+          <NavLink to="/app/raw-material">
+          <FontAwesomeIcon icon={faWarehouse} />
+            <span className="nav-text side-nav-icons">
+              <IntlMessages id="Raw Material" />{" "}
+            </span>
+          </NavLink>
+        </li>
+     
+       
+          </ul>
+        </CustomScrollbars>
+      );
+    }
+    
   }
 }
 

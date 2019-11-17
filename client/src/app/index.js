@@ -1,8 +1,7 @@
 import React from "react";
 import { Route, Switch, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-import fireBaseCredentials from './../firebase/firebasekey';
-
+import fireBaseCredentials from "./../firebase/firebasekey";
 
 import Header from "components/Header/index";
 import Sidebar from "containers/SideNav/index";
@@ -75,6 +74,12 @@ class App extends React.Component {
                   path={`${match.url}/contact`}
                   component={asyncComponent(() =>
                     import("./routes/public/Contact")
+                  )}
+                />
+                <Route
+                  path={`${match.url}/get-a-free-quote`}
+                  component={asyncComponent(() =>
+                    import("./routes/public/Get-a-free-quote")
                   )}
                 />
                 <Route
