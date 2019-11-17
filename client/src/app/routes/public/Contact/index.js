@@ -1,9 +1,9 @@
 import React from 'react';
-import IntlMessages from 'util/IntlMessages';
-
+import './index.css';
 const ContactUs = ({match}) => {
   return (
     <div id="contact-us" className="animated slideInUpTiny animation-duration-3">
+    <h1 className="contact-us-container-title">Get in touch</h1>
       <div className="row">
         <div className="col-lg-9 col-md-8 col-sm-7 col-12">
           <form action="" className="contact-form jr-card">
@@ -80,11 +80,11 @@ const ContactUs = ({match}) => {
                 <div className="contact-body">
                   <h4 className="text-uppercase">ADDRESS</h4>
                   <address className="mb-0">
-                    44 New Design Street
+                  15608 S Brentwood St
                     <br/>
-                    Melbourne 005
+                    Channelview,  TX 77530
                     <br/>
-                    Australia 300
+                    United States
                   </address>
                 </div>
               </li>
@@ -93,11 +93,11 @@ const ContactUs = ({match}) => {
                 <i className="zmdi zmdi-phone zmdi-hc-fw"/>
                 <div className="contact-body">
                   <h4 className="text-uppercase">Phone</h4>
-                  <div><span className="jr-link text-primary disable-link">01 (800) 433
-                    544</span>
+                  <div>
+                  <a href="tel:8322964721"><span className="jr-link text-primary disable-link"></span>Mario</a>
                   </div>
-                  <div><span className="jr-link text-primary disable-link">01 (800) 123
-                    524</span>
+                  <div>
+                  <a href="tel:8322964721"><span className="jr-link text-primary disable-link"></span>Bladimir</a>
                   </div>
                 </div>
               </li>
@@ -106,7 +106,7 @@ const ContactUs = ({match}) => {
                 <i className="zmdi zmdi-email zmdi-hc-fw"/>
                 <div className="contact-body">
                   <h4 className="text-uppercase">E-mail</h4>
-                  <div><span className="text-primary jr-link">info@Example.com</span>
+                  <div><span className="text-primary jr-link">info@hbfencingandlandscaping.com</span>
                   </div>
                   <div className="icons-wrapper">
                     <span className="icon facebook-icon jr-link">
