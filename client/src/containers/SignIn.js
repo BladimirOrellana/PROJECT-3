@@ -37,7 +37,7 @@ class SignIn extends React.Component {
       }, 100);
     }
     if (this.props.authUser !== null) {
-      this.props.history.push("/");
+      this.props.history.push(this.props.initURL);
     }
   }
 
@@ -175,8 +175,8 @@ class SignIn extends React.Component {
 }
 
 const mapStateToProps = ({ auth }) => {
-  const { loader, alertMessage, showMessage, authUser } = auth;
-  return { loader, alertMessage, showMessage, authUser };
+  const { loader, alertMessage, showMessage, authUser, initURL } = auth;
+  return { loader, alertMessage, showMessage, authUser, initURL };
 };
 
 export default connect(mapStateToProps, {

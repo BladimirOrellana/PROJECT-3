@@ -80,7 +80,7 @@ class App extends React.Component {
                 <Route
                   path={`${match.url}/get-a-free-quote`}
                   component={asyncComponent(() =>
-                    import("./routes/public/Get-a-free-quote")
+                    import("./routes/private/Client-view/Get-a-free-quote")
                   )}
                 />
                 <Route

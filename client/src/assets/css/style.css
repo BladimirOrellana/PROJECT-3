@@ -1,8 +1,8 @@
 * body{
-  background-image: url("../images/back-ground1.jpg") !important;
+  background-image: url("../images/back-ground2.jpg") !important;
   background-size: cover !important;
   /* background-size: 100% !important; */
-  /* background-repeat: no-repeat !important; */
+  background-repeat: no-repeat !important;
   /* background-attachment: unset !important; */
 }
 
