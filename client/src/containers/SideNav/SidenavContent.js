@@ -111,7 +111,7 @@ class SidenavContent extends Component {
         <CustomScrollbars className=" scrollbar">
           <ul className="nav-menu">
             <li className="nav-header">
-              <IntlMessages id="sidebar.main" />
+              {/* <IntlMessages id="sidebar.main" /> */}
             </li>
             <LoggedClientMenu />
             <li className="menu no-arrow">
@@ -166,7 +166,7 @@ class SidenavContent extends Component {
         <CustomScrollbars className=" scrollbar">
           <ul className="nav-menu">
             <li className="nav-header">
-              <IntlMessages id="sidebar.main" />
+              {/* <IntlMessages id="sidebar.main" /> */}
             </li>
             <li className="menu no-arrow">
               <NavLink to="/app/home">

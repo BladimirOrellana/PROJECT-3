@@ -1,12 +1,17 @@
 import React from "react";
-// import "./../../public/Home/";
 import "./index.css";
+import Button from "@material-ui/core/Button";
+import { connect } from "react-redux";
+import { setInitUrl } from "../../../../actions/Auth";
 import About from "../About";
 import Contact from "../Contact";
-import Button from "@material-ui/core/Button";
 import {NavLink} from 'react-router-dom';
 
 class Home extends React.Component {
+  //it will save the path in initURL state
+  componentWillMount() {
+    this.props.setInitUrl(this.props.history.location.pathname);
+  }
   render() {
     console.log("HOME_____",this.props.auth)
     return (
@@ -39,4 +44,9 @@ class Home extends React.Component {
   }
 }
 
-export default Home;
+const mapStateToProps = ({ auth }) => {
+  const { initURL } = auth;
+  return { initURL };
+};
+
+export default connect(mapStateToProps, { setInitUrl })(Home);
