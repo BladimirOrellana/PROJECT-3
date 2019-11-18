@@ -24,12 +24,6 @@ class PublicRoutes extends Component{
                   )}
                 />
                 <Route
-                  path={`${match.url}/get-a-free-quote`}
-                  component={asyncComponent(() =>
-                    import("./../routes/public/Get-a-free-quote")
-                  )}
-                />
-                <Route
                   path={`${match.url}/about`}
                   component={asyncComponent(() =>
                     import("./../routes/public/About")
