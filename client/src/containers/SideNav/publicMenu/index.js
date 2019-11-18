@@ -7,7 +7,7 @@ import CustomScrollbars from "util/CustomScrollbars";
 import {connect} from 'react-redux';
 import * as action from './../../../actions';
 
-class SellerMenu extends Component {
+class PublicMenu extends Component {
   componentDidMount() {
     const { history } = this.props;
     const that = this;
@@ -106,12 +106,12 @@ class SellerMenu extends Component {
 
   render() {
  
-   if (this.props.userLogged && this.props.userLogged._id && this.props.userLogged.role === "Seller") {
+   if (this.props.userLogged === null) {
       return (
         <CustomScrollbars className=" scrollbar">
           <ul className="nav-menu">
             <li className="nav-header">
-            <p>Seller Menu</p>
+            <p>Welcome </p>
             </li>
            <li className="menu no-arrow">
               <NavLink to="/app/home">
@@ -146,73 +146,7 @@ class SellerMenu extends Component {
                 </span>
               </a>
             </li>
-            <li className="menu no-arrow">
-            <NavLink to="/app/add-seller">
-            <FontAwesomeIcon icon={faUserPlus} />
-              <span className="nav-text side-nav-icons">
-                <IntlMessages id=" Add Seller" />{" "}
-              </span>
-            </NavLink>
-          </li>
-
-          <li className="menu no-arrow">
-            <NavLink to="/app/active-projects">
-            <FontAwesomeIcon icon={faBullseye} />
-              <span className="nav-text side-nav-icons">
-                <IntlMessages id=" Active Projects" />{" "}
-              </span>
-            </NavLink>
-          </li>
-          <li className="menu no-arrow">
-            <NavLink to="/app/add-material-to-project">
-            <FontAwesomeIcon icon={faCartPlus} />
-              <span className="nav-text side-nav-icons">
-                <IntlMessages id=" Add Material To Project" />{" "}
-              </span>
-            </NavLink>
-          </li>
-          <li className="menu no-arrow">
-          <NavLink to="/app/add-miscellanious">
-          <FontAwesomeIcon icon={faPlusSquare} />
-            <span className="nav-text side-nav-icons">
-              <IntlMessages id=" Add Miscellaneous" />{" "}
-            </span>
-          </NavLink>
-        </li>
-        <li className="menu no-arrow">
-        <NavLink to="/app/all-quotes">
-        <FontAwesomeIcon icon={faFileArchive} />
-          <span className="nav-text side-nav-icons">
-            <IntlMessages id=" All Quotes" />{" "}
-          </span>
-        </NavLink>
-      </li>
-      <li className="menu no-arrow">
-        <NavLink to="/app/confirmed-project">
-        <FontAwesomeIcon icon={faCheckCircle} />
-          <span className="nav-text side-nav-icons">
-            <IntlMessages id=" Confirmed Project" />{" "}
-          </span>
-        </NavLink>
-      </li>
-      <li className="menu no-arrow">
-        <NavLink to="/app/finished-project">
-        <FontAwesomeIcon icon={faListAlt} />
-          <span className="nav-text side-nav-icons">
-            <IntlMessages id=" Finished Project" />{" "}
-          </span>
-        </NavLink>
-      </li>
-      <li className="menu no-arrow">
-        <NavLink to="/app/raw-material">
-        <FontAwesomeIcon icon={faWarehouse} />
-          <span className="nav-text side-nav-icons">
-            <IntlMessages id="Raw Material" />{" "}
-          </span>
-        </NavLink>
-      </li>
-   
-           </ul>
+         </ul>
 
         </CustomScrollbars>
       );
@@ -230,4 +164,4 @@ const mapStateToProps = (state) =>{
 }
 
 
-export default withRouter(connect(mapStateToProps, action)(SellerMenu));
+export default withRouter(connect(mapStateToProps, action)(PublicMenu));
