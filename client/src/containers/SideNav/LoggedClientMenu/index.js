@@ -111,7 +111,7 @@ class ClientLoggedInMenu extends Component {
         <CustomScrollbars className=" scrollbar">
           <ul className="nav-menu">
             <li className="nav-header">
-            <p>Client Menu</p>
+            <p>Menu</p>
             </li>
             <li className="menu no-arrow">
               <NavLink to="/app/home">

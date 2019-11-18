@@ -1,7 +1,9 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-import PublicRoutes from './PublicRoutes';
+import PublicRoutes from "./PublicRoutes";
+import LoggedClientRoutes from './LoggedClientRoutes';
+import SellerRoutes from './SellerRoutes';
 
 import Header from "components/Header/index";
 import Sidebar from "containers/SideNav/index";
@@ -20,12 +22,8 @@ import TopNav from "components/TopNav";
 
 class App extends React.Component {
   render() {
-    const {
-      match,
-      drawerType,
-      navigationStyle,
-      horizontalNavPosition
-    } = this.props;
+    console.log("SETINGS_______________", this.props.user);
+    const { drawerType, navigationStyle, horizontalNavPosition } = this.props;
     const drawerStyle = drawerType.includes(FIXED_DRAWER)
       ? "fixed-drawer"
       : drawerType.includes(COLLAPSED_DRAWER)
@@ -63,7 +61,15 @@ class App extends React.Component {
 
           <main className="app-main-content-wrapper">
             <div className="app-main-content">
-       <PublicRoutes />
+              {(() => {
+                if (this.props.user === null) {
+                  return <PublicRoutes />;
+                } else if (this.props.user.role === "Seller") {
+                  return <SellerRoutes />;
+                } else if (this.props.user.role === "Client") {
+                  return <LoggedClientRoutes />;
+                }
+              })()}
             </div>
             <Footer />
           </main>
@@ -73,8 +79,14 @@ class App extends React.Component {
   }
 }
 
-const mapStateToProps = ({ settings }) => {
+const mapStateToProps = ({ settings, auth }) => {
+  const { user } = auth;
   const { drawerType, navigationStyle, horizontalNavPosition } = settings;
-  return { drawerType, navigationStyle, horizontalNavPosition };
+  return {
+    drawerType,
+    navigationStyle,
+    horizontalNavPosition,
+    user
+  };
 };
 export default withRouter(connect(mapStateToProps)(App));
