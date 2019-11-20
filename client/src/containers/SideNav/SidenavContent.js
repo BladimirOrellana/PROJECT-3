@@ -1,23 +1,5 @@
 import React, { Component } from "react";
-import { NavLink, withRouter } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faHome,
-  faIdCardAlt,
-  faStar,
-  faFolderMinus,
-  faFile,
-  faUserPlus,
-  faCartPlus,
-  faPlusSquare,
-  faFileArchive,
-  faCheckCircle,
-  faListAlt,
-  faWarehouse,
-  faBullseye
-} from "@fortawesome/free-solid-svg-icons";
-import IntlMessages from "util/IntlMessages";
-import CustomScrollbars from "util/CustomScrollbars";
+import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import * as action from "./../../actions";
 import LoggedClientMenu from "./LoggedClientMenu";

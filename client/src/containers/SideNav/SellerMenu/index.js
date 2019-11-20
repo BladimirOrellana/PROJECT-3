@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { NavLink, withRouter } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHome, faIdCardAlt, faStar, faFolderMinus,faFile,faUserPlus, faCartPlus,faPlusSquare,faFileArchive, faCheckCircle, faListAlt, faWarehouse, faBullseye } from '@fortawesome/free-solid-svg-icons'
-import IntlMessages from "util/IntlMessages";
 import CustomScrollbars from "util/CustomScrollbars";
 import {connect} from 'react-redux';
 import * as action from './../../../actions';
@@ -117,7 +116,7 @@ class SellerMenu extends Component {
               <NavLink to="/app/home">
               <FontAwesomeIcon icon={faHome} />
                 <span className="nav-text  side-nav-icons">
-                  <IntlMessages id="   Home" />{" "}
+                  Home
                 </span>
               </NavLink>
             </li>
@@ -125,7 +124,7 @@ class SellerMenu extends Component {
               <a href="#contact-us">
                 <FontAwesomeIcon icon={faIdCardAlt} />
                 <span className="nav-text side-nav-icons">
-                  <IntlMessages id=" Contact" />{" "}
+                 Contact
                 </span>
               </a>
             </li>
@@ -133,7 +132,7 @@ class SellerMenu extends Component {
               <NavLink to="/app/get-a-free-quote">
               <FontAwesomeIcon icon={faStar} />
                 <span className="nav-text side-nav-icons">
-                  <IntlMessages id=" Get a quote" />{" "}
+                Get a quote
                 </span>
               </NavLink>
             </li>
@@ -142,7 +141,7 @@ class SellerMenu extends Component {
               <a href="#about-us">
               <FontAwesomeIcon icon={faFolderMinus} />
                 <span className="nav-text side-nav-icons">
-                  <IntlMessages id=" About" />{" "}
+                  About
                 </span>
               </a>
             </li>
@@ -150,7 +149,7 @@ class SellerMenu extends Component {
             <NavLink to="/app/add-seller">
             <FontAwesomeIcon icon={faUserPlus} />
               <span className="nav-text side-nav-icons">
-                <IntlMessages id=" Add Seller" />{" "}
+                Add Seller
               </span>
             </NavLink>
           </li>
@@ -159,7 +158,7 @@ class SellerMenu extends Component {
             <NavLink to="/app/active-projects">
             <FontAwesomeIcon icon={faBullseye} />
               <span className="nav-text side-nav-icons">
-                <IntlMessages id=" Active Projects" />{" "}
+              Active Projects
               </span>
             </NavLink>
           </li>
@@ -167,7 +166,7 @@ class SellerMenu extends Component {
             <NavLink to="/app/add-material-to-project">
             <FontAwesomeIcon icon={faCartPlus} />
               <span className="nav-text side-nav-icons">
-                <IntlMessages id=" Add Material To Project" />{" "}
+              Add Material To Project
               </span>
             </NavLink>
           </li>
@@ -175,7 +174,7 @@ class SellerMenu extends Component {
           <NavLink to="/app/add-miscellanious">
           <FontAwesomeIcon icon={faPlusSquare} />
             <span className="nav-text side-nav-icons">
-              <IntlMessages id=" Add Miscellaneous" />{" "}
+            Add Miscellaneous
             </span>
           </NavLink>
         </li>
@@ -183,7 +182,7 @@ class SellerMenu extends Component {
         <NavLink to="/app/all-quotes">
         <FontAwesomeIcon icon={faFileArchive} />
           <span className="nav-text side-nav-icons">
-            <IntlMessages id=" All Quotes" />{" "}
+          All Quotes
           </span>
         </NavLink>
       </li>
@@ -191,7 +190,7 @@ class SellerMenu extends Component {
         <NavLink to="/app/confirmed-project">
         <FontAwesomeIcon icon={faCheckCircle} />
           <span className="nav-text side-nav-icons">
-            <IntlMessages id=" Confirmed Project" />{" "}
+          Confirmed Project
           </span>
         </NavLink>
       </li>
@@ -199,7 +198,7 @@ class SellerMenu extends Component {
         <NavLink to="/app/finished-project">
         <FontAwesomeIcon icon={faListAlt} />
           <span className="nav-text side-nav-icons">
-            <IntlMessages id=" Finished Project" />{" "}
+          Finished Project
           </span>
         </NavLink>
       </li>
@@ -207,7 +206,7 @@ class SellerMenu extends Component {
         <NavLink to="/app/raw-material">
         <FontAwesomeIcon icon={faWarehouse} />
           <span className="nav-text side-nav-icons">
-            <IntlMessages id="Raw Material" />{" "}
+          Raw Material
           </span>
         </NavLink>
       </li>

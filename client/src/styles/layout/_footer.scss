@@ -1,6 +1,10 @@
 /*Footer Styles*/
 
 .app-footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
   text-align: center !important;
   padding: 0 32px;
   @include display-flex();

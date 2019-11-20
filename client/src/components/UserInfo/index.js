@@ -6,7 +6,7 @@ import { userSignOut } from "actions/Auth";
 import IntlMessages from "util/IntlMessages";
 import "./index.css";
 import SignIn from "containers/SignIn";
-import { Redirect, Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 class UserInfo extends React.Component {
   state = {
@@ -56,8 +56,15 @@ class UserInfo extends React.Component {
           }}
         >
           <MenuItem onClick={this.handleRequestClose}>
-            <i className="zmdi zmdi-account zmdi-hc-fw mr-2" />
-            <IntlMessages id="popup.profile" />
+           
+         
+              <NavLink to="/app/profile">
+              <i className="zmdi zmdi-account zmdi-hc-fw mr-2" />
+                <span className="nav-text  side-nav-icons">
+                  Profile
+                </span>
+              </NavLink>
+           
           </MenuItem>
           {/* <MenuItem onClick={this.handleRequestClose}>
             <i className="zmdi zmdi-settings zmdi-hc-fw mr-2" />

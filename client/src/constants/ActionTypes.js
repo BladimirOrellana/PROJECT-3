@@ -137,3 +137,7 @@ export const SET_CURRENT_TODO_NULL = 'set_current_todo_null';
 export const REMOVE_LABEL = 'remove_label';
 export const UPDATE_SEARCH = 'update_search';
 
+//Your quotes const
+
+export const GET_ALL_QUOTES_FROM_DATABASE = "get_all_quotes_from_database";
+

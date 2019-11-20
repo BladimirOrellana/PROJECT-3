@@ -78,6 +78,12 @@ class SellerRoutes extends Component {
             import("./../routes/private/Seller-view/Raw-material")
           )}
         />
+        <Route
+        path={`${match.url}/profile`}
+        component={asyncComponent(() =>
+          import('./../routes/private/Profile')
+        )}
+      />
 
         <Route
           component={asyncComponent(() => import("components/Error404"))}

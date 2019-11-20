@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import OrderTableCell from './OrderTableCell';
+import {getAllYourQuotesAction} from './../../../actions/index';
+
 
 
 let counter = 0;
@@ -10,6 +13,11 @@ function createData(orderId, name, image, orderDate, deliveryDate, status) {
 }
 
 class OrderTable extends Component {
+  componentWillMount(){
+   this.props.getAllQuotesFromDatabase()
+   
+  }
+
   state = {
     data: [
       createData('23545', 'Alex Dolgove',  'https://via.placeholder.com/150x150', '25 Oct', '25 Oct', 'Completed'),
@@ -20,6 +28,8 @@ class OrderTable extends Component {
   };
 
   render() {
+    console.log("DATABASE+++++++++++++++++ ",this.props.getAllQuotesFromDatabase);
+    console.log("DATABASEEJE+++++++++++++++++ ",this.props.data);
     const {data} = this.state;
     return (
       <div className="table-responsive-material">
@@ -46,5 +56,18 @@ class OrderTable extends Component {
     );
   }
 }
+const  mapStateToProps = (state) => {
+  
+  return {
+  data: state.quotes
+  }
+}
 
-export default OrderTable;
+const  mapDispatchToProps = (dispatch) => {
+  return {
+    getAllQuotesFromDatabase: () =>  dispatch( getAllYourQuotesAction())
+    
+  }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(OrderTable);
