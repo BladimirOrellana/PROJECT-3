@@ -2,6 +2,15 @@ import React from "react";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { setInitUrl } from "../../../../../actions/Auth";
+import {
+  sidesNumberP,
+  gatesNumberP,
+  getQuoteP
+} from "../../../../../actions/Project";
+import HorizontalLabelPositionBelowStepper from "components/QuoteStepper/HorizontalLabelPositionBelowStepper";
+import CardBox from "components/CardBox";
+import  "./index.css";
+
 
 class GetQuote extends React.Component {
   //it will save the path in initURL state
@@ -16,10 +25,14 @@ class GetQuote extends React.Component {
     }
 
     return (
-      <div className="app-wrapper">
-        <div className="d-flex justify-content-center">
-          <h1 style={{ color: "white" }}>Your Quote</h1>
-        </div>
+      <div className="row homemaindiv mb-md-3">
+        <CardBox
+          styleName="col-lg-12"
+          childrenStyle="d-flex justify-content-center"
+          headerOutside
+        >
+          <HorizontalLabelPositionBelowStepper />
+        </CardBox>
       </div>
     );
   }
@@ -30,4 +43,9 @@ const mapStateToProps = ({ auth }) => {
   return { authUser, initURL };
 };
 
-export default connect(mapStateToProps, { setInitUrl })(GetQuote);
+export default connect(mapStateToProps, {
+  setInitUrl,
+  sidesNumberP,
+  gatesNumberP,
+  getQuoteP
+})(GetQuote);

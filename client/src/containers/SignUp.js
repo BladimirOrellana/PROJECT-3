@@ -39,7 +39,11 @@ class SignUp extends React.Component {
       }, 3000);
     }
     if (this.props.authUser !== null) {
-      this.props.history.push("this.props.initURL");
+      if (this.props.initURL !== "/signup") {
+        this.props.history.push(this.props.initURL);
+      } else {
+        this.props.history.push("/app/home");
+      }
     }
   }
 
