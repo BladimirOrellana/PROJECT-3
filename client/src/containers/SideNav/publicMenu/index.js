@@ -7,7 +7,7 @@ import CustomScrollbars from "util/CustomScrollbars";
 import {connect} from 'react-redux';
 import * as action from './../../../actions';
 
-class ClientLoggedInMenu extends Component {
+class PublicMenu extends Component {
   componentDidMount() {
     const { history } = this.props;
     const that = this;
@@ -106,14 +106,14 @@ class ClientLoggedInMenu extends Component {
 
   render() {
  
-  
+   if (this.props.userLogged === null) {
       return (
         <CustomScrollbars className=" scrollbar">
           <ul className="nav-menu">
             <li className="nav-header">
-            <p>Menu</p>
+            <p>Menu </p>
             </li>
-            <li className="menu no-arrow">
+           <li className="menu no-arrow">
               <NavLink to="/app/home">
               <FontAwesomeIcon icon={faHome} />
                 <span className="nav-text  side-nav-icons">
@@ -146,16 +146,7 @@ class ClientLoggedInMenu extends Component {
                 </span>
               </a>
             </li>
-            
-            <li className="menu no-arrow">
-            <NavLink to="/app/your-quote">
-            <FontAwesomeIcon icon={faFile} />
-              <span className="nav-text side-nav-icons">
-                <IntlMessages id=" Your Quote" />{" "}
-              </span>
-            </NavLink>
-          </li>
-           </ul>
+         </ul>
 
         </CustomScrollbars>
       );
@@ -163,7 +154,7 @@ class ClientLoggedInMenu extends Component {
     }
     
   }
-
+}
 const mapStateToProps = (state) =>{
   return {
     userLogged: state.auth.user
@@ -173,4 +164,4 @@ const mapStateToProps = (state) =>{
 }
 
 
-export default withRouter(connect(mapStateToProps, action)(ClientLoggedInMenu));
+export default withRouter(connect(mapStateToProps, action)(PublicMenu));
