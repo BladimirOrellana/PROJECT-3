@@ -21,6 +21,10 @@ body {
   background-color: rgba(32, 32, 32, 0.692) !important;
 }
 
+.header a {
+  text-decoration: none !important;
+}
+
 .header {
   text-align: center !important;
   margin-top: 100px;

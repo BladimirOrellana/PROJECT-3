@@ -37,7 +37,11 @@ class SignIn extends React.Component {
       }, 100);
     }
     if (this.props.authUser !== null) {
-      this.props.history.push(this.props.initURL);
+      if (this.props.initURL !== "/signin") {
+        this.props.history.push(this.props.initURL);
+      } else {
+        this.props.history.push("/app/home");
+      }
     }
   }
 
