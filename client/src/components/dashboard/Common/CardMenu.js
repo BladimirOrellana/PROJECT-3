@@ -1,17 +1,17 @@
 import React from 'react';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
-import IntlMessages from 'util/IntlMessages';
+
 
 class CardMenu extends React.Component {
 
   render() {
 
     const options = [
-      <IntlMessages id="popup.updateData"/>,
-      <IntlMessages id="popup.detailedLog"/>,
-      <IntlMessages id="popup.statistics"/>,
-      <IntlMessages id="popup.clearData"/>
+      "Confirm",
+      "Active",
+      "Done",
+      "Cancel"
     ];
     const {menuState, anchorEl, handleRequestClose} = this.props;
     return (

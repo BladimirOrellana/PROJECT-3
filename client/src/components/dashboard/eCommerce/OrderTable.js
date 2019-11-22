@@ -1,45 +1,51 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import OrderTableCell from './OrderTableCell';
+import {NavLink} from 'react-router-dom';
 import {getAllYourQuotesAction} from './../../../actions/index';
 
 
+import Button from "@material-ui/core/Button";
 
-let counter = 0;
 
-function createData(orderId, name, image, orderDate, deliveryDate, status) {
-  counter += 1;
-  return {id: counter, orderId, name, image, orderDate, deliveryDate, status};
-}
+
+
 
 class OrderTable extends Component {
-  componentWillMount(){
-   this.props.getAllQuotesFromDatabase()
+  
+  UNSAFE_componentWillMount(){
+    this.props.getAllYourQuotesAction(this.props.user)
    
   }
 
-  state = {
-    data: [
-      createData('23545', 'Alex Dolgove',  'https://via.placeholder.com/150x150', '25 Oct', '25 Oct', 'Completed'),
-      createData('23653', 'Domnic Brown', 'https://via.placeholder.com/150x150', '28 Oct', '1 Nov', 'On Hold'),
-      createData('24567', 'Garry Sobars',  'https://via.placeholder.com/150x150', '5 Nov', '10 Nov', 'Delayed'),
-      createData('25745', 'Stella Johnson',  'https://via.placeholder.com/150x150', '23 Nov', '26 Nov', 'Cancelled'),
-    ],
-  };
+  
 
   render() {
-    console.log("DATABASE+++++++++++++++++ ",this.props.getAllQuotesFromDatabase);
-    console.log("DATABASEEJE+++++++++++++++++ ",this.props.data);
-    const {data} = this.state;
+   
+    const {data} = this.props.data;
+  
+   if(data){
+    // if(data === 0){
+  
+    //   return (
+    //   <div>
+    //   <div>You Haven request a quote yet</div>
+    //   <NavLink to='/app/get-a-free-quote'><Button variant="outlined" size="large" className="homebuttons">
+    //   Get A Quote
+    // </Button>
+    // </NavLink>
+    //   </div>
+    // )
+    // }
+    
     return (
       <div className="table-responsive-material">
         <table className="default-table table-unbordered table table-sm table-hover">
           <thead className="th-border-b">
           <tr>
-            <th>OrderId</th>
-            <th>Customer</th>
+            <th>Address</th>
             <th>Order Date</th>
-            <th>Delivery Date</th>
+            <th>Cost</th>
             <th className="status-cell text-right">Status</th>
             <th/>
           </tr>
@@ -47,27 +53,47 @@ class OrderTable extends Component {
           <tbody>
           {data.map(data => {
             return (
-              <OrderTableCell key={data.id} data={data}/>
+              <OrderTableCell key={data._id} data={data}/>
             );
           })}
           </tbody>
         </table>
       </div>
     );
+        }else{
+
+      return (
+        <div>
+        <div>
+        <div className="text-center">You Haven request a quote yet</div>
+          <NavLink to='/app/get-a-free-quote'><Button variant="outlined" size="large" className="homebuttons btn-block">
+          Get A Quote
+        </Button>
+         </NavLink>
+           </div>
+         </div>
+      )
+
+    
+        }
+   }
+   
   }
-}
+
 const  mapStateToProps = (state) => {
   
   return {
-  data: state.quotes
+  data: state.quotes,
+  user: state.auth.user
+
   }
 }
 
-const  mapDispatchToProps = (dispatch) => {
-  return {
-    getAllQuotesFromDatabase: () =>  dispatch( getAllYourQuotesAction())
+// const  mapDispatchToProps = (dispatch) => {
+//   return {
+//     getAllQuotesFromDatabase: () =>  dispatch( getAllYourQuotesAction())
     
-  }
-}
+//   }
+// }
 
-export default connect(mapStateToProps,mapDispatchToProps)(OrderTable);
+export default connect(mapStateToProps,{getAllYourQuotesAction})(OrderTable);

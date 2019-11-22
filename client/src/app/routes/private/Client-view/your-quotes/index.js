@@ -13,21 +13,27 @@ class GetQuote extends React.Component {
   }
 
   render() {
-    console.log("YOUR STATE +++++++++++++ ",this.props)
+  
     //if none is signed redirect it to Sigin page
     if (this.props.authUser === null) {
       return <Redirect to={"/signin"} />;
     }
 
     return (
-      <div className="app-wrapper">
-        <div className="d-flex justify-content-center">
-          <h1 style={{ color: "white" }}>All Your Quotes</h1>
-        </div>
-        <div className="Order-table-container">
-        <OrderTable />
+      <div className="row mb-md-3 your-quotes-container">
+      <div className="col-12">
+        <div className="jr-card">
+          <div className="jr-card-header d-flex align-items-center">
+            <h3 className="mb-0">Your Quotes</h3>
+            <div className="ml-3">
+                              <span className="text-white badge badge-success">
+                                  Data</span>
+            </div>
+          </div>
+          <OrderTable />
         </div>
       </div>
+    </div>
     );
   }
 }

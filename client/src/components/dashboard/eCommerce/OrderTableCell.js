@@ -1,8 +1,8 @@
 import React from 'react';
-import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
+import {NavLink, Link} from 'react-router-dom';
+import CardMenu from '../Common/CardMenu';
 
-import CardMenu from '../Common/CardMenu'
 
 class OrderTableCell extends React.Component {
 
@@ -21,33 +21,43 @@ class OrderTableCell extends React.Component {
     }
   }
 
+  showSingleQuote(quoteId){
+   
+  }
+
   render() {
+    const quoteId = 23455688990;
+    const addresStyle ={
+      color: 'black'
+  
+    }
     const {anchorEl, menuState} = this.state;
-    const {id, orderId, name, image, orderDate, deliveryDate, status} = this.props.data;
-    const statusStyle = status.includes("Completed") ? "text-white bg-success" : status.includes("On Hold") ? "bg-amber" : status.includes("Delayed") ? "text-white bg-danger" : "text-white bg-grey";
+    const {_id, address,startDate,finalPrice,  state} = this.props.data;
+    const stateStyle = state.includes("Completed") ? "text-white bg-success" : state.includes("On Hold") ? "bg-amber" : state.includes("Delayed") ? "text-white bg-danger" : "text-white bg-grey";
     return (
+      
       <tr
         tabIndex={-1}
-        key={id}
+        key={_id}
+       
+
       >
-        <td>{orderId}</td>
-        <td>
+      <NavLink to={`/app/your-quote/details/${_id}`}>
+       <td  >
           <div className="user-profile d-flex flex-row align-items-center">
-            <Avatar
-              alt={name}
-              src={image}
-              className="user-avatar"
-            />
-            <div className="user-detail">
-              <h5 className="user-name">{name} </h5>
+         <div className="user-detail"   
+         >
+              <h5 className="user-name" style={addresStyle}>{address} </h5>
             </div>
           </div>
         </td>
-        <td>{orderDate}</td>
-        <td>{deliveryDate}</td>
+        </NavLink>
+        <td>{startDate}</td>
+        <td>${parseFloat(finalPrice)}</td>
         <td className="status-cell text-right">
-          <div className={` badge text-uppercase ${statusStyle}`}>{status}</div>
+          <div className={` badge text-uppercase ${stateStyle}`}>{state}</div>
         </td>
+        
         <td className="text-right">
           <IconButton onClick={this.onOptionMenuSelect.bind(this)}>
             <i className="zmdi zmdi-more-vert"/></IconButton>
@@ -55,6 +65,7 @@ class OrderTableCell extends React.Component {
                     handleRequestClose={this.handleRequestClose.bind(this)}/>
         </td>
       </tr>
+      
 
     );
   }

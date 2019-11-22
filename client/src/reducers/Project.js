@@ -1,5 +1,4 @@
 import {
-  GET_QUOTE_SUCCESS,
   GATES_NUMBER_P,
   SIDES_NUMBER_P
 } from "constants/ActionTypes";

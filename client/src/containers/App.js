@@ -47,7 +47,6 @@ class App extends Component {
       location,
       locale,
       authUser,
-      initURL,
       isDirectionRTL
     } = this.props;
     if (location.pathname === "/") {

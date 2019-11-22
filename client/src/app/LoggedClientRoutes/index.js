@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { Route, Switch, withRouter } from "react-router-dom";
 import asyncComponent from "./../../util/asyncComponent";
-
+import {connect} from 'react-redux';
 class LoggedInClientRoutes extends Component {
   render() {
+    console.log("INDEX  ", this.props)
     const { match } = this.props;
     return (
       <Switch>
@@ -31,6 +32,13 @@ class LoggedInClientRoutes extends Component {
           component={asyncComponent(() => import("./../routes/public/Reviews"))}
         />
         <Route
+        exact
+        path={`${match.url}/your-quote/details/`}
+        component={asyncComponent(() =>
+          import('./../routes/private/Client-view/Your-quote-details')
+        )}
+      />
+        <Route
           path={`${match.url}/your-quote`}
           component={asyncComponent(() =>
             import("./../routes/private/Client-view/your-quotes")
@@ -42,6 +50,7 @@ class LoggedInClientRoutes extends Component {
           import('./../routes/private/Profile')
         )}
       />
+     
 
         <Route
           component={asyncComponent(() => import("components/Error404"))}
@@ -51,4 +60,11 @@ class LoggedInClientRoutes extends Component {
   }
 }
 
-export default withRouter(LoggedInClientRoutes);
+const mapStateToProps = (state) =>{
+  return {
+    data: state.quotes,
+    user: state.auth.user
+  }
+}
+
+export default withRouter(connect(null,null)(LoggedInClientRoutes));

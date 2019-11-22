@@ -5,7 +5,7 @@ import Logo from './../../../../../../assets/images/logo-transparent2.png';
 const GalleryCard = () => {
   return (
     <CardLayout styleName="col-lg-6">
-      <img className="card-img-top" src={Logo} alt="Card image cap"/>
+      <img className="card-img-top" src={Logo} alt=""/>
 
       <div className="card-body">
         <div className="row">

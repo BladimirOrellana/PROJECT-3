@@ -22,7 +22,7 @@ import TopNav from "components/TopNav";
 
 class App extends React.Component {
   render() {
-    console.log("SETINGS_______________", this.props.user);
+   
     const { drawerType, navigationStyle, horizontalNavPosition } = this.props;
     const drawerStyle = drawerType.includes(FIXED_DRAWER)
       ? "fixed-drawer"

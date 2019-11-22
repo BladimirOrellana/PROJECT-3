@@ -8,9 +8,11 @@ const projectSchema = new Schema({
   startDate: { type: Date },
   finishDate: { type: Date },
   state: { type: String },
+  userId: { type: Schema.Types.ObjectId, ref: "User" },
   employerPayments: { type: mongoose.Decimal128 },
   sides: [{ type: Schema.Types.ObjectId, ref: "FenceSides" }],
-  miscellaneous: [{ type: Schema.Types.ObjectId, ref: "Miscellaneous" }]
+  miscellaneous: [{ type: Schema.Types.ObjectId, ref: "Miscellaneous" }],
+  
 });
 
 const Project = mongoose.model("Project", projectSchema);

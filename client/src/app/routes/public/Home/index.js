@@ -13,7 +13,7 @@ class Home extends React.Component {
     this.props.setInitUrl(this.props.history.location.pathname);
   }
   render() {
-    console.log("HOME_____",this.props.auth)
+    
     return (
       <div>
         {/* <ContainerHeader match={this.props.match} title={<IntlMessages id="Dash Board"/>}/> */}
