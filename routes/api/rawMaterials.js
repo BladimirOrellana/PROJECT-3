@@ -10,9 +10,9 @@ router
 // Matches with "/api/rawMaterials/:id"
 router
   .route("/:id")
-  .get(rawMaterialsController.findById)
-  .put(rawMaterialsController.update)
-  .delete(rawMaterialsController.remove);
+  .get(RawMaterialsController.findById)
+  .put(RawMaterialsController.update)
+  .delete(RawMaterialsController.remove);
 
 // Matches with "/api/rawMaterials/materialItem/:id"
 

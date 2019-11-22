@@ -8,5 +8,5 @@ export default (history) => combineReducers({
   router: connectRouter(history),
   settings: Settings,
   auth: Auth,
-  rawMaterial: RawMaterialsReducer
+  rawMaterialsReducer: RawMaterialsReducer
 });
