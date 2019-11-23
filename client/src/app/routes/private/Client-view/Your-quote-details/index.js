@@ -33,7 +33,7 @@ class QuoteDetails extends React.Component {
                 <h3 className="mb-0">Status {quote.state}</h3>
               </div>
             </div>
-            <QuoteComponent project={this.props}  />
+            <QuoteComponent project={this.props.data}  />
 
          </div>
         </div>

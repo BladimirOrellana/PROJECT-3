@@ -11,6 +11,7 @@ import Logo from "./../../assets/images/logo-transparent2.png";
 
 class QuoteComponent extends React.Component {
   render() {
+    console.log("JJJJJJJJ",this.props)
     let ind = -1;
     let date = new Date()
       .toString()
