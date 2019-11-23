@@ -3,9 +3,8 @@ import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { setInitUrl } from "../../../../../actions/Auth";
 import { getQuoteDetailsFromDatabaseAction } from "./../../../../../actions/Quote-details";
-import Table from "./tables/index";
-import CompanyInformation from "./Company-information";
 import "./index.css";
+import QuoteComponent from './../../../../../components/QuotaComponent/QuoteComponent';
 
 class QuoteDetails extends React.Component {
   //it will save the path in initURL state
@@ -33,10 +32,10 @@ class QuoteDetails extends React.Component {
               <div className="jr-card-header d-flex align-items-center">
                 <h3 className="mb-0">Status {quote.state}</h3>
               </div>
-              <CompanyInformation />
             </div>
-            <Table quoteDetails={quote} />
-          </div>
+            <QuoteComponent project={this.props}  />
+
+         </div>
         </div>
       );
     } else {

@@ -14,7 +14,7 @@ import Radio from "@material-ui/core/Radio";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import FormControl from "@material-ui/core/FormControl";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
-import { getQuoteP } from "../../actions/Project";
+import { getQuoteP, acceptQuoteP } from "../../actions/Project";
 import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
 import QuoteComponent from "../QuotaComponent/QuoteComponent";
@@ -61,10 +61,14 @@ class HorizontalLabelPositionBelowStepper extends React.Component {
   };
 
   handleNext = () => {
+    if (this.state.activeStep === this.state.sidesNumber + 1) {
+      this.props.acceptQuoteP(this.props.project_id);
+    }
     if (this.state.activeStep == this.state.sidesNumber) {
       this.props.getQuoteP({
         address: this.state.address,
-        fenceSidesInfo: this.state.fenceSidesInfo
+        fenceSidesInfo: this.state.fenceSidesInfo,
+        user: this.props.user
       });
     }
     const { activeStep } = this.state;
@@ -513,7 +517,9 @@ class HorizontalLabelPositionBelowStepper extends React.Component {
                   id="nextButtonsDiv"
                   variant="contained"
                   color="primary"
-                  onClick={()=>{this.handleNext()}}
+                  onClick={() => {
+                    this.handleNext();
+                  }}
                   disabled={this.checkingAllFilled()}
                 >
                   {activeStep === steps.length - 1 ? "Go A Head" : "Next"}
@@ -527,11 +533,12 @@ class HorizontalLabelPositionBelowStepper extends React.Component {
   }
 }
 
-const mapStateToProps = ({ project }) => {
-  const { estimatedPrice, estimatedPriceBySide } = project;
-  return { estimatedPrice, estimatedPriceBySide };
+const mapStateToProps = ({ project, auth }) => {
+  const { user } = auth;
+  const { estimatedPrice, estimatedPriceBySide, project_id } = project;
+  return { estimatedPrice, estimatedPriceBySide, project_id, user };
 };
 
-export default connect(mapStateToProps, { getQuoteP })(
+export default connect(mapStateToProps, { getQuoteP, acceptQuoteP })(
   HorizontalLabelPositionBelowStepper
 );

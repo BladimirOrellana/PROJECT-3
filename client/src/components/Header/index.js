@@ -1,11 +1,11 @@
 import React from "react";
-import { withRouter } from "react-router-dom";
+import {  withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 import {
-  BELOW_THE_HEADER,
+  BELOW_THE_HEADER, 
   COLLAPSED_DRAWER,
   FIXED_DRAWER,
   HORIZONTAL_NAVIGATION,
