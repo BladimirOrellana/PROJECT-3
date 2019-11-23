@@ -61,8 +61,6 @@ export const SIGNOUT_USER_SUCCESS = "signout_user_success";
 export const INIT_URL = "init_url";
 
 //Project const
-export const SIDES_NUMBER_P = "sides_number_p";
-export const GATES_NUMBER_P = "gates_numbers_p";
 export const GET_QUOTE_P = "get_quote_p";
 export const GET_QUOTE_SUCCESS = "get_quote_success";
 

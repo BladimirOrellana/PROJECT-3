@@ -6,6 +6,7 @@ const gatesRoutes = require("./gates");
 const rawMaterialsRoutes = require("./rawMaterials");
 const miscellaneousRoutes = require("./miscellaneous");
 const projectMaterialsRoutes = require("./projectMaterials");
+const quote = require("./quote");
 
 router.use("/projectMaterials", projectMaterialsRoutes);
 router.use("/miscellaneous", miscellaneousRoutes);
@@ -14,5 +15,6 @@ router.use("/gates", gatesRoutes);
 router.use("/fenceSides", fenceSidesRoutes);
 router.use("/projects", projectsRoutes);
 router.use("/users", usersRoutes);
+router.use("/quote", quote);
 
 module.exports = router;

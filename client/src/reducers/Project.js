@@ -1,54 +1,22 @@
-import {
-  GET_QUOTE_SUCCESS,
-  GATES_NUMBER_P,
-  SIDES_NUMBER_P
-} from "constants/ActionTypes";
+import { GET_QUOTE_SUCCESS } from "constants/ActionTypes";
 
 const INIT_STATE = {
+  address: "",
+  estimatedPrice: 0,
+  estimatedPriceBySide: [],
   fenceSidesInfo: []
 };
 
 export default (state = INIT_STATE, action) => {
   switch (action.type) {
-    case SIDES_NUMBER_P: {
-      const sidesNumber = action.payload;
-      const sidesInfo = [];
-      
-      for (let i = 0; i < sidesNumber; i++) {
-        sidesInfo.push({
-          description: "",
-          length: 0,
-          woodType: "Pine",
-          gates: []
-        });
-      }
+    case GET_QUOTE_SUCCESS: {
       return {
-        ...state,
-        fenceSidesInfo: sidesInfo
+        address: action.payload.address,
+        estimatedPrice: action.payload.estimatedPrice,
+        estimatedPriceBySide: action.payload.estimatedPriceBySide,
+        fenceSidesInfo: action.payload.fenceSidesInfo
       };
     }
-
-    case GATES_NUMBER_P: {
-      const { sideIndex, gatesNumber } = action.payload;
-      const sidesInfo = [...state.fenceSidesInfo];
-
-      for (let i = 0; i < gatesNumber; i++) {
-        sidesInfo[sideIndex].gates.push({
-          size: 0,
-          type: "Single"
-        });
-      }
-      return {
-        ...state,
-        fenceSidesInfo: sidesInfo
-      };
-    }
-
-    // case GET_QUOTE_SUCCESS: {
-    //   return {
-    //     ...state
-    //   };
-    // }
 
     default:
       return state;

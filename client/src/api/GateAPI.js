@@ -10,8 +10,8 @@ export default {
     return axios.delete("/api/gates/" + id);
   },
   // Update the gate with the given id
-  updateGate: function(id) {
-    return axios.put("/api/gates/" + id);
+  updateGate: function(id, gateData) {
+    return axios.put("/api/gates/" + id, gateData);
   },
   // Saves a gate to the database
   saveGate: function(gateData) {
