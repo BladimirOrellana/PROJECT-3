@@ -3,6 +3,10 @@
   margin-top: 50px;
 }
 
+#nextButtonsDiv:disabled {
+  background-color: #bbc9bc !important;
+}
+
 #formStep1 {
   margin-top: 30px;
 }
@@ -24,5 +28,9 @@
 }
 
 .MuiRadio-colorSecondary.Mui-checked {
-    color: #78926a;
+  color: #78a064;
+}
+
+#endDiv {
+  text-align: center !important;
 }

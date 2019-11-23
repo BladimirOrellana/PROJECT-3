@@ -9,7 +9,7 @@ const projectSchema = new Schema({
   finishDate: { type: Date },
   state: { type: String },
   employerPayments: { type: mongoose.Decimal128 },
-  sides: [{ type: Schema.Types.ObjectId, ref: "FenceSides" }],
+  sides: [{ type: Schema.Types.ObjectId, ref: "FenceSide" }],
   miscellaneous: [{ type: Schema.Types.ObjectId, ref: "Miscellaneous" }]
 });
 

@@ -3,23 +3,21 @@ import Stepper from "@material-ui/core/Stepper";
 import Step from "@material-ui/core/Step";
 import StepLabel from "@material-ui/core/StepLabel";
 import Button from "@material-ui/core/Button";
-import Checkbox from "@material-ui/core/Checkbox";
 import TextField from "@material-ui/core/TextField";
 import Typography from "@material-ui/core/Typography";
-import IntlMessages from "util/IntlMessages";
 import "./index.css";
 import MenuItem from "@material-ui/core/MenuItem";
 import CardBox from "components/CardBox";
 import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
-import ListItemText from "@material-ui/core/ListItemText";
 import ListSubheader from "@material-ui/core/ListSubheader";
 import Radio from "@material-ui/core/Radio";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import FormControl from "@material-ui/core/FormControl";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
-import FormLabel from "@material-ui/core/FormLabel";
+import { getQuoteP } from "../../actions/Project";
+import { connect } from "react-redux";
+import { NavLink } from "react-router-dom";
+import QuoteComponent from "../QuotaComponent/QuoteComponent";
 
 class HorizontalLabelPositionBelowStepper extends React.Component {
   state = {
@@ -30,7 +28,7 @@ class HorizontalLabelPositionBelowStepper extends React.Component {
       {
         description: "",
         length: 0,
-        woodType: "Cyder",
+        woodType: "Cedar",
         gates: []
       }
     ]
@@ -45,7 +43,7 @@ class HorizontalLabelPositionBelowStepper extends React.Component {
           sidesInfo.push({
             description: "",
             length: 0,
-            woodType: "Cyder",
+            woodType: "Cedar",
             gates: []
           });
         }
@@ -63,6 +61,12 @@ class HorizontalLabelPositionBelowStepper extends React.Component {
   };
 
   handleNext = () => {
+    if (this.state.activeStep == this.state.sidesNumber) {
+      this.props.getQuoteP({
+        address: this.state.address,
+        fenceSidesInfo: this.state.fenceSidesInfo
+      });
+    }
     const { activeStep } = this.state;
     this.setState({
       activeStep: activeStep + 1
@@ -100,10 +104,11 @@ class HorizontalLabelPositionBelowStepper extends React.Component {
         return this.getFenceSidesInformation(stepIndex);
 
       default:
-        return this.getQuote();
+        return <QuoteComponent />;
     }
   };
 
+  //First step
   getProjectInformation = () => {
     return (
       <div id="formStep1">
@@ -114,7 +119,6 @@ class HorizontalLabelPositionBelowStepper extends React.Component {
               <TextField
                 id="address"
                 name="address"
-                // label="Address"
                 helperText="Address"
                 value={this.state.address}
                 required
@@ -132,7 +136,6 @@ class HorizontalLabelPositionBelowStepper extends React.Component {
               <TextField
                 id="sidesNumber"
                 name="sidesNumber"
-                // label="Introduce The Amount Of Sides"
                 value={this.state.sidesNumber}
                 onChange={this.handleInputChange}
                 type="number"
@@ -151,6 +154,7 @@ class HorizontalLabelPositionBelowStepper extends React.Component {
     );
   };
 
+  //main change handleler
   handleInputChangeToArray = event => {
     const { name, value } = event.target;
     if (name === "gates") {
@@ -188,8 +192,9 @@ class HorizontalLabelPositionBelowStepper extends React.Component {
     }
   };
 
+  //each side step
   getFenceSidesInformation = stepIndex => {
-    const woods = ["Cyder", "Pine"];
+    const woods = ["Cedar", "Pine"];
 
     return (
       <div id="formStep1">
@@ -287,40 +292,44 @@ class HorizontalLabelPositionBelowStepper extends React.Component {
   handleInputChangeToGatesArray = (event, gateIndex) => {
     const { name, value } = event.target;
 
-    console.log("?????????????????????? " + gateIndex);////////////////////////////
     const fenceSidesInfo = [];
-    for (let i = 0; i < this.state.fenceSidesInfo.length; i++) {
-      if (i === this.state.activeStep - 1) {
-        const gatesInfo = [];
-        for (
-          let j = 0;
-          j < this.state.fenceSidesInfo[this.state.activeStep - 1].gates.length;
-          j++
-        ) {
-          if (j == gateIndex) {
-            // console.log("!!!!!!!!!!!!!!!!!!!!!! " + id);///////////////////
-            gatesInfo.push({
-              ...this.state.fenceSidesInfo[this.state.activeStep - 1].gates[j],
-              [name]: value
-            });
-          } else {
-            gatesInfo.push(
-              this.state.fenceSidesInfo[this.state.activeStep - 1].gates[j]
-            );
-          }
-        }
 
-        fenceSidesInfo.push({
-          ...this.state.fenceSidesInfo[i],
-          gates: gatesInfo
-        });
-      } else {
-        fenceSidesInfo.push(this.state.fenceSidesInfo[i]);
+    if ((name === "size" && value <= 13) || name === "type") {
+      for (let i = 0; i < this.state.fenceSidesInfo.length; i++) {
+        if (i === this.state.activeStep - 1) {
+          const gatesInfo = [];
+          for (
+            let j = 0;
+            j <
+            this.state.fenceSidesInfo[this.state.activeStep - 1].gates.length;
+            j++
+          ) {
+            if (j == gateIndex) {
+              gatesInfo.push({
+                ...this.state.fenceSidesInfo[this.state.activeStep - 1].gates[
+                  j
+                ],
+                [name]: value
+              });
+            } else {
+              gatesInfo.push(
+                this.state.fenceSidesInfo[this.state.activeStep - 1].gates[j]
+              );
+            }
+          }
+
+          fenceSidesInfo.push({
+            ...this.state.fenceSidesInfo[i],
+            gates: gatesInfo
+          });
+        } else {
+          fenceSidesInfo.push(this.state.fenceSidesInfo[i]);
+        }
       }
+      this.setState({
+        fenceSidesInfo: fenceSidesInfo
+      });
     }
-    this.setState({
-      fenceSidesInfo: fenceSidesInfo
-    });
   };
 
   listElem = gateIndex => {
@@ -340,7 +349,9 @@ class HorizontalLabelPositionBelowStepper extends React.Component {
                     gateIndex
                   ].size
                 }
-                onChange={(e)=> {this.handleInputChangeToGatesArray(e, gateIndex)}}
+                onChange={e => {
+                  this.handleInputChangeToGatesArray(e, gateIndex);
+                }}
                 type="number"
                 helperText="Gate Length"
                 InputLabelProps={{
@@ -352,33 +363,6 @@ class HorizontalLabelPositionBelowStepper extends React.Component {
               />
             </div>
           </div>
-
-          {/* <div className="col-md-5 col-sm-5">
-            <div className="form-group">
-              <TextField
-                id={gateIndex}
-                select
-                name="type"
-                value={
-                  this.state.fenceSidesInfo[this.state.activeStep - 1].gates[
-                    gateIndex
-                  ].type
-                }
-                onChange={this.handleInputChangeToGatesArray}
-                SelectProps={{}}
-                helperText="Choose A Gate Type"
-                margin="normal"
-                fullWidth
-              >
-                <MenuItem key="Single" value="Single">
-                  Single
-                </MenuItem>
-                <MenuItem key="Double" value="Double">
-                  Double
-                </MenuItem>
-              </TextField>
-            </div>
-          </div> */}
 
           <div className="col-md-5 col-sm-5">
             <FormControl component="fieldset" required>
@@ -392,7 +376,9 @@ class HorizontalLabelPositionBelowStepper extends React.Component {
                     gateIndex
                   ].type
                 }
-                onChange={(e)=> {this.handleInputChangeToGatesArray(e, gateIndex)}}
+                onChange={e => {
+                  this.handleInputChangeToGatesArray(e, gateIndex);
+                }}
               >
                 <FormControlLabel
                   value="Single"
@@ -437,24 +423,43 @@ class HorizontalLabelPositionBelowStepper extends React.Component {
     );
   };
 
-  getQuote = () => {
-    return (
-      <div className="tab-pane" id="tab2-4">
-        <h3 className="title text-primary">Terms and Conditions</h3>
-        <p>
-          <strong>Lorem</strong> Ipsum is simply dummy text of the printing and
-          typesetting industry. Lorem Ipsum has been the industry's standard
-          dummy text ever since the 1500s, when an unknown printer took a galley
-          of type and scrambled it to make a type specimen book. It has survived
-          not only five centuries, but also the leap into electronic
-          typesetting, remaining essentially unchanged.
-        </p>
-        <div className="d-flex align-items-center">
-          <Checkbox color="primary" />{" "}
-          <span>I agree with the Terms and Conditions.</span>
-        </div>
-      </div>
-    );
+  checkingAllFilled = () => {
+    switch (true) {
+      case this.state.activeStep === 0:
+        if (
+          this.state.address === "" ||
+          this.state.sidesNumber === "" ||
+          this.state.sidesNumber == 0
+        ) {
+          return true;
+        } else {
+          return false;
+        }
+
+      case this.state.activeStep > this.state.sidesNumber: ///last
+        return false;
+
+      default: {
+        var gatesVal = false;
+        this.state.fenceSidesInfo[this.state.activeStep - 1].gates.map(gate => {
+          if (gate.size == 0 || gate.size == "") {
+            gatesVal = true;
+          }
+        });
+
+        if (
+          this.state.fenceSidesInfo[this.state.activeStep - 1].description ===
+            "" ||
+          this.state.fenceSidesInfo[this.state.activeStep - 1].length == 0 ||
+          this.state.fenceSidesInfo[this.state.activeStep - 1].length === "" ||
+          gatesVal
+        ) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+    }
   };
 
   render() {
@@ -483,17 +488,21 @@ class HorizontalLabelPositionBelowStepper extends React.Component {
         </Stepper>
         <div>
           {this.state.activeStep === steps.length ? (
-            <div>
+            <div id="endDiv">
               <Typography className="my-2">
-                All steps completed - you&quot;re finished
+                Thank you, our agents will contact you soon.
               </Typography>
-              <Button onClick={this.handleReset}>Reset</Button>
+
+              <NavLink to="/app/home">
+                <Button variant="outlined">Go Home Page</Button>
+              </NavLink>
             </div>
           ) : (
             <div id="contentdiv">
               {this.getStepContent(activeStep, sidesNumber)}
               <div id="nextBackButtonsDiv">
                 <Button
+                  id="backButtonsDiv"
                   disabled={activeStep === 0}
                   onClick={this.handleBack}
                   className="mr-2"
@@ -501,11 +510,13 @@ class HorizontalLabelPositionBelowStepper extends React.Component {
                   Back
                 </Button>
                 <Button
+                  id="nextButtonsDiv"
                   variant="contained"
                   color="primary"
-                  onClick={this.handleNext}
+                  onClick={()=>{this.handleNext()}}
+                  disabled={this.checkingAllFilled()}
                 >
-                  {activeStep === steps.length - 1 ? "Finish" : "Next"}
+                  {activeStep === steps.length - 1 ? "Go A Head" : "Next"}
                 </Button>
               </div>
             </div>
@@ -516,4 +527,11 @@ class HorizontalLabelPositionBelowStepper extends React.Component {
   }
 }
 
-export default HorizontalLabelPositionBelowStepper;
+const mapStateToProps = ({ project }) => {
+  const { estimatedPrice, estimatedPriceBySide } = project;
+  return { estimatedPrice, estimatedPriceBySide };
+};
+
+export default connect(mapStateToProps, { getQuoteP })(
+  HorizontalLabelPositionBelowStepper
+);

@@ -2,15 +2,9 @@ import React from "react";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { setInitUrl } from "../../../../../actions/Auth";
-import {
-  sidesNumberP,
-  gatesNumberP,
-  getQuoteP
-} from "../../../../../actions/Project";
 import HorizontalLabelPositionBelowStepper from "components/QuoteStepper/HorizontalLabelPositionBelowStepper";
 import CardBox from "components/CardBox";
-import  "./index.css";
-
+import "./index.css";
 
 class GetQuote extends React.Component {
   //it will save the path in initURL state
@@ -44,8 +38,5 @@ const mapStateToProps = ({ auth }) => {
 };
 
 export default connect(mapStateToProps, {
-  setInitUrl,
-  sidesNumberP,
-  gatesNumberP,
-  getQuoteP
+  setInitUrl
 })(GetQuote);
