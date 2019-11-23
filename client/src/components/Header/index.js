@@ -1,27 +1,18 @@
 import React from "react";
-import { Link, withRouter } from "react-router-dom";
+import {  withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import AppBar from "@material-ui/core/AppBar";
-import Avatar from "@material-ui/core/Avatar";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
-import { Dropdown, DropdownMenu, DropdownToggle } from "reactstrap";
 import {
-  BELOW_THE_HEADER,
+  BELOW_THE_HEADER, 
   COLLAPSED_DRAWER,
   FIXED_DRAWER,
   HORIZONTAL_NAVIGATION,
   INSIDE_THE_HEADER
 } from "constants/ActionTypes";
-import SearchBox from "components/SearchBox";
-import MailNotification from "../MailNotification/index";
-import AppNotification from "../AppNotification/index";
-import CardHeader from "components/dashboard/Common/CardHeader/index";
 import { switchLanguage, toggleCollapsedNav } from "actions/Setting";
-import IntlMessages from "util/IntlMessages";
-import LanguageSwitcher from "components/LanguageSwitcher/index";
 import Menu from "components/TopNav/Menu";
-import UserInfoPopup from "components/UserInfo/UserInfoPopup";
 import UserInfo from 'components/UserInfo';
 
 class Header extends React.Component {

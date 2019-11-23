@@ -1,10 +1,11 @@
 import { all, call, fork, put, takeEvery } from "redux-saga/effects";
 import { showAuthMessage, getQuoteSuccess } from "actions";
-import { GET_QUOTE_P } from "constants/ActionTypes";
+import { GET_QUOTE_P, ACCEPT_QUOTE_P } from "constants/ActionTypes";
 import QuoteAPI from "../api/QuoteAPI";
 import ProjectAPI from "../api/ProjectAPI";
 import FenceSideAPI from "../api/FenceSideAPI";
 import GateAPI from "../api/GateAPI";
+import UserAPI from "../api/UserAPI";
 
 const CalculateAQuote = async payload =>
   await QuoteAPI.getQuote(payload)
@@ -26,8 +27,18 @@ const SaveGate = async payload =>
     .then(result => result)
     .catch(error => error);
 
+const UpDateProject = async (id, data) =>
+  await ProjectAPI.updateProject(id, data)
+    .then(result => result)
+    .catch(error => error);
+
+const UpDateUser = async (id, data) =>
+  await UserAPI.updateUser(id, data)
+    .then(result => result)
+    .catch(error => error);
+
 function* getQuoteGF({ payload }) {
-  const { address, fenceSidesInfo } = payload;
+  const { address, fenceSidesInfo, user } = payload;
   try {
     const price = yield call(CalculateAQuote, fenceSidesInfo);
     const sidesIds = [];
@@ -64,8 +75,18 @@ function* getQuoteGF({ payload }) {
     });
 
     console.log("nnnnnnnnnnnnnnnnn " + JSON.stringify(newside)); ///////////////
+    if (user.role === "Client") {
+      yield call(
+        UpDateUser,
+        user._id,
+        { $push: { project: newside.data._id } },
+        { new: true }
+      );
+    }
+
     yield put(
       getQuoteSuccess({
+        project_id: newside.data._id,
         address,
         estimatedPrice: price.data.totalQuote,
         estimatedPriceBySide: price.data.sidesQuotes,
@@ -77,10 +98,23 @@ function* getQuoteGF({ payload }) {
   }
 }
 
+function* acceptQuoteGF({ payload }) {
+  try {
+    yield call(UpDateProject, payload, { state: "Confirmed" });
+    // yield put();
+  } catch (error) {
+    yield put(showAuthMessage(error));
+  }
+}
+
 export function* getQuotePListen() {
   yield takeEvery(GET_QUOTE_P, getQuoteGF);
 }
 
+export function* acceptQuotePListen() {
+  yield takeEvery(ACCEPT_QUOTE_P, acceptQuoteGF);
+}
+
 export default function* rootSaga() {
-  yield all([fork(getQuotePListen)]);
+  yield all([fork(getQuotePListen), fork(acceptQuotePListen)]);
 }
