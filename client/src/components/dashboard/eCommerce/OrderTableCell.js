@@ -26,14 +26,15 @@ class OrderTableCell extends React.Component {
   }
 
   render() {
-    const quoteId = 23455688990;
+    
     const addresStyle ={
       color: 'black'
   
     }
     const {anchorEl, menuState} = this.state;
     const {_id, address,startDate,finalPrice,  state} = this.props.data;
-    const stateStyle = state.includes("Completed") ? "text-white bg-success" : state.includes("On Hold") ? "bg-amber" : state.includes("Delayed") ? "text-white bg-danger" : "text-white bg-grey";
+    
+    const stateStyle = state.includes("Done") ? "text-white bg-primary" : state.includes("Confirm") ? "bg-amber" : state.includes("Active") ? "text-white bg-success" : "text-white bg-grey";
     return (
       
       <tr
@@ -47,13 +48,13 @@ class OrderTableCell extends React.Component {
           <div className="user-profile d-flex flex-row align-items-center">
          <div className="user-detail"   
          >
-              <h5 className="user-name" style={addresStyle}>{address} </h5>
+           <p className="" style={addresStyle}>{address} </p>
             </div>
           </div>
         </td>
         </NavLink>
         <td>{startDate}</td>
-        <td>${parseFloat(finalPrice)}</td>
+        <td>${parseFloat(finalPrice.$numberDecimal)}</td>
         <td className="status-cell text-right">
           <div className={` badge text-uppercase ${stateStyle}`}>{state}</div>
         </td>

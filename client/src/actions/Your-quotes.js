@@ -1,6 +1,6 @@
 
 
-import {GET_ALL_QUOTES_FROM_DATABASE, GET_ALL_QUOTES_FROM_DATABASE_RECIVED} from "./../constants/ActionTypes";
+import {GET_ALL_QUOTES_FROM_DATABASE, GET_ALL_QUOTES_FROM_DATABASE_RECEIVED} from "./../constants/ActionTypes";
 
 export   const getAllYourQuotesAction = (payload) =>{
    
@@ -12,10 +12,10 @@ export   const getAllYourQuotesAction = (payload) =>{
    
       
    }
-export   const getAllYourQuotesActionRecived = (quotes) =>{
+export   const getAllYourQuotesActionReceived = (quotes) =>{
 
  return {
-        type: GET_ALL_QUOTES_FROM_DATABASE_RECIVED,
+        type: GET_ALL_QUOTES_FROM_DATABASE_RECEIVED,
          quotes
     }
 

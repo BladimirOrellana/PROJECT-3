@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { setInitUrl } from "../../../../../actions/Auth";
 import OrderTable from './../../../../../components/dashboard/eCommerce/OrderTable';
+
 import './index.css';
 
 
@@ -30,6 +31,7 @@ class GetQuote extends React.Component {
                                   Data</span>
             </div>
           </div>
+
           <OrderTable />
         </div>
       </div>

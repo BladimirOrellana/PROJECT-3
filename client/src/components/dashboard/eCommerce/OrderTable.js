@@ -25,18 +25,6 @@ class OrderTable extends Component {
     const {data} = this.props.data;
   
    if(data){
-    // if(data === 0){
-  
-    //   return (
-    //   <div>
-    //   <div>You Haven request a quote yet</div>
-    //   <NavLink to='/app/get-a-free-quote'><Button variant="outlined" size="large" className="homebuttons">
-    //   Get A Quote
-    // </Button>
-    // </NavLink>
-    //   </div>
-    // )
-    // }
     
     return (
       <div className="table-responsive-material">

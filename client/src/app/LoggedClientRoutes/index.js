@@ -4,7 +4,7 @@ import asyncComponent from "./../../util/asyncComponent";
 import {connect} from 'react-redux';
 class LoggedInClientRoutes extends Component {
   render() {
-    console.log("INDEX  ", this.props)
+   
     const { match } = this.props;
     return (
       <Switch>
@@ -33,7 +33,7 @@ class LoggedInClientRoutes extends Component {
         />
         <Route
         exact
-        path={`${match.url}/your-quote/details/`}
+        path={`${match.url}/your-quote/details/:quoteId`}
         component={asyncComponent(() =>
           import('./../routes/private/Client-view/Your-quote-details')
         )}
@@ -60,11 +60,6 @@ class LoggedInClientRoutes extends Component {
   }
 }
 
-const mapStateToProps = (state) =>{
-  return {
-    data: state.quotes,
-    user: state.auth.user
-  }
-}
 
-export default withRouter(connect(null,null)(LoggedInClientRoutes));
+
+export default withRouter(LoggedInClientRoutes);

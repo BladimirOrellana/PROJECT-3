@@ -4,6 +4,7 @@ import Settings from "./Settings";
 import Auth from "./Auth";
 import Project from "./Project";
 import Quotes from './Your-quotes-reducers';
+import QuoteDetails from './Quote-details';
 
 export default history =>
   combineReducers({
@@ -11,5 +12,6 @@ export default history =>
     settings: Settings,
     auth: Auth,
     project: Project,
-    quotes: Quotes
+    quotes: Quotes,
+    quoteDetails: QuoteDetails
   });

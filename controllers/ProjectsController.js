@@ -42,18 +42,18 @@ module.exports = {
       });
   },
   getProjectsByClienUserId: function(req, res){
-    console.log("KKKKKKKKK PROJECTS ID",req.params.userId)
+ 
     db.Project.find({userId: req.params.userId})
     .then(result => {
-      console.log("RESULT PROJECTS ID",result)
+    if(result){
+      console.log("QUOTE data")
       res.json(result);
-      // db.Project.count(function(err, count) {
-      //   if (count == 0) {
-      //     res.json(0);
-      //   } else {
-      //     res.json(result);
-      //   }
-      // });
+    }else{
+      console.log("QUOTE data")
+      res.json(result);
+    }
+      
+     
     })
     .catch(err => {
       console.log(err);
@@ -62,10 +62,10 @@ module.exports = {
 
 },
 getProjectByClientProjectId: function(req, res){
-    console.log("KKKKKKKKK PROJECT ID",req.params.projectId)
+    
     db.Project.find({_id: req.params.projectId})
     .then(result => {
-      console.log("RESULT PROJECT 777 ID",result)
+     
       res.json(result);
       // db.Project.count(function(err, count) {
       //   if (count == 0) {

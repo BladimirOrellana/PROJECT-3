@@ -4,9 +4,10 @@ export default  {
        
         return axios.get('/api/projects/client/projects/'+userId);
     },
-    getProjectByClientProjectId: function(projectId){
-        console.log("PROJECT  ID axios",projectId)
-        return axios.get("/api/projects/client/project/"+projectId)
+    getProjectByClientProjectId: function(quoteId){
+        
+        
+        return axios.get("/api/projects/client/project/"+quoteId)
     }
 
 }
