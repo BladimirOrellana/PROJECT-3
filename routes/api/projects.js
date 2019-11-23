@@ -7,16 +7,20 @@ router
 .post(ProjectsController.create)
 
 
+// Matches with "/api/projects/:id"
 router
-.route('/:id')
-.get(ProjectsController.findById)
+  .route("/:id")
+  .get(ProjectsController.findById)
+  .put(ProjectsController.update)
+  .delete(ProjectsController.remove);
 
+  // Matches with "/api/projects/client/projects/:userId"
 router
 .route('/client/projects/:userId')
 .get(ProjectsController.getProjectsByClienUserId)
 
-
-router
+// Matches with "/api/projects/client/project/:projectrId"
+router 
 .route('/client/project/:projectId')
 .get(ProjectsController.getProjectByClientProjectId)
 
@@ -25,5 +29,15 @@ router
 
 
 
+
+
+
+
+
+// Matches with "/api/projects/addFenceSide/:id"
+router.route("/addFenceSide/:id").put(ProjectsController.addFenceSide);
+
+// Matches with "/api/projects/addMiscellaneous/:id"
+router.route("/addMiscellaneous/:id").put(ProjectsController.addMiscellaneous);
 
 module.exports = router;

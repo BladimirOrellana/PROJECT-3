@@ -6,6 +6,6 @@ const misc = new Schema({
     amount: { type: mongoose.Decimal128}
   });
 
-  const Miscellaneous = mongoose.model("Misc", misc);
+  const Miscellaneous = mongoose.model("Miscellaneous", misc);
   
   module.exports = Miscellaneous;

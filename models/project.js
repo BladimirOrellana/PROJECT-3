@@ -10,9 +10,8 @@ const projectSchema = new Schema({
   state: { type: String },
   userId: { type: Schema.Types.ObjectId, ref: "User" },
   employerPayments: { type: mongoose.Decimal128 },
-  sides: [{ type: Schema.Types.ObjectId, ref: "FenceSides" }],
-  miscellaneous: [{ type: Schema.Types.ObjectId, ref: "Miscellaneous" }],
-  
+  sides: [{ type: Schema.Types.ObjectId, ref: "FenceSide" }],
+  miscellaneous: [{ type: Schema.Types.ObjectId, ref: "Miscellaneous" }]
 });
 
 const Project = mongoose.model("Project", projectSchema);
