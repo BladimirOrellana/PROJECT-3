@@ -68,7 +68,7 @@ function* getQuoteGF({ payload }) {
 
     const newside = yield call(SaveProject, {
       address,
-      estimatedPrice: price.data.totalQuote,
+      estimatedPrice: price.data.sidesQuotes,
       state: "Estimated",
       employerPayments: 0,
       sides: sidesIds
