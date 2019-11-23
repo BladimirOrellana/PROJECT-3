@@ -1,6 +1,7 @@
 import { GET_QUOTE_SUCCESS } from "constants/ActionTypes";
 
 const INIT_STATE = {
+  project_id: "",
   address: "",
   estimatedPrice: 0,
   estimatedPriceBySide: [],
@@ -14,7 +15,8 @@ export default (state = INIT_STATE, action) => {
         address: action.payload.address,
         estimatedPrice: action.payload.estimatedPrice,
         estimatedPriceBySide: action.payload.estimatedPriceBySide,
-        fenceSidesInfo: action.payload.fenceSidesInfo
+        fenceSidesInfo: action.payload.fenceSidesInfo,
+        project_id: action.payload.project_id
       };
     }
 
