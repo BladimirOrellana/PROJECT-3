@@ -137,3 +137,11 @@ export const SET_CURRENT_TODO_NULL = 'set_current_todo_null';
 export const REMOVE_LABEL = 'remove_label';
 export const UPDATE_SEARCH = 'update_search';
 
+
+//Raw Material Actions
+export const RAW_MATERIAL_ADD_ITEM = "RAW_MATERIAL_ADD_ITEM";
+export const RAW_MATERIAL_ADD_ITEM_RECIEVED = "RAW_MATERIAL_ADD_ITEM_RECIEVED";
+export const RAW_MATERIAL_DELETE_ITEM = "RAW_MATERIAL_DELETE_ITEM";
+export const RAW_MATERIAL_HANDLE_FORM = "RAW_MATERIAL_HANDLE_FORM";
+export const UPDATE_MATERIAL_LIST = "UPDATE_MATERIAL_LIST";
+

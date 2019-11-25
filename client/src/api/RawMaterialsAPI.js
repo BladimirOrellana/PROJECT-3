@@ -15,6 +15,7 @@ export default {
     },
     // Update the rawMaterial with the given id
     updateRawMaterial: function(id) {
+      //return ["sample list", "2", "3"]
       return axios.put("/api/rawMaterials/" + id);
     },
     // Saves a rawMaterial to the database

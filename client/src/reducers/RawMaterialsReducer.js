@@ -1,58 +1,56 @@
-import { combineReducers } from "redux";
-import { RAW_MATERIAL_ADD_ITEM, RAW_MATERIAL_DELETE_ITEM, RAW_MATERIAL_INPUT_CHANGE, UPDATE_MATERIAL_LIST } from "../actions/RawMaterialsAction.js";
+import {
+  RAW_MATERIAL_ADD_ITEM,
+  RAW_MATERIAL_DELETE_ITEM,
+  RAW_MATERIAL_HANDLE_FORM,
+  UPDATE_MATERIAL_LIST
+} from "./../constants/ActionTypes";
 
 const initialState = {
-    materialItem: "",
-    materialItemList: [],
+  materialItemList: [],
+  materialItem: {
+    rawMaterialtext: "",
+    rawMaterialkey: ""
+  }
 };
 
-const formInput = function(state = initialState, action) {
-    switch (action.type) {
-      case RAW_MATERIAL_INPUT_CHANGE:
-        return {
-          ...state,
-          [action.name]: action.value
-        };
-      case UPDATE_MATERIAL_LIST:
-      console.log(action)    
+export const RawMaterialsReducer = function(state = initialState, action) {
+  switch (action.type) {
+    // Raw Material Handle Form Input Change
+    case RAW_MATERIAL_HANDLE_FORM:
       return {
-            ...state,
-          };
-      default:
-        return state;
-    }
+        ...state,
+        materialItem: {
+          ...state.materialItem,
+          rawMaterialtext: action.rawMaterialtext
+        }
+      };
+    case UPDATE_MATERIAL_LIST:
+      return {
+        ...state
+      };
+    // ********************************
+    // Raw Material Handle Form Actions
+    case RAW_MATERIAL_ADD_ITEM:
+      return {
+        ...state,
+        materialItemList: [
+          ...state.materialItemList,
+          {
+            rawMaterialtext: action.rawMaterialtext,
+            rawMaterialkey: action.rawMaterialkey
+          }
+        ]
+      };
+    case RAW_MATERIAL_DELETE_ITEM:
+      let newmaterialItemList = state.materialItemList.filter(
+        deletedItem => deletedItem.rawMaterialkey !== action.rawMaterialkey
+      );
+
+      return {
+        ...state,
+        materialItemList: newmaterialItemList
+      };
+    default:
+      return state;
+  }
 };
-  
-const formAction = function(state = initialState, action) {
-    switch (action.type) {
-      case RAW_MATERIAL_ADD_ITEM:
-        //debugger;
-        return {
-          ...state,
-          materialItemList: [
-            ...state.materialItemList,
-            {
-              text: action.text,
-              key: action.key
-            }
-          ]
-        };
-      case RAW_MATERIAL_DELETE_ITEM:
-        //debugger;
-        var newmaterialItemList = state.materialItemList.filter(todo => todo.key !== action.key);
-        return {
-          ...state,
-          materialItemList: newmaterialItemList
-        };
-      default:
-        return state;
-    }
-};
-
-const RawMaterialsReducer = combineReducers({
-    formInput,
-    formAction
-});
-
-
-export default RawMaterialsReducer;

@@ -2,7 +2,7 @@ import {combineReducers} from 'redux';
 import {connectRouter} from 'connected-react-router'
 import Settings from './Settings';
 import Auth from './Auth';
-import RawMaterialsReducer from './RawMaterialsReducer';
+import {RawMaterialsReducer} from './RawMaterialsReducer.js';
 
 export default (history) => combineReducers({
   router: connectRouter(history),

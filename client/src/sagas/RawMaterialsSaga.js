@@ -1,15 +1,31 @@
-// import {takeEvery} from "redux-saga/effects";
+import {all, call, fork, put, takeEvery} from "redux-saga/effects";
+import {RAW_MATERIAL_ADD_ITEM, RAW_MATERIAL_ADD_ITEM_RECIEVED} from './../constants/ActionTypes';
+import {addItemAction} from "./../actions/RawMaterialsAction"
 
 
+function* updateListSaga({payload}) {
+   try{
+       console.log("SAGA 2",payload);
+       yield put(addItemAction());
 
-
-
-
-/*
-export function* updateMaterialList() {
-    yield takeEvery(RAW_MATERIAL_FORM_SUBMIT, updateListSaga);
+   }catch(err){
+   console.log(err)
+   }
 }
-*/
+
+
+
+
+
+export function* updateMaterialListListener() {
+    console.log("SAGA 1")
+    yield takeEvery(RAW_MATERIAL_ADD_ITEM, updateListSaga);
+}
+
+export default function* rootSaga() {
+    yield all([fork(updateMaterialListListener)]);
+}
+
 
 
 
