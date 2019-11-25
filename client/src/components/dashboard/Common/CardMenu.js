@@ -2,23 +2,22 @@ import React from 'react';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 
-
 class CardMenu extends React.Component {
 
   render() {
-
+    const userId = this.props.user._id;
     const options = [
       "Confirm",
       "Active",
       "Done",
       "Cancel"
     ];
-    const {menuState, anchorEl, handleRequestClose} = this.props;
+    const {menuState, anchorEl,updateStateorCancel, id } = this.props;
     return (
       <Menu id="long-menu"
             anchorEl={anchorEl}
             open={menuState}
-            onClose={handleRequestClose}
+            
 
             MenuListProps={{
               style: {
@@ -28,7 +27,7 @@ class CardMenu extends React.Component {
               },
             }}>
         {options.map(option =>
-          <MenuItem key={option} onClick={handleRequestClose}>
+          <MenuItem value={option} key={option} onClick={() => updateStateorCancel(option,id,userId)}>
             {option}
           </MenuItem>,
         )}

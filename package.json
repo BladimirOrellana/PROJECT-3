@@ -35,9 +35,12 @@
     "express": "^4.16.3",
     "google-maps-react": "^2.0.2",
     "if-env": "^1.0.4",
+    "moment": "^2.24.0",
+    "moment-timezone": "^0.5.27",
     "mongoose": "^5.3.16",
     "node-sass": "^4.13.0",
     "react-fontawesome": "^1.7.1",
+    "react-moment": "^0.9.6",
     "react-router-dom": "^5.1.2"
   }
 }

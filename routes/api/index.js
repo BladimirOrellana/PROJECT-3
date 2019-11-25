@@ -9,7 +9,7 @@ const projectMaterialsRoutes = require("./projectMaterials");
 const quote = require("./quote");
 
 router.use("/projectMaterials", projectMaterialsRoutes);
-router.use("/miscellaneous", miscellaneousRoutes);
+router.use("/projects/state", miscellaneousRoutes);
 router.use("/rawMaterials", rawMaterialsRoutes);
 router.use("/gates", gatesRoutes);
 router.use("/fenceSides", fenceSidesRoutes);

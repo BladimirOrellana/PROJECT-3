@@ -1,4 +1,4 @@
-import {  GET_ALL_QUOTES_FROM_DATABASE_RECEIVED} from "constants/ActionTypes";
+import {  GET_ALL_QUOTES_FROM_DATABASE_RECEIVED,UPDATE_STATE_ACTION_RECEIVED} from "constants/ActionTypes";
 
 const INIT_STATE = {};
 export default (state = INIT_STATE, action) => {
@@ -7,6 +7,12 @@ export default (state = INIT_STATE, action) => {
       return {
         ...state,
         data: action.quotes
+      };
+      case UPDATE_STATE_ACTION_RECEIVED: 
+      
+      return {
+        ...state,
+        stateValue: action.upDateState
       };
     
 

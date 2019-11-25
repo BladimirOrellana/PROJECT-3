@@ -149,3 +149,10 @@ export const GET_ALL_QUOTES_FROM_DATABASE = "get_all_quotes_from_database";
 export const GET_ALL_QUOTES_FROM_DATABASE_RECEIVED = "get_all_quotes_from_database_received";
 export const GET_QUOTE_DETAILS_FROM_DATABASE = "get_quote_details_from_database";
 export const GET_QUOTE_DETAILS_FROM_DATABASE_RECEIVED = "get_quote_details_from_database_received";
+export const UPDATE_STATE_ACTION = "update_state_action";
+export const UPDATE_STATE_ACTION_RECEIVED = "update_state_action_received";
+
+//MISCELLANEOUS
+
+export const GET_ALL_ACTIVES_QUOTES_FROM_DATABASE = "get_all_active_quotes_from_database"
+export const GET_ALL_ACTIVES_QUOTES_FROM_DATABASE_RECEIVED = "get_all_active_quotes_from_database_received"

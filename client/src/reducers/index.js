@@ -5,6 +5,7 @@ import Auth from "./Auth";
 import Project from "./Project";
 import Quotes from './Your-quotes-reducers';
 import QuoteDetails from './Quote-details';
+import ActiveProjects from './add-miscellaneous';
 
 export default history =>
   combineReducers({
@@ -13,5 +14,6 @@ export default history =>
     auth: Auth,
     project: Project,
     quotes: Quotes,
-    quoteDetails: QuoteDetails
+    quoteDetails: QuoteDetails,
+    activeProjects: ActiveProjects
   });

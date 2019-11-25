@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { setInitUrl } from "../../../../../actions/Auth";
 import OrderTable from './../../../../../components/dashboard/eCommerce/OrderTable';
-
 import './index.css';
 
 
@@ -11,11 +10,13 @@ class GetQuote extends React.Component {
   //it will save the path in initURL state
   componentWillMount() {
     this.props.setInitUrl(this.props.history.location.pathname);
+    
   }
 
+
   render() {
-  
-    //if none is signed redirect it to Sigin page
+   
+   //if none is signed redirect it to Sigin page
     if (this.props.authUser === null) {
       return <Redirect to={"/signin"} />;
     }
@@ -33,6 +34,7 @@ class GetQuote extends React.Component {
           </div>
 
           <OrderTable />
+        
         </div>
       </div>
     </div>
@@ -40,9 +42,12 @@ class GetQuote extends React.Component {
   }
 }
 
-const mapStateToProps = ({ auth }) => {
-  const { authUser, initURL } = auth;
-  return { authUser, initURL };
+const mapStateToProps = (state) => {
+  const { authUser, initURL, user } = state.auth;
+  
+ 
+ 
+  return { authUser, initURL, user};
 };
 
-export default connect(mapStateToProps, { setInitUrl })(GetQuote);
+export default connect(mapStateToProps, { setInitUrl})(GetQuote);

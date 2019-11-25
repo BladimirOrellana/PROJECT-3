@@ -23,6 +23,7 @@ router
 router 
 .route('/client/project/:projectId')
 .get(ProjectsController.getProjectByClientProjectId)
+.put(ProjectsController.upDateStateOfProjectByClientProjectId)
 
 
 

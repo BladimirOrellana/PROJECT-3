@@ -14,6 +14,7 @@ const ProductImage = () => {
             <span className="jr-link"><i className="zmdi zmdi-favorite"/></span>
           </li>
           <li>
+          
             <span className="jr-link"><i className="zmdi zmdi-bookmark"/></span>
           </li>
           <li>

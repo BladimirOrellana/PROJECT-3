@@ -7,6 +7,8 @@ const projectSchema = new Schema({
   finalPrice: { type: mongoose.Decimal128 },
   startDate: { type: Date },
   finishDate: { type: Date },
+  createdAt: { type: Date },
+  updatedAt: { type: Date },
   state: { type: String },
   userId: { type: Schema.Types.ObjectId, ref: "User" },
   employerPayments: { type: mongoose.Decimal128 },

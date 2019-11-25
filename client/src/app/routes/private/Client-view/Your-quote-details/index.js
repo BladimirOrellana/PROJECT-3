@@ -4,7 +4,7 @@ import { Redirect } from "react-router-dom";
 import { setInitUrl } from "../../../../../actions/Auth";
 import { getQuoteDetailsFromDatabaseAction } from "./../../../../../actions/Quote-details";
 import "./index.css";
-import QuoteComponent from './../../../../../components/QuotaComponent/QuoteComponent';
+import QuoteComponent from './QuotaComponent/QuoteComponent';
 
 class QuoteDetails extends React.Component {
   //it will save the path in initURL state
@@ -15,6 +15,7 @@ class QuoteDetails extends React.Component {
   }
 
   render() {
+ 
     //if none is signed redirect it to Sigin page
     if (this.props.authUser === null) {
       return <Redirect to={"/signin"} />;
@@ -34,6 +35,7 @@ class QuoteDetails extends React.Component {
               </div>
             </div>
             <QuoteComponent project={this.props.data}  />
+            
 
          </div>
         </div>
@@ -56,10 +58,11 @@ class QuoteDetails extends React.Component {
 }
 
 const mapStateToProps = state => {
-  const { authUser, initURL } = state.auth;
+  const { authUser, initURL, user } = state.auth;
   return {
     authUser,
     initURL,
+    user,
     data: state.quoteDetails.data
   };
 };

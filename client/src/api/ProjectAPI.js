@@ -9,6 +9,12 @@ export default  {
         
         return axios.get("/api/projects/client/project/"+quoteId)
     },
+    upDateStateOfProjectByClientProjectId: function(stateOptios){
+  
+        const {quoteId} = stateOptios;
+
+      return axios.put("/api/projects/client/project/"+quoteId,stateOptios)
+  },
   // Gets all Projects
   getProjects: function() {
     return axios.get("/api/projects");
