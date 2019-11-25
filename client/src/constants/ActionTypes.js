@@ -64,6 +64,7 @@ export const INIT_URL = "init_url";
 export const GET_QUOTE_P = "get_quote_p";
 export const GET_QUOTE_SUCCESS = "get_quote_success";
 export const ACCEPT_QUOTE_P = "accept_quote_p";
+export const EMPTYING_REDUCER_P = "emptying_reducer_p";
 
 // Chat Module const
 

@@ -1,8 +1,5 @@
-import {
-  GATES_NUMBER_P,
-  SIDES_NUMBER_P
-} from "constants/ActionTypes";
-import { GET_QUOTE_SUCCESS } from "constants/ActionTypes";
+
+import { GET_QUOTE_SUCCESS, EMPTYING_REDUCER_P } from "constants/ActionTypes";
 
 const INIT_STATE = {
   project_id: "",
@@ -22,6 +19,16 @@ export default (state = INIT_STATE, action) => {
         estimatedPriceBySide: action.payload.estimatedPriceBySide,
         fenceSidesInfo: action.payload.fenceSidesInfo,
         project_id: action.payload.project
+      };
+    }
+    case EMPTYING_REDUCER_P: {
+      return {
+        ...state,
+        address: "",
+        estimatedPrice: 0,
+        estimatedPriceBySide: [],
+        fenceSidesInfo: [],
+        project_id: ""
       };
     }
 
