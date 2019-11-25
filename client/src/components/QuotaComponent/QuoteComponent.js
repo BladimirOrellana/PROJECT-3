@@ -61,7 +61,7 @@ class QuoteComponent extends React.Component {
                       "Side",
                       "Length",
                       "Wood Type",
-                      "Gates Number",
+                      "Gates",
                       "Estimated Price"
                     ].map((th, index) => (
                       <TableCell key={index} className="fw-bold">
@@ -76,9 +76,21 @@ class QuoteComponent extends React.Component {
                     return (
                       <TableRow key={side._id}>
                         <TableCell>{side.description}</TableCell>
-                        <TableCell>{side.length}</TableCell>
+                        <TableCell>{`${side.length} ft`}</TableCell>
                         <TableCell>{side.woodType}</TableCell>
-                        <TableCell>{side.gates.length}</TableCell>
+
+                        {side.gates.length === 0 ? (
+                          <TableCell> 0</TableCell>
+                        ) : (
+                          <TableCell>
+                            {side.gates.map(gate => {
+                              return (
+                                <p className="gatesP">{`${gate.type} ${gate.size}ft`}</p>
+                              );
+                            })}
+                          </TableCell>
+                        )}
+
                         <TableCell>
                           {"$ " +
                             parseFloat(

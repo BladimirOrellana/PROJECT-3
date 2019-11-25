@@ -2,9 +2,8 @@ import React from "react";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import PublicRoutes from "./PublicRoutes";
-import LoggedClientRoutes from './LoggedClientRoutes';
-import SellerRoutes from './SellerRoutes';
-
+import LoggedClientRoutes from "./LoggedClientRoutes";
+import SellerRoutes from "./SellerRoutes";
 import Header from "components/Header/index";
 import Sidebar from "containers/SideNav/index";
 import Footer from "components/Footer";
@@ -17,8 +16,11 @@ import {
   HORIZONTAL_NAVIGATION
 } from "constants/ActionTypes";
 import { isIOS, isMobile } from "react-device-detect";
-
 import TopNav from "components/TopNav";
+import {
+  NotificationContainer,
+  NotificationManager
+} from "react-notifications";
 
 class App extends React.Component {
   render() {
@@ -74,19 +76,24 @@ class App extends React.Component {
             <Footer />
           </main>
         </div>
+        {this.props.showMessage &&
+          NotificationManager.error(this.props.alertMessage)}
+        <NotificationContainer />
       </div>
     );
   }
 }
 
 const mapStateToProps = ({ settings, auth }) => {
-  const { user } = auth;
+  const { user, showMessage, alertMessage } = auth;
   const { drawerType, navigationStyle, horizontalNavPosition } = settings;
   return {
     drawerType,
     navigationStyle,
     horizontalNavPosition,
-    user
+    user,
+    showMessage,
+    alertMessage
   };
 };
 export default withRouter(connect(mapStateToProps)(App));
