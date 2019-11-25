@@ -14,10 +14,16 @@ import Radio from "@material-ui/core/Radio";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import FormControl from "@material-ui/core/FormControl";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
-import { getQuoteP, acceptQuoteP } from "../../actions/Project";
+import {
+  getQuoteP,
+  acceptQuoteP,
+  emptyingReducerP
+} from "../../actions/Project";
+import { showAuthLoader } from "../../actions/Auth";
 import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
 import QuoteComponent from "../QuotaComponent/QuoteComponent";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 class HorizontalLabelPositionBelowStepper extends React.Component {
   state = {
@@ -65,6 +71,8 @@ class HorizontalLabelPositionBelowStepper extends React.Component {
       this.props.acceptQuoteP(this.props.project_id);
     }
     if (this.state.activeStep == this.state.sidesNumber) {
+      this.props.showAuthLoader();
+      this.props.emptyingReducerP();
       this.props.getQuoteP({
         address: this.state.address,
         fenceSidesInfo: this.state.fenceSidesInfo,
@@ -143,7 +151,7 @@ class HorizontalLabelPositionBelowStepper extends React.Component {
                 value={this.state.sidesNumber}
                 onChange={this.handleInputChange}
                 type="number"
-                helperText="Introduce The Amount Of Sides"
+                helperText="Amount Of Sides(max 10)"
                 InputLabelProps={{
                   shrink: true
                 }}
@@ -184,7 +192,7 @@ class HorizontalLabelPositionBelowStepper extends React.Component {
         if (i === this.state.activeStep - 1) {
           fenceSidesInfo.push({
             ...this.state.fenceSidesInfo[i],
-            [name]: value
+            [name]: name === "length" ? parseFloat(value) : value
           });
         } else {
           fenceSidesInfo.push(this.state.fenceSidesInfo[i]);
@@ -233,7 +241,7 @@ class HorizontalLabelPositionBelowStepper extends React.Component {
                 value={this.state.fenceSidesInfo[stepIndex - 1].length}
                 onChange={this.handleInputChangeToArray}
                 type="number"
-                helperText="Introduce The Side Length"
+                helperText="Introduce The Side Length(ft)"
                 InputLabelProps={{
                   shrink: true
                 }}
@@ -273,7 +281,7 @@ class HorizontalLabelPositionBelowStepper extends React.Component {
                 value={this.state.fenceSidesInfo[stepIndex - 1].gates.length}
                 onChange={this.handleInputChangeToArray}
                 type="number"
-                helperText="Gates Amount Per Side"
+                helperText="Gates Amount Per Side(max 5)"
                 InputLabelProps={{
                   shrink: true
                 }}
@@ -313,7 +321,7 @@ class HorizontalLabelPositionBelowStepper extends React.Component {
                 ...this.state.fenceSidesInfo[this.state.activeStep - 1].gates[
                   j
                 ],
-                [name]: value
+                [name]: name === "size" ? parseFloat(value) : value
               });
             } else {
               gatesInfo.push(
@@ -341,7 +349,7 @@ class HorizontalLabelPositionBelowStepper extends React.Component {
       <li key={gateIndex}>
         <div className="row gatelist">
           <div className="col-md-3 col-sm-2">
-            <h3 id="h4GateNumber">Gate #{gateIndex + 1}</h3>
+            <h4 id="h4GateNumber">Gate #{gateIndex + 1}</h4>
           </div>
           <div className="col-md-4 col-sm-5">
             <div className="form-group">
@@ -357,7 +365,7 @@ class HorizontalLabelPositionBelowStepper extends React.Component {
                   this.handleInputChangeToGatesArray(e, gateIndex);
                 }}
                 type="number"
-                helperText="Gate Length"
+                helperText="Gate Length(max 13ft)"
                 InputLabelProps={{
                   shrink: true
                 }}
@@ -503,7 +511,14 @@ class HorizontalLabelPositionBelowStepper extends React.Component {
             </div>
           ) : (
             <div id="contentdiv">
-              {this.getStepContent(activeStep, sidesNumber)}
+              {this.props.loader ? (
+                <div className="loader-view">
+                  <CircularProgress />
+                </div>
+              ) : (
+                this.getStepContent(activeStep, sidesNumber)
+              )}
+
               <div id="nextBackButtonsDiv">
                 <Button
                   id="backButtonsDiv"
@@ -534,11 +549,14 @@ class HorizontalLabelPositionBelowStepper extends React.Component {
 }
 
 const mapStateToProps = ({ project, auth }) => {
-  const { user } = auth;
+  const { user, loader } = auth;
   const { estimatedPrice, estimatedPriceBySide, project_id } = project;
-  return { estimatedPrice, estimatedPriceBySide, project_id, user };
+  return { estimatedPrice, estimatedPriceBySide, project_id, user, loader };
 };
 
-export default connect(mapStateToProps, { getQuoteP, acceptQuoteP })(
-  HorizontalLabelPositionBelowStepper
-);
+export default connect(mapStateToProps, {
+  getQuoteP,
+  acceptQuoteP,
+  emptyingReducerP,
+  showAuthLoader
+})(HorizontalLabelPositionBelowStepper);
