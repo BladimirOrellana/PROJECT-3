@@ -5,6 +5,15 @@
   border-radius: 10px;
 }
 
+.ItemFormContainer {
+  margin-right: 3%;
+  max-height: 135px;
+}
+
+.PostedItemFormContainer {
+  margin-left: 3%;
+}
+
 .ItemFormTitle {
   font-size: 28px;
   color: white;

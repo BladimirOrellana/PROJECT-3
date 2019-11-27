@@ -14,12 +14,12 @@ class RawMaterial extends React.Component {
     super(props);
   }
 
-  handleInputChange = event => {
-    this.props.setItemHandleForm(event.target.value);
+  handleInputChange = e => {
+    this.props.setItemHandleForm(e.target.value);
   };
 
-  handleFormSubmit = event => {
-    event.preventDefault();
+  handleFormSubmit = e => {
+    e.preventDefault();
     this.props.addItemAction(this.props.materialItem.rawMaterialtext);
   };
 
@@ -31,69 +31,64 @@ class RawMaterial extends React.Component {
           title={<IntlMessages id="Raw Material" />}
         />
 
-        <div className="row">
-          <div className="col-12">
-            <div className="row justify-content-center">
-              <div className="col-3 ItemFormContainer">
-                <div className="form-group">
-                  <div>
-                    <label for="rawMaterialItem" className="ItemFormTitle">
-                      Material Item:
-                    </label>
-                  </div>
-                  <div>
-                    <input
-                      className="FormControl"
-                      id="rawMaterialItem"
-                      value={this.props.materialItem.rawMaterialtext}
-                      name="materialItem"
-                      onChange={this.handleInputChange}
-                      type="text"
-                      placeholder="Type An Item"
-                    />
-                  </div>
-                  <div>
-                    <button
-                      type="submit"
-                      className="btn btn-primary ItemFormCreateBtn"
-                      onClick={this.handleFormSubmit}
-                    >
-                      Create
-                    </button>
-                  </div>
+        <div className="container-fluid">
+          <div className="row justify-content-center">
+            <div className="col-3 ItemFormContainer">
+              <div className="form-group">
+                <div>
+                  <label for="rawMaterialItem" className="ItemFormTitle">
+                    Material Item:
+                  </label>
+                </div>
+                <div>
+                  <input
+                    className="FormControl"
+                    id="rawMaterialItem"
+                    value={this.props.materialItem.rawMaterialtext}
+                    name="materialItem"
+                    onChange={this.handleInputChange}
+                    type="text"
+                    placeholder="Type An Item"
+                  />
+                </div>
+                <div>
+                  <button
+                    type="submit"
+                    className="btn btn-primary ItemFormCreateBtn"
+                    onClick={this.handleFormSubmit}
+                  >
+                    Create
+                  </button>
                 </div>
               </div>
+            </div>
+
+            <div className="col-4 PostedItemFormContainer">
+              <div className="PostedItemFormTitle">Your Material Items:</div>
+              {this.props.materialItemList.map((item, RawMaterialItemKey) => {
+                return (
+                  <div key={RawMaterialItemKey}>
+                    <div className="PostedItems d-inline">
+                      {item.rawMaterialtext}
+                    </div>
+                    <button
+                      type="delete"
+                      className="btn btn-danger d-inline"
+                      onClick={() =>
+                        this.props.deleteItemAction(item.rawMaterialkey)
+                      }
+                    >
+                      Delete
+                    </button>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
 
         <div className="row PostedFormContainer">
-          <div className="col-12">
-            <div className="row justify-content-center">
-              <div className="col-4 PostedItemFormContainer">
-                <div className="PostedItemFormTitle">Your Material Items:</div>
-                {this.props.materialItemList.map((item, RawMaterialItemKey) => {
-                  // console.log(item);
-                  return (
-                    <div key={RawMaterialItemKey}>
-                      <div className="PostedItems d-inline">
-                        {item.rawMaterialtext}
-                      </div>
-                      <button
-                        type="delete"
-                        className="btn btn-danger d-inline"
-                        onClick={() =>
-                          this.props.deleteItemAction(item.rawMaterialkey)
-                        }
-                      >
-                        Delete
-                      </button>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          </div>
+          <div className="col-12"></div>
         </div>
       </div>
     );

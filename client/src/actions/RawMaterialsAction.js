@@ -17,6 +17,7 @@ export const addItemAction = itemAdded => {
   console.log(itemAdded);
   return {
     type: RAW_MATERIAL_ADD_ITEM,
+    payload: itemAdded,
     rawMaterialtext: itemAdded,
     rawMaterialkey: Date.now()
   };
