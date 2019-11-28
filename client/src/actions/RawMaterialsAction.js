@@ -13,8 +13,6 @@ export const setItemHandleForm = rawMaterialtext => {
 };
 
 export const addItemAction = itemAdded => {
-  console.log("Action Create! :)");
-  console.log(itemAdded);
   return {
     type: RAW_MATERIAL_ADD_ITEM,
     payload: itemAdded,
@@ -31,8 +29,6 @@ export const addItemRecieved = itemRecieved => {
 };
 
 export const deleteItemAction = itemDeleted => {
-  console.log("Action Delete! :(");
-  console.log(itemDeleted);
   return {
     type: RAW_MATERIAL_DELETE_ITEM,
     rawMaterialkey: itemDeleted

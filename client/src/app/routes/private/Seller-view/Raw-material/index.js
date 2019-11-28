@@ -94,12 +94,12 @@ class RawMaterial extends React.Component {
     );
   }
 }
+
 const mapStateToProps = state => ({
   materialItem: state.rawMaterialsReducer.materialItem,
   materialItemList: state.rawMaterialsReducer.materialItemList
 });
 
-// map actions to component function props
 const mapDispatchToProps = dispatch => ({
   setItemHandleForm: rawMaterialtext => {
     dispatch(setItemHandleForm(rawMaterialtext));
