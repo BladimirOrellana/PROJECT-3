@@ -1,103 +1,112 @@
-body{
-    background-image: url("../../../../assets/images/back-ground2.jpg") !important;
-    background-size: cover !important;
-    /* background-size: 100% !important; */
-    background-repeat: no-repeat !important;
-    /* background-attachment: unset !important; */
+body {
+  background-image: url("../../../../assets/images/back-ground2.jpg") !important;
+  background-size: cover !important;
+  /* background-size: 100% !important; */
+  background-repeat: no-repeat !important;
+  /* background-attachment: unset !important; */
 }
 
-.homebuttons{
+.homebuttons {
+  margin: 6% !important;
+  margin-bottom: 3% !important;
+  font-size: 38px !important;
+  border: solid 3px rgba(255, 255, 255, 0.767) !important;
+  color: rgba(255, 255, 255, 0.753) !important;
+  background-color: rgba(22, 22, 22, 0.849) !important;
+}
+
+.homebuttons:hover {
+  border: solid 3px rgba(87, 247, 75, 0.925) !important;
+  color: rgba(87, 247, 75, 0.925) !important;
+  background-color: rgba(32, 32, 32, 0.692) !important;
+}
+
+.header a {
+  text-decoration: none !important;
+}
+
+.header {
+  text-align: center !important;
+  margin-top: 100px;
+  padding-bottom: 0;
+  height: 80vh;
+}
+
+#companyName {
+  font-family: "Marck Script", cursive;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.932);
+  font-size: 145px;
+}
+
+.about-container {
+  background: white;
+  padding: 100px 30px 100px 30px;
+  /* margin-bottom: 20px; */
+}
+
+.contact-container {
+  background: black;
+  /* opacity: 0.95; */
+  padding: 100px 80px 100px 80px;
+}
+
+.contact-us-container-title{
+    text-align: center !important;
+    padding-bottom: 80px !important;
+    padding-top: 30px !important;
+    color:#535353 !important;
+  }
+
+@media only screen and (max-width: 600px) {
+  .homebuttons {
     margin: 6% !important;
     margin-bottom: 3% !important;
     font-size: 38px !important;
-    border: solid 3px rgba(255, 255, 255, 0.767)!important;
-    color: rgba(255, 255, 255, 0.753)!important;
-    background-color: rgba(22, 22, 22, 0.849)!important;
-    
-}
+    border: solid 3px rgba(255, 255, 255, 0.767) !important;
+    color: rgba(255, 255, 255, 0.753) !important;
+    background-color: rgba(22, 22, 22, 0.849) !important;
+  }
 
-.homebuttons:hover{
-    border: solid 3px rgba(87, 247, 75, 0.925)!important;
-    color: rgba(87, 247, 75, 0.925)!important;
-    background-color: rgba(32, 32, 32, 0.692)!important;
-    
-}
+  .homebuttons:hover {
+    border: solid 3px rgba(87, 247, 75, 0.925) !important;
+    color: rgba(87, 247, 75, 0.925) !important;
+    background-color: rgba(32, 32, 32, 0.692) !important;
+  }
 
-.header{
-    
-
-   text-align: center;
- 
+  .header {
+    text-align: center !important;
+    margin-top: 100px;
     padding-bottom: 0;
-    height: 100vh;
-}
+    height: 80vh;
+  }
 
-#companyName{
-    font-family: 'Marck Script', cursive;
+  #companyName {
+    font-family: "Marck Script", cursive;
     text-align: center;
     color: rgba(255, 255, 255, 0.932);
-    font-size: 145px;
-}
-
-.about-container{
-    background: white;
-    padding: 100px 30px 100px 30px;
-    margin-bottom: 20px;
-    
-}
-
-.contact-container{
-    background: black;
-    opacity: 0.95;
-    padding: 100px 30px 100px 30px;
-    
-}
-
-@media only screen and (max-width: 600px) {
-    .homebuttons{
-        margin: 6% !important;
-        margin-bottom: 3% !important;
-        font-size: 38px !important;
-        border: solid 3px rgba(255, 255, 255, 0.767)!important;
-        color: rgba(255, 255, 255, 0.753)!important;
-        background-color: rgba(22, 22, 22, 0.849)!important;
-        
-    }
-    
-    .homebuttons:hover{
-        border: solid 3px rgba(87, 247, 75, 0.925)!important;
-        color: rgba(87, 247, 75, 0.925)!important;
-        background-color: rgba(32, 32, 32, 0.692)!important;
-        
-    }
-    
-    .header{
-        
-    
-       text-align: center;
-     
-        padding-bottom: 0;
-        height: 100vh;
-    }
-    
-    #companyName{
-        font-family: 'Marck Script', cursive;
-        text-align: center;
-        color: rgba(255, 255, 255, 0.932);
-        font-size: 100px;
-    }
-    
-    .about-container{
-        background: white;
-        padding: 100px 30px 100px 30px;
-        margin-bottom: 20px;
-        
-    }
-    
-    .contact-container{
-        background: black;
-        opacity: 0.95;
-        padding: 100px 30px 100px 30px;
-        
-    }
+    font-size: 100px;
   }
+
+  .about-container {
+    background: white;
+    padding: 20px 30px 10px 30px;
+    margin-bottom: 20px;
+  }
+
+  .about-us-container-title{
+    text-align: center !important;
+    padding: 15px !important;
+  }
+
+  .contact-us-container-title{
+    text-align: center !important;
+    padding: 15px !important;
+  }
+
+  .contact-container {
+    background: black;
+    /* opacity: 0.95; */
+    padding: 20px 30px 10px 30px;
+  }
+}

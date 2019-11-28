@@ -3,19 +3,30 @@ import {
   RAW_MATERIAL_ADD_ITEM,
   RAW_MATERIAL_ADD_ITEM_RECIEVED
 } from "./../constants/ActionTypes";
-import { addItemAction } from "./../actions/RawMaterialsAction";
+import RawMaterialsAPI from "api/RawMaterialsAPI";
+import {
+  addItemAction,
+  addItemRecieved
+} from "./../actions/RawMaterialsAction";
 
 function* updateRawMaterialListSaga({ payload }) {
   try {
-    console.log("SAGA 2", payload);
-    yield put(addItemAction());
+    yield call(RawMaterialsAPI.saveRawMaterial, [payload]);
+    const testRMApi = yield call(RawMaterialsAPI.getRawMaterials);
+    const rawMaterialListData = testRMApi.data.map(
+      dataObj => dataObj.materialItem
+    );
+    //rawMaterialListData to be sent in dispatch to update redux store
+    //yield put(ACTION GOES HERE)
+    //Where this goes from hereis the reducer!
+    console.log(testRMApi);
+    console.log(rawMaterialListData);
   } catch (err) {
     console.log(err);
   }
 }
 
 export function* updateRawMaterialListListener() {
-  console.log("SAGA 1");
   yield takeEvery(RAW_MATERIAL_ADD_ITEM, updateRawMaterialListSaga);
 }
 

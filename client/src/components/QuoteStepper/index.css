@@ -1,0 +1,36 @@
+#nextBackButtonsDiv {
+  text-align: center !important;
+  margin-top: 50px;
+}
+
+#nextButtonsDiv:disabled {
+  background-color: #bbc9bc !important;
+}
+
+#formStep1 {
+  margin-top: 30px;
+}
+
+#gatesCard,
+.jr-card {
+  margin-bottom: 0 !important;
+  margin-top: 15px !important;
+}
+
+#h4GateNumber {
+  margin-top: 25px !important;
+  margin-left: 17px !important;
+}
+
+.MuiFormGroup-root {
+  margin-top: 15px !important;
+  text-align: center !important;
+}
+
+.MuiRadio-colorSecondary.Mui-checked {
+  color: #78a064;
+}
+
+#endDiv {
+  text-align: center !important;
+}

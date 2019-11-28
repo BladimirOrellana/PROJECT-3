@@ -1,11 +1,10 @@
-* body{
-  background-image: url("../images/back-ground1.jpg") !important;
+* body {
+  background-image: url("../images/back-ground2.jpg") !important;
   background-size: cover !important;
   /* background-size: 100% !important; */
-  /* background-repeat: no-repeat !important; */
+  background-repeat: no-repeat !important;
   /* background-attachment: unset !important; */
 }
-
 
 .SignButton {
   background-color: #429b45 !important;
@@ -15,3 +14,19 @@
 .MuiInput-underline:after {
   border-bottom: 2px solid #429b45 !important;
 }
+
+.MuiInputLabel-root.Mui-focused,
+.text-primary,
+.MuiStepIcon-root.MuiStepIcon-active,
+.MuiStepIcon-root.MuiStepIcon-completed {
+  color: #429b45 !important;
+}
+
+.MuiButton-containedPrimary {
+  background-color: #429b45 !important;
+}
+
+.MuiButton-containedPrimary:hover {
+  background-color: #367e39 !important;
+}
+

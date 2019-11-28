@@ -6,7 +6,7 @@ import './index.css';
 class About extends React.Component {
   render() {
     return (
-      <div className="container">
+      <div id="about-us" className="container">
       <h1 className="about-us-container-title">About H&B Fencing</h1>
 
       <div className="row">

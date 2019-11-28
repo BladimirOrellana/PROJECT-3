@@ -39,7 +39,11 @@ class SignUp extends React.Component {
       }, 3000);
     }
     if (this.props.authUser !== null) {
-      this.props.history.push("/");
+      if (this.props.initURL !== "/signup") {
+        this.props.history.push(this.props.initURL);
+      } else {
+        this.props.history.push("/app/home");
+      }
     }
   }
 
@@ -204,8 +208,8 @@ class SignUp extends React.Component {
 }
 
 const mapStateToProps = ({ auth }) => {
-  const { loader, alertMessage, showMessage, authUser } = auth;
-  return { loader, alertMessage, showMessage, authUser };
+  const { loader, alertMessage, showMessage, authUser, initURL } = auth;
+  return { loader, alertMessage, showMessage, authUser, initURL };
 };
 
 export default connect(mapStateToProps, {

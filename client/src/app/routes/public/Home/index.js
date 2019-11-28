@@ -1,31 +1,36 @@
 import React from "react";
-// import "./../../public/Home/";
 import "./index.css";
+import Button from "@material-ui/core/Button";
+import { connect } from "react-redux";
+import { setInitUrl } from "../../../../actions/Auth";
 import About from "../About";
 import Contact from "../Contact";
-import Button from "@material-ui/core/Button";
-import {NavLink} from 'react-router-dom';
+import { NavLink } from "react-router-dom";
 
 class Home extends React.Component {
+  //it will save the path in initURL state
+  componentWillMount() {
+    this.props.setInitUrl(this.props.history.location.pathname);
+  }
   render() {
-    console.log("HOME_____",this.props.auth)
+    console.log("HOME_____", this.props.auth);
     return (
       <div>
-        {/* <ContainerHeader match={this.props.match} title={<IntlMessages id="Dash Board"/>}/> */}
         <div className="header">
-        
-          <NavLink to='/app/get-a-free-quote'><Button variant="outlined" size="large" className="homebuttons">
-            Get A Quote
-          </Button>
+          <NavLink to="/app/get-a-free-quote">
+            <Button variant="outlined" size="large" className="homebuttons">
+              Get A Quote
+            </Button>
           </NavLink>
-          <a href="#contact-us"><Button variant="outlined" size="large" className="homebuttons">
-            Contact Us
-          </Button>
+          <a href="#contact-us">
+            <Button variant="outlined" size="large" className="homebuttons">
+              Contact Us
+            </Button>
           </a>
-       
-        <div>
-          <h1 id="companyName">\|/H&B-Fencing\|/</h1>
-        </div>
+
+          <div>
+            <h1 id="companyName">\|/H&B-Fencing\|/</h1>
+          </div>
         </div>
         <div className="about-container">
           <About />
@@ -33,10 +38,14 @@ class Home extends React.Component {
         <div className="contact-container">
           <Contact />
         </div>
-      
       </div>
     );
   }
 }
 
-export default Home;
+const mapStateToProps = ({ auth }) => {
+  const { initURL } = auth;
+  return { initURL };
+};
+
+export default connect(mapStateToProps, { setInitUrl })(Home);

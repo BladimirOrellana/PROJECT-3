@@ -19,7 +19,8 @@ export default {
     return axios.put("/api/rawMaterials/" + id);
   },
   // Saves a rawMaterial to the database
-  saveRawMaterial: function(rawMaterialData) {
+  saveRawMaterial: function(rawMaterialModelData) {
+    const rawMaterialData = { materialItem: rawMaterialModelData[0] };
     return axios.post("/api/rawMaterials", rawMaterialData);
   }
 };

@@ -60,6 +60,12 @@ export const SIGNOUT_USER = "signout_user";
 export const SIGNOUT_USER_SUCCESS = "signout_user_success";
 export const INIT_URL = "init_url";
 
+//Project const
+export const GET_QUOTE_P = "get_quote_p";
+export const GET_QUOTE_SUCCESS = "get_quote_success";
+export const ACCEPT_QUOTE_P = "accept_quote_p";
+export const EMPTYING_REDUCER_P = "emptying_reducer_p";
+
 // Chat Module const
 
 export const FETCH_ALL_CHAT_USER = "fetch_all_chat_user";

@@ -20,7 +20,7 @@ class RawMaterial extends React.Component {
 
   handleFormSubmit = e => {
     e.preventDefault();
-    this.props.addItemAction(this.props.materialItem.rawMaterialtext);
+    this.props.dispatchAddItem(this.props.materialItem.rawMaterialtext);
   };
 
   render() {
@@ -104,13 +104,12 @@ const mapDispatchToProps = dispatch => ({
   setItemHandleForm: rawMaterialtext => {
     dispatch(setItemHandleForm(rawMaterialtext));
   },
-  addItemAction: rawMaterialAddText => {
+  dispatchAddItem: rawMaterialAddText => {
     dispatch(addItemAction(rawMaterialAddText));
   },
   deleteItemAction: rawMaterialDeleteText => {
     dispatch(deleteItemAction(rawMaterialDeleteText));
-  },
-  sendRawMaterialToDatabase: () => dispatch(addItemAction())
+  }
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(RawMaterial);

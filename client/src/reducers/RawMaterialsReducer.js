@@ -2,7 +2,7 @@ import {
   RAW_MATERIAL_ADD_ITEM,
   RAW_MATERIAL_DELETE_ITEM,
   RAW_MATERIAL_HANDLE_FORM,
-  UPDATE_MATERIAL_LIST
+  RAW_MATERIAL_ADD_ITEM_RECIEVED
 } from "./../constants/ActionTypes";
 
 const initialState = {
@@ -24,7 +24,7 @@ export const RawMaterialsReducer = function(state = initialState, action) {
           rawMaterialtext: action.rawMaterialtext
         }
       };
-    case UPDATE_MATERIAL_LIST:
+    case RAW_MATERIAL_ADD_ITEM_RECIEVED:
       return {
         ...state
       };
