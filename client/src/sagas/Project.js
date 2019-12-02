@@ -1,5 +1,10 @@
 import { all, call, fork, put, takeEvery } from "redux-saga/effects";
-import { showAuthMessage, getQuoteSuccess, hideAuthLoader } from "actions";
+import {
+  showAuthMessage,
+  getQuoteSuccess,
+  hideAuthLoader,
+  hideMessage
+} from "actions";
 import { GET_QUOTE_P, ACCEPT_QUOTE_P } from "constants/ActionTypes";
 import QuoteAPI from "../api/QuoteAPI";
 import ProjectAPI from "../api/ProjectAPI";
@@ -74,7 +79,6 @@ function* getQuoteGF({ payload }) {
       sides: sidesIds
     });
 
-    // console.log("nnnnnnnnnnnnnnnnn " + JSON.stringify(newside)); ///////////////
     if (user.role === "Client") {
       yield call(
         UpDateUser,
@@ -95,7 +99,8 @@ function* getQuoteGF({ payload }) {
     );
     yield put(hideAuthLoader());
   } catch (error) {
-    yield put(showAuthMessage(error)); ///////no funciona
+    yield put(showAuthMessage(error));
+    yield put(hideMessage());
   }
 }
 
@@ -104,6 +109,7 @@ function* acceptQuoteGF({ payload }) {
     yield call(UpDateProject, payload, { state: "Confirmed" });
   } catch (error) {
     yield put(showAuthMessage(error));
+    yield put(hideMessage());
   }
 }
 

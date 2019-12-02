@@ -1,23 +1,33 @@
-import React from 'react';
-import ContainerHeader from 'components/ContainerHeader';
-import IntlMessages from 'util/IntlMessages';
+import React from "react";
+import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
+import { setInitUrl } from "../../../../../actions/Auth";
 
-class ConfirmedProjects
- extends React.Component {
+class GetQuote extends React.Component {
+  //it will save the path in initURL state
+  componentWillMount() {
+    this.props.setInitUrl(this.props.history.location.pathname);
+  }
 
   render() {
-   return (
+    //if none is signed redirect it to Sigin page
+    if (this.props.authUser === null) {
+      return <Redirect to={"/signin"} />;
+    }
+
+    return (
       <div className="app-wrapper">
-        <ContainerHeader match={this.props.match} title={<IntlMessages id="Dash Board"/>}/>
         <div className="d-flex justify-content-center">
-        Confirmed Projects
-
-       </div>
-   </div>
+          <h1 style={{ color: "white" }}>Confirmed Projects</h1>
+        </div>
+      </div>
     );
-
   }
 }
 
-export default ConfirmedProjects
-;
+const mapStateToProps = ({ auth }) => {
+  const { authUser, initURL } = auth;
+  return { authUser, initURL };
+};
+
+export default connect(mapStateToProps, { setInitUrl })(GetQuote);

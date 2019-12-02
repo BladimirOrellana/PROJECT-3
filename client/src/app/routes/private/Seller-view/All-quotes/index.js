@@ -1,20 +1,33 @@
-import React from 'react';
-import ContainerHeader from 'components/ContainerHeader';
-import IntlMessages from 'util/IntlMessages';
+import React from "react";
+import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
+import { setInitUrl } from "../../../../../actions/Auth";
 
-class AllQuotes extends React.Component {
+class GetQuote extends React.Component {
+  //it will save the path in initURL state
+  componentWillMount() {
+    this.props.setInitUrl(this.props.history.location.pathname);
+  }
 
   render() {
-   return (
-      <div className="app-wrapper">
-        <ContainerHeader match={this.props.match} title={<IntlMessages id="Dash Board"/>}/>
-        <div className="d-flex justify-content-center">
-        All Quotes
-       </div>
-   </div>
-    );
+    //if none is signed redirect it to Sigin page
+    if (this.props.authUser === null) {
+      return <Redirect to={"/signin"} />;
+    }
 
+    return (
+      <div className="app-wrapper">
+        <div className="d-flex justify-content-center">
+          <h1 style={{ color: "white" }}> All Quotes</h1>
+        </div>
+      </div>
+    );
   }
 }
 
-export default AllQuotes;
+const mapStateToProps = ({ auth }) => {
+  const { authUser, initURL } = auth;
+  return { authUser, initURL };
+};
+
+export default connect(mapStateToProps, { setInitUrl })(GetQuote);

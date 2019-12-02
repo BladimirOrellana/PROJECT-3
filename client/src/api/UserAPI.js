@@ -24,5 +24,9 @@ export default {
   // Saves a user to the database
   saveUser: function(userData) {
     return axios.post("/api/users", userData);
+  },
+  // Gets users by { ... }
+  getUsersWhere: function(userData) {
+    return axios.post("/api/users/where", userData);
   }
 };
