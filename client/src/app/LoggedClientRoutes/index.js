@@ -53,7 +53,7 @@ class LoggedInClientRoutes extends Component {
      
 
         <Route
-          component={asyncComponent(() => import("components/Error404"))}
+          component={asyncComponent(() => import("./../routes/public/Home"))}
         />
       </Switch>
     );

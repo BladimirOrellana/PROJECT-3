@@ -1,10 +1,10 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const rawMaterial = new Schema({
-    name: { type: String}
-  });
+const rawMaterialSchema = new Schema({
+  materialItem: { type: String, required: true }
+});
 
-  const RawMaterial = mongoose.model("rawmaterial", rawMaterial);
+const RawMaterial = mongoose.model("RawMaterial", rawMaterialSchema);
   
-  module.exports = RawMaterial;
+module.exports = RawMaterial;

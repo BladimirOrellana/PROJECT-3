@@ -33,7 +33,7 @@ const getUserWithQuoteRequest = async (dataRequest) => {
 
 function* getUserWithQuoteReceived({ payload }) {
   
-  
+  console.log("PALOAD USER SAGA", payload)
   const data = yield call(getUserWithQuoteRequest, payload);
   
   const users = data.data;

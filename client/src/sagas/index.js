@@ -5,6 +5,7 @@ import yourQuotes from './YourQuotes';
 import quoteDetails from './QuoteDetails';
 import addMiscellaneous from './add-miscellaneous';
 import usersWithQuotes from './GetUsersWithQuotes';
+import rawMaterialSagas from './RawMaterialsSaga';
 export default function* rootSaga(getState) {
     yield all([
         authSagas(),
@@ -12,6 +13,7 @@ export default function* rootSaga(getState) {
         yourQuotes(),
         quoteDetails(),
         addMiscellaneous(),
-        usersWithQuotes()
+        usersWithQuotes(),
+        rawMaterialSagas()
     ]);
 }

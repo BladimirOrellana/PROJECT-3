@@ -11,7 +11,7 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import TextField from "@material-ui/core/TextField";
 import { addPaymentAction } from "./../../../../../../../actions/Add-miscellaneous";
-
+import {getUserWithQuoteAction} from './../../../../../../../actions/GetUsersWithQuotes';
 import "./../index.css";
 
 class ModalDialog extends React.Component {
@@ -48,7 +48,9 @@ class ModalDialog extends React.Component {
             })
           }else{
             this.props.onClose(this.state.value);
-            this.props.projectInfo.addPaymentAction(data);
+            const userId = this.props.projectInfo.userinfo.id 
+           
+            this.props.projectInfo.addPaymentAction({data,userId: userId });
            
     this.setState({
         item: '',
@@ -68,6 +70,7 @@ class ModalDialog extends React.Component {
   };
 
   render() {
+   
     const { payment } = this.state;
 
     const { value, ...other } = this.props;
@@ -119,6 +122,7 @@ ModalDialog.propTypes = {
 };
 
 class MiscellaneousModal extends React.Component {
+  
   state = {
     open: false
   };
@@ -134,7 +138,7 @@ class MiscellaneousModal extends React.Component {
   };
 
   render() {
-    console.log("PROJECT ID +++++++++++",  this.props )
+   
    
     return (
       <div className="d-inline-block w-100">
@@ -156,8 +160,10 @@ class MiscellaneousModal extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    payment: state.activeProjects
+    payment: state.activeProjects,
+    
+    project: state.usersWithQuotes.projectData
   };
 };
 
-export default connect(mapStateToProps, { addPaymentAction})(MiscellaneousModal);
+export default connect(mapStateToProps, { addPaymentAction,getUserWithQuoteAction})(MiscellaneousModal);

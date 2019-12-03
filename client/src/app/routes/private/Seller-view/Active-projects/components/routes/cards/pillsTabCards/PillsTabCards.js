@@ -1,7 +1,9 @@
 import React from "react";
+import {connect} from 'react-redux';
 import PaymentModal from "./../../../../Modals/Payments";
 import MiscellaneousModal from "./../../../../Modals/Miscellaneous";
 import MaterialDialog from './../../../../fullScreenMaterialDialog/FullScreenDialog';
+import {getUserWithQuoteAction} from './../../../../../../../../../actions/GetUsersWithQuotes';
 // import MaterialModal from './../Modals/Material';
 import "./../../../../index.css";
 import {
@@ -21,6 +23,7 @@ import NestedList from "./../../list/nestedList/NestedList";
 import classnames from "classnames";
 
 class PillsTabCards extends React.Component {
+  
   constructor(props) {
     super(props);
 
@@ -39,6 +42,7 @@ class PillsTabCards extends React.Component {
   }
 
   render() {
+    console.log("MISCELLANEOS modal ", this.props)
     if (!this.props.allProjectInfo.project) {
       return <div></div>;
     } else {
@@ -60,7 +64,7 @@ class PillsTabCards extends React.Component {
             <div>
               <h1 className="text-center">No Data</h1>
               <button className="btn btn-block">Add Miscellaneous</button>
-              <MiscellaneousModal project={this.props.allProjectInfo.project} />
+              <MiscellaneousModal userinfo={this.props.allProjectInfo.user} project={this.props.allProjectInfo.project} />
             </div>
           );
         } else {
@@ -69,7 +73,7 @@ class PillsTabCards extends React.Component {
           });
           return (
             <div>
-              <MiscellaneousModal project={this.props.allProjectInfo.project} />
+              <MiscellaneousModal userinfo={this.props.allProjectInfo.user}  project={this.props.allProjectInfo.project} />
 
               {getMiscellaneous}
             </div>
@@ -173,5 +177,10 @@ class PillsTabCards extends React.Component {
     }
   }
 }
+const  mapStateToProps = (state) => {
+  return {
+    project: state.usersWithQuotes.projectData
+  }
+}
+export default connect(mapStateToProps,{getUserWithQuoteAction})(PillsTabCards);
 
-export default PillsTabCards;

@@ -2,6 +2,7 @@ import { combineReducers } from "redux";
 import { connectRouter } from "connected-react-router";
 import Settings from "./Settings";
 import Auth from "./Auth";
+import { RawMaterialsReducer } from "./RawMaterialsReducer.js";
 import Project from "./Project";
 import Quotes from './Your-quotes-reducers';
 import QuoteDetails from './Quote-details';
@@ -17,6 +18,7 @@ export default history =>
     quotes: Quotes,
     quoteDetails: QuoteDetails,
     activeProjects: ActiveProjects,
-    usersWithQuotes: UsersWithQuotes
+    usersWithQuotes: UsersWithQuotes,
+    rawMaterialsReducer: RawMaterialsReducer,
     
   });

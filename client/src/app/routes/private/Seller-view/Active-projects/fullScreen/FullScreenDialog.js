@@ -32,6 +32,7 @@ class FullScreenDialog extends React.Component {
   };
 
   handleClickOpen = () => {
+   
     this.setState({open: true});
     this.props.getUserWithQuoteAction(this.props.projectInfo)
   };
@@ -41,6 +42,7 @@ class FullScreenDialog extends React.Component {
   };
 
   render() {
+   
     return (
       <div>
         <div className="text-black" onClick={this.handleClickOpen}>View</div>

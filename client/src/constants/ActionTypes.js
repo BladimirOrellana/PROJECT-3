@@ -165,3 +165,11 @@ export const GET_USERS_WITH_QUOTES_ACTION = "get_users_with_quotes_action";
 export const GET_USERS_WITH_QUOTES_ACTION_RECEIVED = "get_users_with_quotes_action_received";
 export const GET_USER_WITH_QUOTE_ACTION = "get_user_with_quote_action";
 export const GET_USER_WITH_QUOTE_ACTION_RECEIVED = "get_user_with_quote_action_received";
+
+// Raw Material Actions
+export const RAW_MATERIAL_ADD_ITEM = "RAW_MATERIAL_ADD_ITEM";
+export const RAW_MATERIAL_ADD_ITEM_RECIEVED = "RAW_MATERIAL_ADD_ITEM_RECIEVED";
+export const RAW_MATERIAL_DELETE_ITEM = "RAW_MATERIAL_DELETE_ITEM";
+export const RAW_MATERIAL_HANDLE_FORM = "RAW_MATERIAL_HANDLE_FORM";
+export const GET_RAW_MATERIAL_ACTION = "get_raw_material_action";
+export const GET_RAW_MATERIAL_ACTION_RECIEVED = "get_raw_material_action_received";
