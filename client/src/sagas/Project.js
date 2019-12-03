@@ -15,7 +15,6 @@ const CalculateAQuote = async payload =>
     .catch(error => error);
 
 const SaveProject = async payload =>{
-  console.log("PROYECT", payload)
 return  await ProjectAPI.saveProject(payload)
 
     .then(result => result)

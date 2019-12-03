@@ -122,7 +122,7 @@ class ClientLoggedInMenu extends Component {
               </NavLink>
             </li>
             <li className="menu no-arrow">
-              <a href="#contact-us">
+              <a href="/app/home#contact-us">
                 <FontAwesomeIcon icon={faIdCardAlt} />
                 <span className="nav-text side-nav-icons">
                   Contact
@@ -139,7 +139,7 @@ class ClientLoggedInMenu extends Component {
             </li>
           
             <li className="menu no-arrow">
-              <a href="#about-us">
+              <a href="/app/home#about-us">
               <FontAwesomeIcon icon={faFolderMinus} />
                 <span className="nav-text side-nav-icons">
                  About

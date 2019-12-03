@@ -5,21 +5,21 @@ import { setInitUrl } from "../../../../../actions/Auth";
 import OrderTable from './../../../../../components/dashboard/eCommerce/OrderTable';
 import './index.css';
 
-
 class GetQuote extends React.Component {
   //it will save the path in initURL state
   componentWillMount() {
     this.props.setInitUrl(this.props.history.location.pathname);
+  
     
   }
 
-
   render() {
-   
-   //if none is signed redirect it to Sigin page
+
+    //if none is signed redirect it to Sigin page
     if (this.props.authUser === null) {
-      return <Redirect to={"/signin"} />;
+      return <Redirect to={"/app/home"} />;
     }
+    
 
     return (
       <div className="row mb-md-3 your-quotes-container">
@@ -27,12 +27,8 @@ class GetQuote extends React.Component {
         <div className="jr-card">
           <div className="jr-card-header d-flex align-items-center">
             <h3 className="mb-0">Your Quotes</h3>
-            <div className="ml-3">
-                              <span className="text-white badge badge-success">
-                                  Data</span>
-            </div>
           </div>
-
+       
           <OrderTable />
         
         </div>

@@ -10,10 +10,10 @@ const projectSchema = new Schema({
   createdAt: { type: Date },
   updatedAt: { type: Date },
   state: { type: String },
-  userId: { type: Schema.Types.ObjectId, ref: "User" },
-  employerPayments: { type: mongoose.Decimal128 },
+  employerPayments: [{ type: mongoose.Decimal128 }],
   sides: [{ type: Schema.Types.ObjectId, ref: "FenceSide" }],
-  miscellaneous: [{ type: Schema.Types.ObjectId, ref: "Miscellaneous" }]
+  miscellaneous: [{ type: Schema.Types.ObjectId, ref: "Miscellaneous" }],
+  material: [{ type: Schema.Types.ObjectId, ref: "Material" }]
 });
 
 const Project = mongoose.model("Project", projectSchema);

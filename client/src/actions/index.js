@@ -4,3 +4,4 @@ export * from './Your-quotes';
 export * from './Quote-details';
 export * from './Project';
 export * from './Add-miscellaneous';
+export * from './GetUsersWithQuotes';

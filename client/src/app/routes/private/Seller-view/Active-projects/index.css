@@ -1,0 +1,42 @@
+
+.dialog{
+    background: red;
+}
+.fullScreenDialogTollBar{
+  
+}
+.fullDialogList{
+    padding: 10px;
+    width: 70%;
+    margin: 0 auto;
+   
+}
+.cardComponent{
+  
+}
+.address{
+    padding: 10px;
+}
+.alignCenter{
+   text-align: right;
+}
+.section-title-bold{
+    font-size: 40px;
+    font-weight: bold;
+}
+.total-miscellaneous{
+    font-size: 20px;
+    padding-top: 10px;
+}
+.cardComponentHeader{
+  padding: 10px;
+}
+.single-cards{
+  
+}
+@media only screen and (max-width: 800px) {
+    .fullDialogList{
+        width: 100%;
+        margin: 0 auto;
+    }
+  }

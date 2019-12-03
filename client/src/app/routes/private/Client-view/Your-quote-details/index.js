@@ -29,12 +29,7 @@ class QuoteDetails extends React.Component {
       return (
         <div className="row quote-details-container">
           <div className="col-12">
-            <div className="jr-card">
-              <div className="jr-card-header d-flex align-items-center">
-                <h3 className="mb-0">Status {quote.state}</h3>
-              </div>
-            </div>
-            <QuoteComponent project={this.props.data}  />
+           <QuoteComponent project={this.props.data}  />
             
 
          </div>

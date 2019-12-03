@@ -21,7 +21,9 @@ class OrderTableCell extends React.Component {
       menuState: false
     };
   }
-
+menuStateHanler(){
+  this.setState({ menuState: false });
+}
   updateStateorCancel(state, quoteId, userId) {
     this.setState({ menuState: false });
     const stateOptions = {
@@ -83,6 +85,7 @@ class OrderTableCell extends React.Component {
          
           updateStateorCancel={this.updateStateorCancel.bind(this)}
             menuState={menuState}
+            menuStateHandler={this.menuStateHanler.bind(this)}
             anchorEl={anchorEl}
            
           />

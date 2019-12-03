@@ -1,0 +1,28 @@
+
+.modalContainer{
+  
+   margin: 0 auto;
+ 
+}
+.textInput{
+  width: 100%;
+  margin: 10px;
+ 
+}
+.ModalButtton{
+   text-align: center;
+   border: 1px solid green;
+   border-radius: 5px;
+   
+}
+.modalActionButton{
+   color: black;
+   
+}
+.alertMessage{
+   text-align: center;
+   
+}
+@media only screen and (max-width: 900px) {
+   
+  }

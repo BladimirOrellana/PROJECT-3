@@ -16,5 +16,9 @@ router
 
 // Matches with "/api/users/email/:email"
 router.route("/email/:email").get(UsersController.findByEmail);
-
+// Matches with "/api/users/:id"
+router
+  .route("/user/:userId/project/:projectId")
+  .get(UsersController.findByUserIdandProjectId)
+  
 module.exports = router;

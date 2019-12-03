@@ -1,8 +1,6 @@
 import React from 'react';
-import ContainerHeader from 'components/ContainerHeader';
 import {connect} from 'react-redux';
-import IntlMessages from 'util/IntlMessages';
-import OrderTable from './../../../../../components/dashboard/eCommerce/OrderTable';
+import OrderTable from './OrderTable/OrderTable';
 import {getAllActiveQuotesFromDatabaseAction} from './../../../../../actions/Add-miscellaneous';
 
 class AddMiscellaneous extends React.Component {
@@ -12,10 +10,9 @@ this.props.getAllActiveQuotesFromDatabaseAction(getActiveProject)
   }
       
   render() {
-    console.log("ADD MISCELLANEOUS",this.props)
+  console.log("ALL QUOTES", this.props)
    return (
       <div className="app-wrapper">
-      <ContainerHeader match={this.props.match} title={<IntlMessages id="Add Miscellaneous"/>}/>
        <div className="row mb-md-3 your-quotes-container">
       <div className="col-12">
         <div className="jr-card">
@@ -25,8 +22,8 @@ this.props.getAllActiveQuotesFromDatabaseAction(getActiveProject)
             </div>
           </div>
 
-          <OrderTable />
-        
+          <OrderTable project={this.props.activeProjects.data} />
+   
         </div>
       </div>
     </div>

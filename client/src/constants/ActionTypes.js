@@ -157,3 +157,11 @@ export const UPDATE_STATE_ACTION_RECEIVED = "update_state_action_received";
 
 export const GET_ALL_ACTIVES_QUOTES_FROM_DATABASE = "get_all_active_quotes_from_database"
 export const GET_ALL_ACTIVES_QUOTES_FROM_DATABASE_RECEIVED = "get_all_active_quotes_from_database_received"
+export const ADD_PAYMENT_ACTION = "add_payment_action";
+export const ADD_PAYMENT_ACTION_RECEIVED = "add_payment_action_received";
+
+//USERS WITH QUOTES
+export const GET_USERS_WITH_QUOTES_ACTION = "get_users_with_quotes_action";
+export const GET_USERS_WITH_QUOTES_ACTION_RECEIVED = "get_users_with_quotes_action_received";
+export const GET_USER_WITH_QUOTE_ACTION = "get_user_with_quote_action";
+export const GET_USER_WITH_QUOTE_ACTION_RECEIVED = "get_user_with_quote_action_received";

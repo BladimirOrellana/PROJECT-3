@@ -121,7 +121,7 @@ class SellerMenu extends Component {
               </NavLink>
             </li>
             <li className="menu no-arrow">
-              <a href="#contact-us">
+              <a href="/app/home#contact-us">
                 <FontAwesomeIcon icon={faIdCardAlt} />
                 <span className="nav-text side-nav-icons">
                  Contact
@@ -138,7 +138,7 @@ class SellerMenu extends Component {
             </li>
           
             <li className="menu no-arrow">
-              <a href="#about-us">
+              <a href="/app/home#about-us">
               <FontAwesomeIcon icon={faFolderMinus} />
                 <span className="nav-text side-nav-icons">
                   About
@@ -153,28 +153,11 @@ class SellerMenu extends Component {
               </span>
             </NavLink>
           </li>
-
-          <li className="menu no-arrow">
-            <NavLink to="/app/active-projects">
-            <FontAwesomeIcon icon={faBullseye} />
-              <span className="nav-text side-nav-icons">
-              Active Projects
-              </span>
-            </NavLink>
-          </li>
-          <li className="menu no-arrow">
-            <NavLink to="/app/add-material-to-project">
-            <FontAwesomeIcon icon={faCartPlus} />
-              <span className="nav-text side-nav-icons">
-              Add Material To Project
-              </span>
-            </NavLink>
-          </li>
-          <li className="menu no-arrow">
-          <NavLink to="/app/add-miscellanious">
+         <li className="menu no-arrow">
+          <NavLink to="/app/active-projects">
           <FontAwesomeIcon icon={faPlusSquare} />
             <span className="nav-text side-nav-icons">
-            Add Miscellaneous
+            Active Projects
             </span>
           </NavLink>
         </li>

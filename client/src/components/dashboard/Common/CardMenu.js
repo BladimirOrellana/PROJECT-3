@@ -1,6 +1,7 @@
 import React from 'react';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
+import IconButton from "@material-ui/core/IconButton";
 
 class CardMenu extends React.Component {
 
@@ -8,9 +9,7 @@ class CardMenu extends React.Component {
     const userId = this.props.user._id;
     const options = [
       "Confirm",
-      "Active",
-      "Done",
-      "Cancel"
+     "Cancel"
     ];
     const {menuState, anchorEl,updateStateorCancel, id } = this.props;
     return (
@@ -29,8 +28,12 @@ class CardMenu extends React.Component {
         {options.map(option =>
           <MenuItem value={option} key={option} onClick={() => updateStateorCancel(option,id,userId)}>
             {option}
-          </MenuItem>,
+           
+          </MenuItem>
         )}
+        <MenuItem onClick={() => this.props.menuStateHandler()}>
+        Close
+      </MenuItem>
       </Menu>
     );
   }

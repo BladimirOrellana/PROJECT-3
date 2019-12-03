@@ -1,20 +1,53 @@
+
 import React from 'react';
-import ContainerHeader from 'components/ContainerHeader';
-import IntlMessages from 'util/IntlMessages';
+import {connect} from 'react-redux';
+import {getUsersWithQuotesAction} from './../../../../../actions/GetUsersWithQuotes';
+import Table from './table';
+class Activeusers extends React.Component {
 
-class ActiveProjects extends React.Component {
 
+  componentWillMount(){
+this.props.getUsersWithQuotesAction('')
+
+  }
+
+ 
+      
   render() {
-   return (
+   
+   
+   
+ 
+
+
+   
+return (
       <div className="app-wrapper">
-        <ContainerHeader match={this.props.match} title={<IntlMessages id="Dash Board"/>}/>
-        <div className="d-flex justify-content-center">
-        ActiveProjects
-       </div>
+       <div className="row mb-md-3 your-quotes-container">
+      <div className="col-12">
+        <div className="jr-card">
+          <div className="jr-card-header d-flex align-items-center">
+            <div className="ml-3">
+                             
+            </div>
+          </div>
+          
+<Table users={this.props}/>
+        </div>
+      </div>
+    </div>
    </div>
+   
     );
 
   }
 }
+const  mapStateToProps = (state) => {
+  return {
+    activeusers: state.activeusers,
+    usersWithQuotes: state.usersWithQuotes
+  }
+}
 
-export default ActiveProjects;
+
+export default connect(mapStateToProps,{getUsersWithQuotesAction})(Activeusers);
