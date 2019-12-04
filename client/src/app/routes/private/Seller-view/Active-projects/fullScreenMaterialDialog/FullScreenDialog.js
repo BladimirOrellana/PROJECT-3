@@ -15,6 +15,8 @@ import Slide from "@material-ui/core/Slide";
 import { addPaymentAction } from "./../../../../../../actions/Add-miscellaneous";
 import { getRawMaterialAction } from "./../../../../../../actions/RawMaterialsAction";
 import TextField from "@material-ui/core/TextField";
+import InputLabel from '@material-ui/core/InputLabel';
+import Select from '@material-ui/core/Select';
 import "./../index.css";
 function Transition(props) {
   return <Slide direction="up" {...props} />;
@@ -164,12 +166,15 @@ class FullScreenDialog extends React.Component {
                 label="$ Price"
                 variant="outlined"
               />
+              <InputLabel id="demo-mutiple-name-label">Select Material</InputLabel>
+           
+              
             </form>
           </div>
 
           <List className="material-list">
-            {materialCall()}
-            <Divider />
+          {materialCall()}
+          <Divider />
           </List>
         </Dialog>
       </div>

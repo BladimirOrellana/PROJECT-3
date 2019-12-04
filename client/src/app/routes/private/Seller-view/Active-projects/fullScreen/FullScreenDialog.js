@@ -11,6 +11,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import CloseIcon from '@material-ui/icons/Close';
+import VisibilityIcon from '@material-ui/icons/Visibility';
 import Slide from '@material-ui/core/Slide';
 import './../index.css';
 import HeaderCard from './../components/routes/cards/headerCard/HeaderCard';
@@ -45,7 +46,7 @@ class FullScreenDialog extends React.Component {
    
     return (
       <div>
-        <div className="text-black" onClick={this.handleClickOpen}>View</div>
+        <div className="text-green" onClick={this.handleClickOpen}><VisibilityIcon /></div>
         <Dialog
           fullScreen
           open={this.state.open}
