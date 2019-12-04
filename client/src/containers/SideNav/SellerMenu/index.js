@@ -127,9 +127,7 @@ class SellerMenu extends Component {
       return (
         <CustomScrollbars className=" scrollbar">
           <ul className="nav-menu">
-            <li className="nav-header">
-              <p>Menu</p>
-            </li>
+            <li className="nav-header"></li>
             <li className="menu no-arrow">
               <NavLink to="/app/home">
                 <FontAwesomeIcon icon={faHome} />
@@ -147,15 +145,6 @@ class SellerMenu extends Component {
               </a>
             </li>
             <li className="menu no-arrow">
-              <NavLink to="/app/get-a-free-quote">
-                <FontAwesomeIcon icon={faStar} />
-                <span className="nav-text side-nav-icons">
-                  <IntlMessages id=" Get a quote" />{" "}
-                </span>
-              </NavLink>
-            </li>
-
-            <li className="menu no-arrow">
               <a href="#about-us">
                 <FontAwesomeIcon icon={faFolderMinus} />
                 <span className="nav-text side-nav-icons">
@@ -167,7 +156,7 @@ class SellerMenu extends Component {
               <NavLink to="/app/add-users">
                 <FontAwesomeIcon icon={faUserPlus} />
                 <span className="nav-text side-nav-icons">
-                  <IntlMessages id=" Add Users" />{" "}
+                  <IntlMessages id="Users" />{" "}
                 </span>
               </NavLink>
             </li>

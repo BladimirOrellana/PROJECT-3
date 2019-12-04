@@ -17,7 +17,13 @@ class Home extends React.Component {
     return (
       <div>
         <div className="header">
-          <NavLink to="/app/get-a-free-quote">
+          <NavLink
+            to={
+              this.props.user.role === "Client"
+                ? "/app/get-a-free-quote"
+                : "/app/add-users"
+            }
+          >
             <Button variant="outlined" size="large" className="homebuttons">
               Get A Quote
             </Button>
@@ -44,8 +50,8 @@ class Home extends React.Component {
 }
 
 const mapStateToProps = ({ auth }) => {
-  const { initURL } = auth;
-  return { initURL };
+  const { initURL, user } = auth;
+  return { initURL, user };
 };
 
 export default connect(mapStateToProps, { setInitUrl })(Home);

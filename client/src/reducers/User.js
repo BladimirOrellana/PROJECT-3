@@ -2,12 +2,7 @@ import { LOAD_USERS_SUCCESS } from "constants/ActionTypes";
 
 const INIT_STATE = {
   selected: "Client",
-  users: [],
-  name: "",
-  phone: "",
-  email: "",
-  role: "",
-  _id: ""
+  users: []
 };
 
 export default (state = INIT_STATE, action) => {

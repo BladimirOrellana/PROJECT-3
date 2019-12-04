@@ -41,7 +41,7 @@ const FindUserByEmailDataBase = async email =>
 function* loadUsersGF({ payload }) {
   const selected = payload;
   try {
-    const users = yield call(GetUsersWhere, { role: selected });
+    const users = yield call(GetUsersWhere, selected ? { role: selected } : {});
     yield put(loadUsersSuccess({ users: users.data, selected }));
   } catch (error) {
     yield put(showAuthMessage(error));

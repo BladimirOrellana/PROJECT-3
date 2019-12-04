@@ -1,11 +1,25 @@
 import React, { Component } from "react";
 import { NavLink, withRouter } from "react-router-dom";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHome, faIdCardAlt, faStar, faFolderMinus,faFile,faUserPlus, faCartPlus,faPlusSquare,faFileArchive, faCheckCircle, faListAlt, faWarehouse, faBullseye } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faHome,
+  faIdCardAlt,
+  faStar,
+  faFolderMinus,
+  faFile,
+  faUserPlus,
+  faCartPlus,
+  faPlusSquare,
+  faFileArchive,
+  faCheckCircle,
+  faListAlt,
+  faWarehouse,
+  faBullseye
+} from "@fortawesome/free-solid-svg-icons";
 import IntlMessages from "util/IntlMessages";
 import CustomScrollbars from "util/CustomScrollbars";
-import {connect} from 'react-redux';
-import * as action from './../../../actions';
+import { connect } from "react-redux";
+import * as action from "./../../../actions";
 
 class ClientLoggedInMenu extends Component {
   componentDidMount() {
@@ -105,72 +119,62 @@ class ClientLoggedInMenu extends Component {
   }
 
   render() {
- 
-  
-      return (
-        <CustomScrollbars className=" scrollbar">
-          <ul className="nav-menu">
-            <li className="nav-header">
-            <p>Menu</p>
-            </li>
-            <li className="menu no-arrow">
-              <NavLink to="/app/home">
+    return (
+      <CustomScrollbars className=" scrollbar">
+        <ul className="nav-menu">
+          <li className="nav-header"></li>
+          <li className="menu no-arrow">
+            <NavLink to="/app/home">
               <FontAwesomeIcon icon={faHome} />
-                <span className="nav-text  side-nav-icons">
-                  <IntlMessages id="   Home" />{" "}
-                </span>
-              </NavLink>
-            </li>
-            <li className="menu no-arrow">
-              <a href="#contact-us">
-                <FontAwesomeIcon icon={faIdCardAlt} />
-                <span className="nav-text side-nav-icons">
-                  <IntlMessages id=" Contact" />{" "}
-                </span>
-              </a>
-            </li>
-            <li className="menu no-arrow">
-              <NavLink to="/app/get-a-free-quote">
+              <span className="nav-text  side-nav-icons">
+                <IntlMessages id="   Home" />{" "}
+              </span>
+            </NavLink>
+          </li>
+          <li className="menu no-arrow">
+            <a href="#contact-us">
+              <FontAwesomeIcon icon={faIdCardAlt} />
+              <span className="nav-text side-nav-icons">
+                <IntlMessages id=" Contact" />{" "}
+              </span>
+            </a>
+          </li>
+          <li className="menu no-arrow">
+            <NavLink to="/app/get-a-free-quote">
               <FontAwesomeIcon icon={faStar} />
-                <span className="nav-text side-nav-icons">
-                  <IntlMessages id=" Get a quote" />{" "}
-                </span>
-              </NavLink>
-            </li>
-          
-            <li className="menu no-arrow">
-              <a href="#about-us">
+              <span className="nav-text side-nav-icons">
+                <IntlMessages id=" Get a quote" />{" "}
+              </span>
+            </NavLink>
+          </li>
+
+          <li className="menu no-arrow">
+            <a href="#about-us">
               <FontAwesomeIcon icon={faFolderMinus} />
-                <span className="nav-text side-nav-icons">
-                  <IntlMessages id=" About" />{" "}
-                </span>
-              </a>
-            </li>
-            
-            <li className="menu no-arrow">
+              <span className="nav-text side-nav-icons">
+                <IntlMessages id=" About" />{" "}
+              </span>
+            </a>
+          </li>
+
+          <li className="menu no-arrow">
             <NavLink to="/app/your-quote">
-            <FontAwesomeIcon icon={faFile} />
+              <FontAwesomeIcon icon={faFile} />
               <span className="nav-text side-nav-icons">
                 <IntlMessages id=" Your Quote" />{" "}
               </span>
             </NavLink>
           </li>
-           </ul>
-
-        </CustomScrollbars>
-      );
-
-    }
-    
+        </ul>
+      </CustomScrollbars>
+    );
   }
-
-const mapStateToProps = (state) =>{
-  return {
-    userLogged: state.auth.user
-  }
-
-
 }
 
+const mapStateToProps = state => {
+  return {
+    userLogged: state.auth.user
+  };
+};
 
 export default withRouter(connect(mapStateToProps, action)(ClientLoggedInMenu));

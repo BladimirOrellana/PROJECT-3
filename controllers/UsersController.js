@@ -15,6 +15,7 @@ module.exports = {
   },
   findWhere: function(req, res) {
     db.User.find(req.body)
+      .populate("project")
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },

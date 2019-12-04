@@ -8,14 +8,12 @@ import TableFooter from "@material-ui/core/TableFooter";
 import TablePagination from "@material-ui/core/TablePagination";
 import TableRow from "@material-ui/core/TableRow";
 import IconButton from "@material-ui/core/IconButton";
-import "./index.css";
 import { connect } from "react-redux";
 import { loadUsersP } from "../../../../../../actions/User";
 import { selectingClientP } from "../../../../../../actions/Project";
-import UsersModal from "./UsersModal";
+import Modal from "./Modal";
 import TableHead from "@material-ui/core/TableHead";
-import { Link, withRouter } from "react-router-dom";
-import Button from "@material-ui/core/Button";
+import { withRouter } from "react-router-dom";
 
 const actionsStyles = theme => ({
   root: {
@@ -127,9 +125,9 @@ const styles = theme => ({
   }
 });
 
-class UsersTable extends React.Component {
+class ProjectsTable extends React.Component {
   componentDidMount() {
-    this.props.loadUsersP(this.props.selected);
+    this.props.loadUsersP();
   }
 
   handleChangePage = (event, page) => {
@@ -147,10 +145,32 @@ class UsersTable extends React.Component {
       rowsPerPage: 10
     };
   }
+
+  projectsArray = users => {
+    const projects = [];
+    if (users) {
+      users.map(user => {
+        if (user.project) {
+          user.project.map(project => {
+            if (project.state === "Estimated") {
+              projects.push({
+                _id: project._id,
+                name: user.name,
+                phone: user.phone,
+                address: project.address,
+                estimatedPrice: project.estimatedPrice[0].$numberDecimal
+              });
+            }
+          });
+        }
+      });
+    }
+    return projects;
+  };
   render() {
     const { classes } = this.props;
     const { rowsPerPage, page } = this.state;
-    const data = this.props.users;
+    const data = this.projectsArray(this.props.users);
     const emptyRows =
       rowsPerPage -
       Math.min(rowsPerPage, data ? data.length : 0 - page * rowsPerPage);
@@ -161,8 +181,11 @@ class UsersTable extends React.Component {
           <TableHead>
             <TableRow>
               <TableCell>Name</TableCell>
-              <TableCell>Email</TableCell>
               <TableCell>Phone</TableCell>
+              <TableCell>Address</TableCell>
+              <TableCell>Cost</TableCell>
+              <TableCell></TableCell>
+              <TableCell></TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -173,32 +196,14 @@ class UsersTable extends React.Component {
                     return (
                       <TableRow key={n._id}>
                         <TableCell>{n.name}</TableCell>
-                        <TableCell>{n.email}</TableCell>
                         <TableCell>{n.phone}</TableCell>
-
-                        {this.props.selected === "Client" && (
-                          <TableCell id="addQuoteToClient">
-                            <Link
-                              to="/app/get-a-free-quote"
-                            >
-                              <Button
-                                color="primary"
-                                variant="contained"
-                                className="text-white"
-                                onClick={() => {
-                                  this.props.selectingClientP(n);
-                                }}
-                              >
-                                Add Quote
-                              </Button>
-                            </Link>
-                          </TableCell>
-                        )}
-                        <TableCell id="iconsColumn" align="right">
-                          <UsersModal edit={{ user: n }} />
+                        <TableCell>{n.address}</TableCell>
+                        <TableCell>{n.estimatedPrice}</TableCell>
+                        <TableCell className="iconsColumn" align="right">
+                          <Modal confirm={{ _id: n._id }} />
                         </TableCell>
-                        <TableCell id="iconsColumn" align="right">
-                          <UsersModal delete={{ user: n }} />
+                        <TableCell className="iconsColumn" align="right">
+                          <Modal cancel={{ _id: n._id }} />
                         </TableCell>
                       </TableRow>
                     );
@@ -213,7 +218,7 @@ class UsersTable extends React.Component {
           <TableFooter>
             <TableRow>
               <TablePagination
-                colSpan={this.props.selected === "Client" ? 6 : 5}
+                colSpan={6}
                 count={data ? data.length : 0}
                 rowsPerPage={rowsPerPage}
                 page={page}
@@ -229,15 +234,15 @@ class UsersTable extends React.Component {
   }
 }
 
-UsersTable.propTypes = {
+ProjectsTable.propTypes = {
   classes: PropTypes.object.isRequired
 };
 const mapStateToProps = ({ user }) => {
-  const { selected, users, _id } = user;
-  return { selected, users, _id };
+  const { users, _id } = user;
+  return { users, _id };
 };
 export default withRouter(
   connect(mapStateToProps, { loadUsersP, selectingClientP })(
-    withStyles(styles)(UsersTable)
+    withStyles(styles)(ProjectsTable)
   )
 );

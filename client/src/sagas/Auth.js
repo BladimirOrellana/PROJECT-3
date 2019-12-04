@@ -31,6 +31,7 @@ import {
   userTwitterSignInSuccess
 } from "../actions/Auth";
 import UsersAPI from "../api/UserAPI";
+import { emptyingReducerP } from "actions";
 
 const createNewUserClientDataBase = async (name, email, phone) =>
   await UsersAPI.saveUser({
@@ -255,6 +256,7 @@ function* signOut() {
     if (signOutUser === undefined) {
       localStorage.removeItem("user_id");
       localStorage.removeItem("user_user");
+      yield put(emptyingReducerP());
       yield put(userSignOutSuccess(signOutUser));
     } else {
       yield put(showAuthMessage(signOutUser.message));

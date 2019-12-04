@@ -79,14 +79,14 @@ function* getQuoteGF({ payload }) {
       sides: sidesIds
     });
 
-    if (user.role === "Client") {
+    // if (user.role === "Client") {////////////////
       yield call(
         UpDateUser,
         user._id,
         { $push: { project: newside.data._id } },
         { new: true }
       );
-    }
+    // }
 
     yield put(
       getQuoteSuccess({

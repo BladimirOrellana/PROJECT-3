@@ -97,3 +97,12 @@ tfoot td {
 #cancelButtonClose{
   margin-left: 30px;
 }
+
+.mBH{
+  margin-bottom: 0 !important;
+}
+
+#addQuoteToClient{
+width: 130px !important;
+padding-left: 0 !important;
+}
