@@ -101,7 +101,7 @@ const deletingASignedFirebaseUser = async () => {
 };
 
 const actionCodeSettings = {
-  url: "http://localhost:3000" || "https://hb-fencing.herokuapp.com/"
+  url: "https://hb-fencing.herokuapp.com/"
 };
 
 const changeThePasswordRequest = async email =>
