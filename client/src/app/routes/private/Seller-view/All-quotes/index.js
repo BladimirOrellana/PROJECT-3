@@ -22,7 +22,7 @@ class EstimatedProjects extends React.Component {
         <div className="row mb-md-3">
           <div className="offset-lg-1 col-lg-10 col-md-12">
             <div className="jr-card">
-              <div className="jr-card-header mBH d-flex align-items-center">
+              <div className="jr-card-header d-flex align-items-center">
                 <h1 className="mb-0" id="usersHeader">
                   Quotes
                 </h1>

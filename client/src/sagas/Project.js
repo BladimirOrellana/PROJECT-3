@@ -5,12 +5,17 @@ import {
   hideAuthLoader,
   hideMessage
 } from "actions";
-import { GET_QUOTE_P, ACCEPT_QUOTE_P } from "constants/ActionTypes";
+import {
+  GET_QUOTE_P,
+  ACCEPT_QUOTE_P,
+  UPDATE_PROJECT_P
+} from "constants/ActionTypes";
 import QuoteAPI from "../api/QuoteAPI";
 import ProjectAPI from "../api/ProjectAPI";
 import FenceSideAPI from "../api/FenceSideAPI";
 import GateAPI from "../api/GateAPI";
 import UserAPI from "../api/UserAPI";
+import { loadUsersP } from "actions/User";
 
 const CalculateAQuote = async payload =>
   await QuoteAPI.getQuote(payload)
@@ -116,6 +121,18 @@ function* acceptQuoteGF({ payload }) {
   }
 }
 
+function* updateProjectGF({ payload }) {
+  const { _id, data } = payload;
+
+  try {
+    yield call(UpDateProject, _id, data);
+    yield put(loadUsersP());
+  } catch (error) {
+    yield put(showAuthMessage(error));
+    yield put(hideMessage());
+  }
+}
+
 export function* getQuotePListen() {
   yield takeEvery(GET_QUOTE_P, getQuoteGF);
 }
@@ -124,6 +141,13 @@ export function* acceptQuotePListen() {
   yield takeEvery(ACCEPT_QUOTE_P, acceptQuoteGF);
 }
 
+export function* updateProjectListen() {
+  yield takeEvery(UPDATE_PROJECT_P, updateProjectGF);
+}
 export default function* rootSaga() {
-  yield all([fork(getQuotePListen), fork(acceptQuotePListen)]);
+  yield all([
+    fork(getQuotePListen),
+    fork(acceptQuotePListen),
+    fork(updateProjectListen)
+  ]);
 }
