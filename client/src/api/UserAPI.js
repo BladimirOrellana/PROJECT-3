@@ -25,10 +25,12 @@ export default {
   saveUser: function(userData) {
     return axios.post("/api/users", userData);
   },
+  // Gets users by { ... }
+  getUsersWhere: function(userData) {
+    return axios.post("/api/users/where", userData);
+  },
   // get User With a specific project id
   getUserProject: function(userId, projectId) {
-   
-    return axios.get("/api/users/user/"+userId+"/project/"+projectId);
+    return axios.get("/api/users/user/" + userId + "/project/" + projectId);
   }
-  
 };

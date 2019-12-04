@@ -16,25 +16,37 @@ class GetQuote extends React.Component {
     //if none is signed redirect it to Sigin page
     if (this.props.authUser === null) {
       return <Redirect to={"/signin"} />;
-    }
+    }else{
+    if (
+      this.props.user.role === "Seller" &&
+      !this.props.client.name &&
+      this.props.estimatedPrice === 0
+    ) {
+      return <Redirect to={"/app/add-users"} />;
+    }}
 
     return (
       <div className="row homemaindiv mb-md-3">
-        <CardBox
-          styleName="col-lg-12"
-          childrenStyle="d-flex justify-content-center"
-          headerOutside
-        >
-          <HorizontalLabelPositionBelowStepper />
-        </CardBox>
+        {(this.props.user.role === "Client" ||
+          this.props.client.name ||
+          this.props.estimatedPrice !== 0) && (
+          <CardBox
+            styleName="col-lg-12"
+            childrenStyle="d-flex justify-content-center"
+            headerOutside
+          >
+            <HorizontalLabelPositionBelowStepper />
+          </CardBox>
+        )}
       </div>
     );
   }
 }
 
-const mapStateToProps = ({ auth }) => {
-  const { authUser, initURL } = auth;
-  return { authUser, initURL };
+const mapStateToProps = ({ auth, project }) => {
+  const { client, estimatedPrice } = project;
+  const { authUser, user, initURL } = auth;
+  return { authUser, user, initURL, client, estimatedPrice };
 };
 
 export default connect(mapStateToProps, {

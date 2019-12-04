@@ -65,6 +65,17 @@ export const GET_QUOTE_P = "get_quote_p";
 export const GET_QUOTE_SUCCESS = "get_quote_success";
 export const ACCEPT_QUOTE_P = "accept_quote_p";
 export const EMPTYING_REDUCER_P = "emptying_reducer_p";
+export const SELECTING_CLIENT_P = "selecting_client_p";
+
+//Users const
+export const LOAD_USERS_P = "load_users_p";
+export const LOAD_USERS_SUCCESS = "load_users_success";
+export const ADD_USER_P = "add_user_p";
+export const EDIT_USER_P = "edit_user_p";
+export const REMOVE_USER_P = "remove_user_p";
+export const CREATE_ACTIVATE_USER = "create_activate_user";
+export const ACTIVATE_USER_OR_CHANGE_PASSWORD =
+  "activate_user_or_change_password";
 
 // Chat Module const
 

@@ -1,5 +1,10 @@
 import { all, call, fork, put, takeEvery } from "redux-saga/effects";
-import { showAuthMessage, getQuoteSuccess, hideAuthLoader } from "actions";
+import {
+  showAuthMessage,
+  getQuoteSuccess,
+  hideAuthLoader,
+  hideMessage
+} from "actions";
 import { GET_QUOTE_P, ACCEPT_QUOTE_P } from "constants/ActionTypes";
 import QuoteAPI from "../api/QuoteAPI";
 import ProjectAPI from "../api/ProjectAPI";
@@ -8,18 +13,17 @@ import GateAPI from "../api/GateAPI";
 import UserAPI from "../api/UserAPI";
 
 const CalculateAQuote = async payload =>
-
- await QuoteAPI.getQuote(payload)
-  
-    .then(result => result)
-    .catch(error => error);
-
-const SaveProject = async payload =>{
-return  await ProjectAPI.saveProject(payload)
+  await QuoteAPI.getQuote(payload)
 
     .then(result => result)
     .catch(error => error);
-}
+
+const SaveProject = async payload => {
+  return await ProjectAPI.saveProject(payload)
+
+    .then(result => result)
+    .catch(error => error);
+};
 const SaveFenceSide = async payload =>
   await FenceSideAPI.saveFenceSide(payload)
     .then(result => result)
@@ -78,14 +82,14 @@ function* getQuoteGF({ payload }) {
       createdAt: new Date()
     });
 
-    if (user.role === "Client") {
-      yield call(
-        UpDateUser,
-        user._id,
-        { $push: { project: newside.data._id } },
-        { new: true }
-      );
-    }
+    // if (user.role === "Client") {////////////////
+    yield call(
+      UpDateUser,
+      user._id,
+      { $push: { project: newside.data._id } },
+      { new: true }
+    );
+    // }
 
     yield put(
       getQuoteSuccess({
@@ -98,7 +102,8 @@ function* getQuoteGF({ payload }) {
     );
     yield put(hideAuthLoader());
   } catch (error) {
-    yield put(showAuthMessage(error)); ///////no funciona
+    yield put(showAuthMessage(error));
+    yield put(hideMessage());
   }
 }
 
@@ -107,6 +112,7 @@ function* acceptQuoteGF({ payload }) {
     yield call(UpDateProject, payload, { state: "Confirmed" });
   } catch (error) {
     yield put(showAuthMessage(error));
+    yield put(hideMessage());
   }
 }
 

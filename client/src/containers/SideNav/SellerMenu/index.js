@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import { NavLink, withRouter } from "react-router-dom";
+import IntlMessages from "util/IntlMessages";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHome, faIdCardAlt, faStar, faFolderMinus,faUserPlus, faCartPlus,faPlusSquare,faFileArchive, faCheckCircle, faListAlt, faWarehouse, faBullseye } from '@fortawesome/free-solid-svg-icons'
 import CustomScrollbars from "util/CustomScrollbars";
-import {connect} from 'react-redux';
-import * as action from './../../../actions';
+import { connect } from "react-redux";
+import * as action from "./../../../actions";
 
 class SellerMenu extends Component {
   componentDidMount() {
@@ -104,17 +105,18 @@ class SellerMenu extends Component {
   }
 
   render() {
- 
-   if (this.props.userLogged && this.props.userLogged._id && this.props.userLogged.role === "Seller") {
+    if (
+      this.props.userLogged &&
+      this.props.userLogged._id &&
+      this.props.userLogged.role === "Seller"
+    ) {
       return (
         <CustomScrollbars className=" scrollbar">
           <ul className="nav-menu">
-            <li className="nav-header">
-            <p>Menu</p>
-            </li>
-           <li className="menu no-arrow">
+            <li className="nav-header"></li>
+            <li className="menu no-arrow">
               <NavLink to="/app/home">
-              <FontAwesomeIcon icon={faHome} />
+                <FontAwesomeIcon icon={faHome} />
                 <span className="nav-text  side-nav-icons">
                   Home
                 </span>
@@ -129,87 +131,88 @@ class SellerMenu extends Component {
               </a>
             </li>
             <li className="menu no-arrow">
-              <NavLink to="/app/get-a-free-quote">
-              <FontAwesomeIcon icon={faStar} />
+              <a href="#about-us">
+                <FontAwesomeIcon icon={faFolderMinus} />
                 <span className="nav-text side-nav-icons">
-                Get a quote
-                </span>
-              </NavLink>
-            </li>
-          
-            <li className="menu no-arrow">
-              <a href="/app/home#about-us">
-              <FontAwesomeIcon icon={faFolderMinus} />
-                <span className="nav-text side-nav-icons">
-                  About
+                  <IntlMessages id=" About" />{" "}
                 </span>
               </a>
             </li>
             <li className="menu no-arrow">
-            <NavLink to="/app/add-seller">
-            <FontAwesomeIcon icon={faUserPlus} />
-              <span className="nav-text side-nav-icons">
-                Add Seller
-              </span>
-            </NavLink>
-          </li>
-         <li className="menu no-arrow">
-          <NavLink to="/app/active-projects">
-          <FontAwesomeIcon icon={faPlusSquare} />
-            <span className="nav-text side-nav-icons">
-            Active Projects
-            </span>
-          </NavLink>
-        </li>
-        <li className="menu no-arrow">
-        <NavLink to="/app/all-quotes">
-        <FontAwesomeIcon icon={faFileArchive} />
-          <span className="nav-text side-nav-icons">
-          All Quotes
-          </span>
-        </NavLink>
-      </li>
-      <li className="menu no-arrow">
-        <NavLink to="/app/confirmed-project">
-        <FontAwesomeIcon icon={faCheckCircle} />
-          <span className="nav-text side-nav-icons">
-          Confirmed Project
-          </span>
-        </NavLink>
-      </li>
-      <li className="menu no-arrow">
-        <NavLink to="/app/finished-project">
-        <FontAwesomeIcon icon={faListAlt} />
-          <span className="nav-text side-nav-icons">
-          Finished Project
-          </span>
-        </NavLink>
-      </li>
-      <li className="menu no-arrow">
-        <NavLink to="/app/raw-material">
-        <FontAwesomeIcon icon={faWarehouse} />
-          <span className="nav-text side-nav-icons">
-          Raw Material
-          </span>
-        </NavLink>
-      </li>
-   
-           </ul>
+              <NavLink to="/app/add-users">
+                <FontAwesomeIcon icon={faUserPlus} />
+                <span className="nav-text side-nav-icons">
+                  <IntlMessages id="Users" />{" "}
+                </span>
+              </NavLink>
+            </li>
 
+            <li className="menu no-arrow">
+              <NavLink to="/app/active-projects">
+                <FontAwesomeIcon icon={faBullseye} />
+                <span className="nav-text side-nav-icons">
+                  <IntlMessages id=" Active Projects" />{" "}
+                </span>
+              </NavLink>
+            </li>
+            <li className="menu no-arrow">
+              <NavLink to="/app/add-material-to-project">
+                <FontAwesomeIcon icon={faCartPlus} />
+                <span className="nav-text side-nav-icons">
+                  <IntlMessages id=" Add Material To Project" />{" "}
+                </span>
+              </NavLink>
+            </li>
+            <li className="menu no-arrow">
+              <NavLink to="/app/add-miscellanious">
+                <FontAwesomeIcon icon={faPlusSquare} />
+                <span className="nav-text side-nav-icons">
+                  <IntlMessages id=" Add Miscellaneous" />{" "}
+                </span>
+              </NavLink>
+            </li>
+            <li className="menu no-arrow">
+              <NavLink to="/app/all-quotes">
+                <FontAwesomeIcon icon={faFileArchive} />
+                <span className="nav-text side-nav-icons">
+                  <IntlMessages id=" All Quotes" />{" "}
+                </span>
+              </NavLink>
+            </li>
+            <li className="menu no-arrow">
+              <NavLink to="/app/confirmed-project">
+                <FontAwesomeIcon icon={faCheckCircle} />
+                <span className="nav-text side-nav-icons">
+                  <IntlMessages id=" Confirmed Project" />{" "}
+                </span>
+              </NavLink>
+            </li>
+            <li className="menu no-arrow">
+              <NavLink to="/app/finished-project">
+                <FontAwesomeIcon icon={faListAlt} />
+                <span className="nav-text side-nav-icons">
+                  <IntlMessages id=" Finished Project" />{" "}
+                </span>
+              </NavLink>
+            </li>
+            <li className="menu no-arrow">
+              <NavLink to="/app/raw-material">
+                <FontAwesomeIcon icon={faWarehouse} />
+                <span className="nav-text side-nav-icons">
+                  <IntlMessages id="Raw Material" />{" "}
+                </span>
+              </NavLink>
+            </li>
+          </ul>
         </CustomScrollbars>
       );
-
     }
-    
   }
 }
-const mapStateToProps = (state) =>{
+const mapStateToProps = state => {
   return {
     userLogged: state.auth.user
-  }
-
-
-}
-
+  };
+};
 
 export default withRouter(connect(mapStateToProps, action)(SellerMenu));

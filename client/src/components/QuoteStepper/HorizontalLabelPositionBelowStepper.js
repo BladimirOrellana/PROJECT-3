@@ -16,8 +16,7 @@ import FormControl from "@material-ui/core/FormControl";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import {
   getQuoteP,
-  acceptQuoteP,
-  emptyingReducerP
+  acceptQuoteP
 } from "../../actions/Project";
 import { showAuthLoader } from "../../actions/Auth";
 import { connect } from "react-redux";
@@ -72,11 +71,13 @@ class HorizontalLabelPositionBelowStepper extends React.Component {
     }
     if (this.state.activeStep == this.state.sidesNumber) {
       this.props.showAuthLoader();
-      this.props.emptyingReducerP();
       this.props.getQuoteP({
         address: this.state.address,
         fenceSidesInfo: this.state.fenceSidesInfo,
-        user: this.props.user
+        user:
+          this.props.user.role === "Client"
+            ? this.props.user
+            : this.props.client ////////////////
       });
     }
     const { activeStep } = this.state;
@@ -528,17 +529,21 @@ class HorizontalLabelPositionBelowStepper extends React.Component {
                 >
                   Back
                 </Button>
-                <Button
-                  id="nextButtonsDiv"
-                  variant="contained"
-                  color="primary"
-                  onClick={() => {
-                    this.handleNext();
-                  }}
-                  disabled={this.checkingAllFilled()}
-                >
-                  {activeStep === steps.length - 1 ? "Go A Head" : "Next"}
-                </Button>
+                {((activeStep !== steps.length - 1 &&
+                  this.props.user.role === "Seller") ||
+                  this.props.user.role === "Client") && (
+                  <Button
+                    id="nextButtonsDiv"
+                    variant="contained"
+                    color="primary"
+                    onClick={() => {
+                      this.handleNext();
+                    }}
+                    disabled={this.checkingAllFilled()}
+                  >
+                    {activeStep === steps.length - 1 ? "Go A Head" : "Next"}
+                  </Button>
+                )}
               </div>
             </div>
           )}
@@ -550,13 +555,19 @@ class HorizontalLabelPositionBelowStepper extends React.Component {
 
 const mapStateToProps = ({ project, auth }) => {
   const { user, loader } = auth;
-  const { estimatedPrice, estimatedPriceBySide, project_id } = project;
-  return { estimatedPrice, estimatedPriceBySide, project_id, user, loader };
+  const { estimatedPrice, estimatedPriceBySide, project_id, client } = project;
+  return {
+    estimatedPrice,
+    estimatedPriceBySide,
+    project_id,
+    user,
+    loader,
+    client
+  };
 };
 
 export default connect(mapStateToProps, {
   getQuoteP,
   acceptQuoteP,
-  emptyingReducerP,
   showAuthLoader
 })(HorizontalLabelPositionBelowStepper);

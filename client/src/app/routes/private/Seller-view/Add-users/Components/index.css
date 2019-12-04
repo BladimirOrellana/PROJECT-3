@@ -1,0 +1,108 @@
+tbody {
+  border-top: 2px solid rgba(224, 224, 224, 1) !important;
+}
+
+tfoot td {
+  border-bottom: 0 !important;
+}
+
+#iconsColumn {
+  width: 50px !important;
+  /* padding-bottom: 1px !important; */
+  padding: 1px 0 1px 0 !important;
+}
+
+#editIcon,
+#deleteIcon,
+#addIcon {
+  color: rgb(98, 131, 99);
+  background-color: rgba(201, 115, 115, 0);
+  border-radius: 50px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+#editIcon:hover,
+#deleteIcon:hover,
+#addIcon:hover {
+  color: rgb(78, 78, 78);
+  background-color: rgba(177, 209, 179, 0.74);
+}
+.MuiRadio-colorSecondary.Mui-checked {
+  color: #78a064 !important;
+}
+
+#usersHeader {
+  margin-right: 30px;
+  margin-left: 16px;
+}
+
+#roleUsers {
+  text-align: right !important;
+  width: 100%;
+}
+
+#addIcon {
+  font-size: 50px !important;
+}
+
+#usersRadioForm {
+  vertical-align: middle !important;
+}
+
+.margin-20 {
+  margin-top: 20px !important;
+}
+
+#roleRadioForm {
+  display: block !important;
+  width: 120px;
+  float: left;
+  margin-left: 15px;
+  margin-top: 10px;
+  background-color: rgba(241, 240, 240, 0.308);
+  border-radius: 5px;
+  padding-left: 12px;
+}
+
+#switchActivateAccount {
+  width: 160px;
+  height: 84px;
+  padding-bottom: 12px;
+  margin-right: 0;
+  margin-left: 0;
+  margin-top: 10px;
+
+  background-color: rgba(241, 240, 240, 0.308);
+  border-radius: 5px;
+}
+
+#modalDiv {
+  width: 48px !important;
+  margin: 0 !important;
+}
+
+.Mui-checked {
+  color: #8caf7a !important;
+}
+
+.Mui-disabled {
+  color: #dad8d8 !important;
+}
+
+.closeButton {
+  top: -189px !important;
+  right: 47px !important;
+}
+
+#cancelButtonClose{
+  margin-left: 30px;
+}
+
+.mBH{
+  margin-bottom: 0 !important;
+}
+
+#addQuoteToClient{
+width: 130px !important;
+padding-left: 0 !important;
+}
