@@ -3,7 +3,8 @@ import {
   GET_QUOTE_SUCCESS,
   ACCEPT_QUOTE_P,
   EMPTYING_REDUCER_P,
-  SELECTING_CLIENT_P
+  SELECTING_CLIENT_P,
+  UPDATE_PROJECT_P
 } from "constants/ActionTypes";
 
 export const getQuoteP = payload => {
@@ -32,6 +33,12 @@ export const emptyingReducerP = () => {
 export const selectingClientP = payload => {
   return {
     type: SELECTING_CLIENT_P,
+    payload: payload
+  };
+};
+export const updateProjectP = payload => {
+  return {
+    type: UPDATE_PROJECT_P,
     payload: payload
   };
 };

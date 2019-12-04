@@ -11,7 +11,7 @@ export default (state = INIT_STATE, action) => {
       return {
         ...state,
         users: action.payload.users,
-        selected: action.payload.selected
+        selected: action.payload.selected ? action.payload.selected : "Client"
       };
     }
 
