@@ -1,17 +1,8 @@
 import React from "react";
-import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import { NotificationContainer } from "react-notifications";
 import { connect } from "react-redux";
-import {
-  addUserP,
-  removeUserP,
-  editUserP
-} from "../../../../../../actions/User";
-import Radio from "@material-ui/core/Radio";
-import RadioGroup from "@material-ui/core/RadioGroup";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Switch from "@material-ui/core/Switch";
+import { updateProjectP } from "../../../../../../actions/Project";
 import CloseTwoToneIcon from "@material-ui/icons/CloseTwoTone";
 import Tooltip from "@material-ui/core/Tooltip";
 import IconButton from "@material-ui/core/IconButton";
@@ -23,24 +14,16 @@ class UserForm extends React.Component {
 
   onSubmitForm = event => {
     event.preventDefault();
-    if (this.props.add) {
-      this.props.addUserP({
-        ...this.state,
-        selected: this.props.selected
+    if (this.props.cancel) {
+      this.props.updateProjectP({
+        _id: this.props.cancel._id,
+        data: { state: "Canceled" }
       });
     } else {
-      if (this.props.edit) {
-        this.props.editUserP({
-          ...this.state,
-          _id: this.props.edit.user._id,
-          selected: this.props.selected
-        });
-      } else {
-        this.props.removeUserP({
-          _id: this.props.delete.user._id,
-          selected: this.props.selected
-        });
-      }
+      this.props.updateProjectP({
+        _id: this.props.confirm._id,
+        data: { state: "Confirmed" }
+      });
     }
 
     this.props.closing();
@@ -58,7 +41,7 @@ class UserForm extends React.Component {
           <div className="login-form">
             <form
               onSubmit={e => {
-                // this.onSubmitForm(e);
+                this.onSubmitForm(e);
               }}
             >
               <div className="mb-3  margin-20">
@@ -96,7 +79,5 @@ const mapStateToProps = ({ user }) => {
 };
 
 export default connect(mapStateToProps, {
-  addUserP,
-  removeUserP,
-  editUserP
+  updateProjectP
 })(UserForm);

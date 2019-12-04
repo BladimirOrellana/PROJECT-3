@@ -14,6 +14,9 @@ import { selectingClientP } from "../../../../../../actions/Project";
 import Modal from "./Modal";
 import TableHead from "@material-ui/core/TableHead";
 import { withRouter } from "react-router-dom";
+import Moment from "react-moment";
+import "moment-timezone";
+import "../index.css";
 
 const actionsStyles = theme => ({
   root: {
@@ -148,17 +151,18 @@ class ProjectsTable extends React.Component {
 
   projectsArray = users => {
     const projects = [];
-    console.log("HHHHHHHHHHHHHHHHHHHHHHHHH " + JSON.stringify(users));
     users.map(user => {
       if (user.project) {
         user.project.map(project => {
           if (project.state === "Confirmed") {
+            console.log("KKKKKKKKKKKKK " + JSON.stringify(project));
             projects.push({
               _id: project._id,
               name: user.name,
               phone: user.phone,
               address: project.address,
-              estimatedPrice: project.estimatedPrice[0].$numberDecimal
+              estimatedPrice: project.estimatedPrice[0].$numberDecimal,
+              createdAt: project.createdAt
             });
           }
         });
@@ -183,6 +187,7 @@ class ProjectsTable extends React.Component {
               <TableCell>Phone</TableCell>
               <TableCell>Address</TableCell>
               <TableCell>Cost</TableCell>
+              <TableCell>Submited Date</TableCell>
               <TableCell></TableCell>
               <TableCell></TableCell>
             </TableRow>
@@ -197,7 +202,11 @@ class ProjectsTable extends React.Component {
                         <TableCell>{n.name}</TableCell>
                         <TableCell>{n.phone}</TableCell>
                         <TableCell>{n.address}</TableCell>
-                        <TableCell>{n.estimatedPrice}</TableCell>
+                        <TableCell>{"$" + n.estimatedPrice}</TableCell>
+                        <TableCell>
+                          <Moment format="YYYY/MM/DD">{n.createdAt}</Moment>
+                        </TableCell>
+
                         <TableCell className="iconsColumn" align="right">
                           <Modal activate={{ _id: n._id }} />
                         </TableCell>
@@ -210,14 +219,14 @@ class ProjectsTable extends React.Component {
               : ""}
             {emptyRows > 0 && (
               <TableRow style={{ height: 48 * emptyRows }}>
-                <TableCell colSpan={6} />
+                <TableCell colSpan={7} />
               </TableRow>
             )}
           </TableBody>
           <TableFooter>
             <TableRow>
               <TablePagination
-                colSpan={6}
+                colSpan={7}
                 count={data ? data.length : 0}
                 rowsPerPage={rowsPerPage}
                 page={page}
