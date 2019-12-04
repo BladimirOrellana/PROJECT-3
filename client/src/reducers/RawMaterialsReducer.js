@@ -2,7 +2,8 @@ import {
   RAW_MATERIAL_ADD_ITEM,
   RAW_MATERIAL_DELETE_ITEM,
   RAW_MATERIAL_HANDLE_FORM,
-  RAW_MATERIAL_ADD_ITEM_RECIEVED
+  RAW_MATERIAL_ADD_ITEM_RECIEVED,
+  GET_RAW_MATERIAL_ACTION_RECIEVED
 } from "./../constants/ActionTypes";
 
 const initialState = {
@@ -46,6 +47,11 @@ export const RawMaterialsReducer = function(state = initialState, action) {
       return {
         ...state,
         materialItemList: newmaterialItemList
+      };
+      case GET_RAW_MATERIAL_ACTION_RECIEVED: 
+      return {
+        ...state,
+        payload: action.payload
       };
     default:
       return state;

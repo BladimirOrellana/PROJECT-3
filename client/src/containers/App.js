@@ -42,12 +42,12 @@ class App extends Component {
   }
 
   render() {
+    
     const {
       match,
       location,
       locale,
       authUser,
-      initURL,
       isDirectionRTL
     } = this.props;
     if (location.pathname === "/") {

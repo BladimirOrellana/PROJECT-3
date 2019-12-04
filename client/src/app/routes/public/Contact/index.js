@@ -94,10 +94,10 @@ const ContactUs = ({match}) => {
                 <div className="contact-body">
                   <h4 className="text-uppercase">Phone</h4>
                   <div>
-                  <a href="tel:8322964721"><span className="jr-link text-primary disable-link"></span>Mario</a>
+                  <a href="tel:8322964721"><span className="jr-link text-primary disable-link"></span>(832)296-4721</a>
                   </div>
                   <div>
-                  <a href="tel:8322964721"><span className="jr-link text-primary disable-link"></span>Bladimir</a>
+                  <a href="tel:8322964721"><span className="jr-link text-primary disable-link"></span>(832)335-6852</a>
                   </div>
                 </div>
               </li>

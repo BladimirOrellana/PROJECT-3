@@ -119,34 +119,57 @@ export const ON_COMPOSE_MAIL = "on_compose_mail";
 
 //// TO-DO Module const
 
-export const ON_SORTEND = "on_sortend";
-export const FETCH_ALL_TODO = "fetch_all_todo";
-export const FETCH_ALL_TODO_SUCCESS = "fetch_all_todo-success";
-export const FETCH_ALL_TODO_CONVERSATION = "fetch_all_todo_conversation";
-export const FETCH_ALL_TODO_CONVERSATION_SUCCESS =
-  "fetch_all_todo_conversation_success";
-export const SELECT_ALL_TODO = "select_all_todo";
-export const GET_ALL_TODO = "get_all_todo";
-export const GET_UNSELECTED_ALL_TODO = "get_unselected_all_todo";
-export const GET_STARRED_TODO = "get_starred_todo";
-export const GET_UNSTARRED_TODO = "get_unstarred_todo";
-export const GET_IMPORTANT_TODO = "get_important_todo";
-export const GET_UNIMPORTANT_TODO = "get_unimportant_todo";
-export const ON_LABEL_UPDATE = "on_label_update";
-export const ON_TODO_UPDATE = "on_todo_update";
-export const ON_DELETE_TODO = "on_delete_todo";
-export const SEARCH_TODO = "search_todo";
-export const SHOW_TODOS = "show_todos";
-export const GET_TODO_CONVERSATION = "get_todo_conversation";
-export const ON_TODO_CHECKED = "on_todo_checked";
-export const ON_TODO_ADD = "on_todo_add";
-export const ON_TODO_SELECT = "on_todo_select";
-export const SET_CURRENT_TODO_NULL = "set_current_todo_null";
-export const REMOVE_LABEL = "remove_label";
-export const UPDATE_SEARCH = "update_search";
+export const ON_SORTEND = 'on_sortend';
+export const FETCH_ALL_TODO = 'fetch_all_todo';
+export const FETCH_ALL_TODO_SUCCESS = 'fetch_all_todo-success';
+export const FETCH_ALL_TODO_CONVERSATION = 'fetch_all_todo_conversation';
+export const FETCH_ALL_TODO_CONVERSATION_SUCCESS = 'fetch_all_todo_conversation_success';
+export const SELECT_ALL_TODO = 'select_all_todo';
+export const GET_ALL_TODO = 'get_all_todo';
+export const GET_UNSELECTED_ALL_TODO = 'get_unselected_all_todo';
+export const GET_STARRED_TODO = 'get_starred_todo';
+export const GET_UNSTARRED_TODO = 'get_unstarred_todo';
+export const GET_IMPORTANT_TODO = 'get_important_todo';
+export const GET_UNIMPORTANT_TODO = 'get_unimportant_todo';
+export const ON_LABEL_UPDATE = 'on_label_update';
+export const ON_TODO_UPDATE = 'on_todo_update';
+export const ON_DELETE_TODO = 'on_delete_todo';
+export const SEARCH_TODO = 'search_todo';
+export const SHOW_TODOS = 'show_todos';
+export const GET_TODO_CONVERSATION = 'get_todo_conversation';
+export const ON_TODO_CHECKED = 'on_todo_checked';
+export const ON_TODO_ADD = 'on_todo_add';
+export const ON_TODO_SELECT = 'on_todo_select';
+export const SET_CURRENT_TODO_NULL = 'set_current_todo_null';
+export const REMOVE_LABEL = 'remove_label';
+export const UPDATE_SEARCH = 'update_search';
+
+//Your quotes const
+
+export const GET_ALL_QUOTES_FROM_DATABASE = "get_all_quotes_from_database";
+export const GET_ALL_QUOTES_FROM_DATABASE_RECEIVED = "get_all_quotes_from_database_received";
+export const GET_QUOTE_DETAILS_FROM_DATABASE = "get_quote_details_from_database";
+export const GET_QUOTE_DETAILS_FROM_DATABASE_RECEIVED = "get_quote_details_from_database_received";
+export const UPDATE_STATE_ACTION = "update_state_action";
+export const UPDATE_STATE_ACTION_RECEIVED = "update_state_action_received";
+
+//MISCELLANEOUS
+
+export const GET_ALL_ACTIVES_QUOTES_FROM_DATABASE = "get_all_active_quotes_from_database"
+export const GET_ALL_ACTIVES_QUOTES_FROM_DATABASE_RECEIVED = "get_all_active_quotes_from_database_received"
+export const ADD_PAYMENT_ACTION = "add_payment_action";
+export const ADD_PAYMENT_ACTION_RECEIVED = "add_payment_action_received";
+
+//USERS WITH QUOTES
+export const GET_USERS_WITH_QUOTES_ACTION = "get_users_with_quotes_action";
+export const GET_USERS_WITH_QUOTES_ACTION_RECEIVED = "get_users_with_quotes_action_received";
+export const GET_USER_WITH_QUOTE_ACTION = "get_user_with_quote_action";
+export const GET_USER_WITH_QUOTE_ACTION_RECEIVED = "get_user_with_quote_action_received";
 
 // Raw Material Actions
 export const RAW_MATERIAL_ADD_ITEM = "RAW_MATERIAL_ADD_ITEM";
 export const RAW_MATERIAL_ADD_ITEM_RECIEVED = "RAW_MATERIAL_ADD_ITEM_RECIEVED";
 export const RAW_MATERIAL_DELETE_ITEM = "RAW_MATERIAL_DELETE_ITEM";
 export const RAW_MATERIAL_HANDLE_FORM = "RAW_MATERIAL_HANDLE_FORM";
+export const GET_RAW_MATERIAL_ACTION = "get_raw_material_action";
+export const GET_RAW_MATERIAL_ACTION_RECIEVED = "get_raw_material_action_received";

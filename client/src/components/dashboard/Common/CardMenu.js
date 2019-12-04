@@ -1,24 +1,22 @@
 import React from 'react';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
-import IntlMessages from 'util/IntlMessages';
+import IconButton from "@material-ui/core/IconButton";
 
 class CardMenu extends React.Component {
 
   render() {
-
+    const userId = this.props.user._id;
     const options = [
-      <IntlMessages id="popup.updateData"/>,
-      <IntlMessages id="popup.detailedLog"/>,
-      <IntlMessages id="popup.statistics"/>,
-      <IntlMessages id="popup.clearData"/>
+      "Confirm",
+     "Cancel"
     ];
-    const {menuState, anchorEl, handleRequestClose} = this.props;
+    const {menuState, anchorEl,updateStateorCancel, id } = this.props;
     return (
       <Menu id="long-menu"
             anchorEl={anchorEl}
             open={menuState}
-            onClose={handleRequestClose}
+            
 
             MenuListProps={{
               style: {
@@ -28,10 +26,14 @@ class CardMenu extends React.Component {
               },
             }}>
         {options.map(option =>
-          <MenuItem key={option} onClick={handleRequestClose}>
+          <MenuItem value={option} key={option} onClick={() => updateStateorCancel(option,id,userId)}>
             {option}
-          </MenuItem>,
+           
+          </MenuItem>
         )}
+        <MenuItem onClick={() => this.props.menuStateHandler()}>
+        Close
+      </MenuItem>
       </Menu>
     );
   }

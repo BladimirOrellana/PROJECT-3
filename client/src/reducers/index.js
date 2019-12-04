@@ -4,12 +4,21 @@ import Settings from "./Settings";
 import Auth from "./Auth";
 import { RawMaterialsReducer } from "./RawMaterialsReducer.js";
 import Project from "./Project";
+import Quotes from './Your-quotes-reducers';
+import QuoteDetails from './Quote-details';
+import ActiveProjects from './add-miscellaneous';
+import UsersWithQuotes from './GetUsersWithQuotes';
 
 export default history =>
   combineReducers({
     router: connectRouter(history),
     settings: Settings,
     auth: Auth,
+    project: Project,
+    quotes: Quotes,
+    quoteDetails: QuoteDetails,
+    activeProjects: ActiveProjects,
+    usersWithQuotes: UsersWithQuotes,
     rawMaterialsReducer: RawMaterialsReducer,
-    project: Project
+    
   });

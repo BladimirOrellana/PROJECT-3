@@ -19,7 +19,7 @@ const getUrlString = (path, sub, index) => {
 };
 
 const ContainerHeader = ({title, match}) => {
-  console.log("MATCH HEADER ",match)
+ 
   const path = match.path.substr(1);
   const subPath = path.split('/');
   return (

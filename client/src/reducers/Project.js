@@ -1,3 +1,4 @@
+
 import { GET_QUOTE_SUCCESS, EMPTYING_REDUCER_P } from "constants/ActionTypes";
 
 const INIT_STATE = {
@@ -9,6 +10,7 @@ const INIT_STATE = {
 };
 
 export default (state = INIT_STATE, action) => {
+  
   switch (action.type) {
     case GET_QUOTE_SUCCESS: {
       return {
@@ -16,7 +18,7 @@ export default (state = INIT_STATE, action) => {
         estimatedPrice: action.payload.estimatedPrice,
         estimatedPriceBySide: action.payload.estimatedPriceBySide,
         fenceSidesInfo: action.payload.fenceSidesInfo,
-        project_id: action.payload.project_id
+        project_id: action.payload.project
       };
     }
     case EMPTYING_REDUCER_P: {

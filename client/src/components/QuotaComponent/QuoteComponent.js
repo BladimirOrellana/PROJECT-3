@@ -35,7 +35,7 @@ class QuoteComponent extends React.Component {
               </div>
               <div className="col-md-8 col-sm-7">
                 <h1 className="alignRight title text-primary">
-                  Estimated Price
+                  Installation Bid
                 </h1>
                 <div className="row">
                   <div className="col-md-2 col-sm-1"></div>

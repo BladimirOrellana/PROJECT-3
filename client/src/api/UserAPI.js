@@ -24,5 +24,11 @@ export default {
   // Saves a user to the database
   saveUser: function(userData) {
     return axios.post("/api/users", userData);
+  },
+  // get User With a specific project id
+  getUserProject: function(userId, projectId) {
+   
+    return axios.get("/api/users/user/"+userId+"/project/"+projectId);
   }
+  
 };
