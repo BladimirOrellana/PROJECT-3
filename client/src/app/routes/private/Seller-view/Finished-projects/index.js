@@ -1,4 +1,7 @@
 import React from "react";
+import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
+import { setInitUrl } from "../../../../../actions/Auth";
 import ProjectFinishedComponents from "./ProjectFinishedComponents";
 
 class GetQuote extends React.Component {

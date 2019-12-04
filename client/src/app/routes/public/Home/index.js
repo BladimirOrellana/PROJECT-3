@@ -13,13 +13,12 @@ class Home extends React.Component {
     this.props.setInitUrl(this.props.history.location.pathname);
   }
   render() {
-    
     return (
       <div>
         <div className="header">
           <NavLink
             to={
-              this.props.user.role === "Client"
+              !this.props.user || this.props.user.role === "Client"
                 ? "/app/get-a-free-quote"
                 : "/app/add-users"
             }
