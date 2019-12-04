@@ -24,9 +24,6 @@ class About extends React.Component {
             Don’t take our word for it, though. Check out what our customers
             have to say:
           </h5>
-          <a href="#reviews">
-            <Button color="primary">Read Reviews</Button>
-          </a>
         </div>
         <div className="col-sm-12 col-md-4 col-lg-4">
         <AboutCard />

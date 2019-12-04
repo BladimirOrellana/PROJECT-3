@@ -1,7 +1,5 @@
 import React from "react";
-import { connect } from "react-redux";
-import { Redirect } from "react-router-dom";
-import { setInitUrl } from "../../../../../actions/Auth";
+import ProjectFinishedComponents from "./ProjectFinishedComponents";
 
 class GetQuote extends React.Component {
   //it will save the path in initURL state
@@ -17,9 +15,8 @@ class GetQuote extends React.Component {
 
     return (
       <div className="app-wrapper">
-        <div className="d-flex justify-content-center">
-          <h1 style={{ color: "white" }}>Finished Project</h1>
-        </div>
+        <div className="d-flex justify-content-center">Finished Project</div>
+        <ProjectFinishedComponents />
       </div>
     );
   }

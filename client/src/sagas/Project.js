@@ -14,14 +14,16 @@ import UserAPI from "../api/UserAPI";
 
 const CalculateAQuote = async payload =>
   await QuoteAPI.getQuote(payload)
+
     .then(result => result)
     .catch(error => error);
 
-const SaveProject = async payload =>
-  await ProjectAPI.saveProject(payload)
+const SaveProject = async payload => {
+  return await ProjectAPI.saveProject(payload)
+
     .then(result => result)
     .catch(error => error);
-
+};
 const SaveFenceSide = async payload =>
   await FenceSideAPI.saveFenceSide(payload)
     .then(result => result)
@@ -76,16 +78,17 @@ function* getQuoteGF({ payload }) {
       estimatedPrice: price.data.sidesQuotes,
       state: "Estimated",
       employerPayments: 0,
-      sides: sidesIds
+      sides: sidesIds,
+      createdAt: new Date()
     });
 
     // if (user.role === "Client") {////////////////
-      yield call(
-        UpDateUser,
-        user._id,
-        { $push: { project: newside.data._id } },
-        { new: true }
-      );
+    yield call(
+      UpDateUser,
+      user._id,
+      { $push: { project: newside.data._id } },
+      { new: true }
+    );
     // }
 
     yield put(

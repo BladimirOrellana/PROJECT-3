@@ -5,5 +5,6 @@ module.exports = {
   Gate: require("./gate"),
   Miscellaneous: require("./miscellaneous"),
   RawMaterial: require("./rawMaterial"),
-  ProjectMaterial: require("./projectMaterial")
+  ProjectMaterial: require("./projectMaterial"),
+  Material: require("./material")
 };

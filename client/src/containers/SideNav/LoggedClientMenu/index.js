@@ -6,17 +6,8 @@ import {
   faIdCardAlt,
   faStar,
   faFolderMinus,
-  faFile,
-  faUserPlus,
-  faCartPlus,
-  faPlusSquare,
-  faFileArchive,
-  faCheckCircle,
-  faListAlt,
-  faWarehouse,
-  faBullseye
+  faFile
 } from "@fortawesome/free-solid-svg-icons";
-import IntlMessages from "util/IntlMessages";
 import CustomScrollbars from "util/CustomScrollbars";
 import { connect } from "react-redux";
 import * as action from "./../../../actions";
@@ -24,6 +15,7 @@ import * as action from "./../../../actions";
 class ClientLoggedInMenu extends Component {
   componentDidMount() {
     const { history } = this.props;
+
     const that = this;
     const pathname = `${history.location.pathname}`; // get current path
 
@@ -126,43 +118,33 @@ class ClientLoggedInMenu extends Component {
           <li className="menu no-arrow">
             <NavLink to="/app/home">
               <FontAwesomeIcon icon={faHome} />
-              <span className="nav-text  side-nav-icons">
-                <IntlMessages id="   Home" />{" "}
-              </span>
+              <span className="nav-text  side-nav-icons">Home</span>
             </NavLink>
           </li>
           <li className="menu no-arrow">
-            <a href="#contact-us">
+            <a href="/app/home#contact-us">
               <FontAwesomeIcon icon={faIdCardAlt} />
-              <span className="nav-text side-nav-icons">
-                <IntlMessages id=" Contact" />{" "}
-              </span>
+              <span className="nav-text side-nav-icons">Contact</span>
             </a>
           </li>
           <li className="menu no-arrow">
             <NavLink to="/app/get-a-free-quote">
               <FontAwesomeIcon icon={faStar} />
-              <span className="nav-text side-nav-icons">
-                <IntlMessages id=" Get a quote" />{" "}
-              </span>
+              <span className="nav-text side-nav-icons">Get a quote</span>
             </NavLink>
           </li>
 
           <li className="menu no-arrow">
-            <a href="#about-us">
+            <a href="/app/home#about-us">
               <FontAwesomeIcon icon={faFolderMinus} />
-              <span className="nav-text side-nav-icons">
-                <IntlMessages id=" About" />{" "}
-              </span>
+              <span className="nav-text side-nav-icons">About</span>
             </a>
           </li>
 
           <li className="menu no-arrow">
             <NavLink to="/app/your-quote">
               <FontAwesomeIcon icon={faFile} />
-              <span className="nav-text side-nav-icons">
-                <IntlMessages id=" Your Quote" />{" "}
-              </span>
+              <span className="nav-text side-nav-icons">Your Quote</span>
             </NavLink>
           </li>
         </ul>

@@ -1,6 +1,5 @@
 import React from 'react';
-import ContainerHeader from 'components/ContainerHeader';
-import IntlMessages from 'util/IntlMessages';
+
 
 class Reviews extends React.Component {
 

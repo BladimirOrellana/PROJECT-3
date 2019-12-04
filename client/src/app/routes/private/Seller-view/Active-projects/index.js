@@ -1,33 +1,37 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Redirect } from "react-router-dom";
-import { setInitUrl } from "../../../../../actions/Auth";
-
-class GetQuote extends React.Component {
-  //it will save the path in initURL state
+import { getUsersWithQuotesAction } from "./../../../../../actions/GetUsersWithQuotes";
+import Table from "./table";
+class Activeusers extends React.Component {
   componentWillMount() {
-    this.props.setInitUrl(this.props.history.location.pathname);
+    this.props.getUsersWithQuotesAction("");
   }
 
   render() {
-    //if none is signed redirect it to Sigin page
-    if (this.props.authUser === null) {
-      return <Redirect to={"/signin"} />;
-    }
-
     return (
       <div className="app-wrapper">
-        <div className="d-flex justify-content-center">
-          <h1 style={{ color: "white" }}>Active Projects</h1>
+        <div className="row mb-md-3 your-quotes-container">
+          <div className="col-12">
+            <div className="jr-card">
+              <div className="jr-card-header d-flex align-items-center">
+                <div className="ml-3">Active Projects</div>
+              </div>
+
+              <Table users={this.props} />
+            </div>
+          </div>
         </div>
       </div>
     );
   }
 }
-
-const mapStateToProps = ({ auth }) => {
-  const { authUser, initURL } = auth;
-  return { authUser, initURL };
+const mapStateToProps = state => {
+  return {
+    activeusers: state.activeusers,
+    usersWithQuotes: state.usersWithQuotes
+  };
 };
 
-export default connect(mapStateToProps, { setInitUrl })(GetQuote);
+export default connect(mapStateToProps, { getUsersWithQuotesAction })(
+  Activeusers
+);

@@ -82,7 +82,7 @@ class Header extends React.Component {
   }
 
   render() {
-    console.log("State ", this.state);
+  
     const {
       drawerType,
       locale,

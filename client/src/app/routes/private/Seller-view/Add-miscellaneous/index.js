@@ -1,20 +1,43 @@
 import React from 'react';
-import ContainerHeader from 'components/ContainerHeader';
-import IntlMessages from 'util/IntlMessages';
+import {connect} from 'react-redux';
+import OrderTable from './OrderTable/OrderTable';
+import {getAllActiveQuotesFromDatabaseAction} from './../../../../../actions/Add-miscellaneous';
 
 class AddMiscellaneous extends React.Component {
-
+  componentWillMount(){
+    const getActiveProject = 'Active'
+this.props.getAllActiveQuotesFromDatabaseAction(getActiveProject)
+  }
+      
   render() {
+  console.log("ALL QUOTES", this.props)
    return (
       <div className="app-wrapper">
-        <ContainerHeader match={this.props.match} title={<IntlMessages id="Dash Board"/>}/>
-        <div className="d-flex justify-content-center">
-        Add Miscellaneous
-       </div>
+       <div className="row mb-md-3 your-quotes-container">
+      <div className="col-12">
+        <div className="jr-card">
+          <div className="jr-card-header d-flex align-items-center">
+            <div className="ml-3">
+                             
+            </div>
+          </div>
+
+          <OrderTable project={this.props.activeProjects.data} />
+   
+        </div>
+      </div>
+    </div>
    </div>
+   
     );
 
   }
 }
+const  mapStateToProps = (state) => {
+  return {
+    activeProjects: state.activeProjects
+  }
+}
 
-export default AddMiscellaneous;
+
+export default connect(mapStateToProps,{getAllActiveQuotesFromDatabaseAction})(AddMiscellaneous);

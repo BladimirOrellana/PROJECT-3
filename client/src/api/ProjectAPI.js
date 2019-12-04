@@ -1,6 +1,20 @@
-import axios from "axios";
+import axios from 'axios';
+export default  {
+    getProjectsByClienUserId: function(userId){
+       
+        return axios.get('/api/projects/client/projects/'+userId);
+    },
+    getProjectByClientProjectId: function(quoteId){
+        
+        
+        return axios.get("/api/projects/client/project/"+quoteId)
+    },
+    upDateStateOfProjectByClientProjectId: function(stateOptios){
+  
+        const {quoteId} = stateOptios;
 
-export default {
+      return axios.put("/api/projects/client/project/"+quoteId,stateOptios)
+  },
   // Gets all Projects
   getProjects: function() {
     return axios.get("/api/projects");

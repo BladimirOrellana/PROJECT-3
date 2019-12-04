@@ -1,0 +1,66 @@
+.ItemFormContainer,
+.PostedItemFormContainer {
+  background: rgba(0, 0, 0, 0.65);
+  padding-top: 10px;
+  border-radius: 10px;
+}
+
+.ItemFormContainer {
+  margin-right: 3%;
+  max-height: 135px;
+}
+
+.PostedItemFormContainer {
+  margin-left: 3%;
+}
+
+.ItemFormTitle {
+  font-size: 28px;
+  color: white;
+}
+
+.FormControl {
+  color: white;
+  background: unset;
+  outline: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-radius: 0;
+  border-bottom: 1px solid white;
+  width: 100%;
+}
+
+.FormControl:hover {
+  border-bottom: 1.5px solid white;
+}
+
+.ItemFormCreateBtn {
+  margin-top: 10px;
+}
+
+.PostedFormContainer {
+  margin: 3%;
+}
+
+.PostedItemFormContainer {
+  text-align: center;
+  width: 100%;
+}
+
+.PostedItemFormTitle {
+  font-size: 28px;
+  color: white;
+  text-align: center;
+  text-decoration: underline;
+  width: 100%;
+}
+
+.PostedItems {
+  color: white;
+  font-size: 23px;
+  margin-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+  margin-right: 10px;
+}
