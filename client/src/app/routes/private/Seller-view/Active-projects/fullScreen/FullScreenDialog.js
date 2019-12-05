@@ -70,7 +70,7 @@ class FullScreenDialog extends React.Component {
          <HeaderCard allProjectInfo={this.props}/>
          <NormalCard allProjectInfo={this.props}/>
          <SolidCard  allProjectInfo={this.props}/>
-         <MiscellaneousCard allProjectInfo={this.props}/>
+      <MiscellaneousCard allProjectInfo={this.props}/>
          
         
          
