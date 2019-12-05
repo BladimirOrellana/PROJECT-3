@@ -16,6 +16,7 @@ function BasicTable(props) {
   if (usersarray.length === 0) {
     return <div></div>;
   } else {
+
  const users = usersarray.data.map(user => {
       if (user.project.length > 0) {
         const proyects = user.project.map(project => {
@@ -45,7 +46,7 @@ function BasicTable(props) {
             <TableCell>{user.name}</TableCell>
               <TableCell align="right">{user.phone}</TableCell>
               <TableCell align="right">{project.address}</TableCell>
-              <TableCell align="right"><Moment format="YYYY/MM/DD">{project.createdAt}</Moment></TableCell>
+              <TableCell align="right"><Moment format="YYYY/MM/DD">{project.finishDate}</Moment></TableCell>
               <TableCell align="right">${total}</TableCell>
             {/*<TableCell> <Dialog user={userInfo} projectInfo={projectInfo}/>
           </TableCell>*/}
@@ -66,8 +67,8 @@ function BasicTable(props) {
               <TableCell>Name</TableCell>
               <TableCell align="right">Phone</TableCell>
               <TableCell align="right">Adress</TableCell>
-              <TableCell align="right">Date</TableCell>
-              <TableCell align="right">Cost</TableCell>
+              <TableCell align="right">Finished Date</TableCell>
+              <TableCell align="right">Total Cost</TableCell>
               {/*<TableCell align="right"></TableCell>*/}
             </TableRow>
           </TableHead>

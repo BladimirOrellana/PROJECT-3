@@ -31,6 +31,7 @@ export default {
   },
   // get User With a specific project id
   getUserProject: function(userId, projectId) {
+    console.log("Api",userId, projectId)
     return axios.get("/api/users/user/" + userId + "/project/" + projectId);
   }
 };

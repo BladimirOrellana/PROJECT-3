@@ -1,6 +1,6 @@
 
 .dialog{
-    background: red;
+ 
 }
 .fullScreenDialogTollBar{
   
@@ -32,18 +32,45 @@
 
 
 .form-container{
-    width: 90%;
+    width: 50%;
     margin: 0 auto;
 }
 .material-list{
-    height: 60vh;
-    overflow: scroll;
+  
+    width: 50%;
+    margin: 0 auto;
+  
+
    
-   
+}
+.text-right{
+    float: right;
+}
+.form-and-material-container{
+   height: 100%;
+   overflow: scroll;
+}
+.material-purchased-container{
+
 }
 @media only screen and (max-width: 800px) {
     .fullDialogList{
         width: 100%;
         margin: 0 auto;
+    }
+    .form-container{
+        width: 100%;
+        margin: 0 auto;
+    }
+    .material-list{
+      
+        width: 100%;
+        margin: 0 auto;
+      
+    
+       
+    }
+    .text-right{
+        
     }
   }

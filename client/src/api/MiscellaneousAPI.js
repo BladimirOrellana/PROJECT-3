@@ -12,13 +12,13 @@ export default {
           data
         );
       case "payment":
-        console.log("AXIOS",quotedId)
+        
         return axios.post(
           "/api/projects/state/active/expenses/payment/" + quotedId,
           data
         );
       case "material":
-       
+          console.log("AXIOS 444",data)
         return axios.post(
           "/api/projects/state/active/expenses/material/" + quotedId,
           data
