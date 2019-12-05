@@ -14,13 +14,12 @@ export default {
     return axios.delete("/api/rawMaterials/" + id);
   },
   // Update the rawMaterial with the given id
-  updateRawMaterial: function(id) {
+  updateRawMaterial: function(id, rawMaterialData) {
     // return ["sample list", "2", "3"]
-    return axios.put("/api/rawMaterials/" + id);
+    return axios.put("/api/rawMaterials/" + id, rawMaterialData);
   },
   // Saves a rawMaterial to the database
-  saveRawMaterial: function(rawMaterialModelData) {
-    const rawMaterialData = { materialItem: rawMaterialModelData[0] };
+  saveRawMaterial: function(rawMaterialData) {
     return axios.post("/api/rawMaterials", rawMaterialData);
   }
 };

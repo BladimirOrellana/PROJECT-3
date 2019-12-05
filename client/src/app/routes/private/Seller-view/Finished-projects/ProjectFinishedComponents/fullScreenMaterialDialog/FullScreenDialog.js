@@ -13,7 +13,7 @@ import Typography from "@material-ui/core/Typography";
 import CloseIcon from "@material-ui/icons/Close";
 import Slide from "@material-ui/core/Slide";
 import { addPaymentAction } from "./../../../../../../../actions/Add-miscellaneous";
-import { getRawMaterialAction } from "./../../../../../../../actions/RawMaterialsAction";
+import { loadRawMaterials } from "./../../../../../../../actions/RawMaterialsAction";
 import TextField from "@material-ui/core/TextField";
 import InputLabel from '@material-ui/core/InputLabel';
 import Select from '@material-ui/core/Select';
@@ -34,7 +34,7 @@ class FullScreenDialog extends React.Component {
     };
   }
   componentWillMount() {
-    this.props.getRawMaterialAction();
+    this.props.loadRawMaterials();
   }
   handleSubmit = event => {
     event.preventDefault();
@@ -184,11 +184,11 @@ class FullScreenDialog extends React.Component {
 const mapStateToProps = state => {
   return {
     payment: state.activeProjects,
-    material: state.rawMaterialsReducer.payload
+    material: state.rawMaterials.payload
   };
 };
 
 export default connect(mapStateToProps, {
   addPaymentAction,
-  getRawMaterialAction
+  loadRawMaterials
 })(FullScreenDialog);

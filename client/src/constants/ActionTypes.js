@@ -188,9 +188,11 @@ export const GET_USER_WITH_QUOTE_ACTION_RECEIVED =
 
 // Raw Material Actions
 export const RAW_MATERIAL_ADD_ITEM = "RAW_MATERIAL_ADD_ITEM";
-export const RAW_MATERIAL_ADD_ITEM_RECIEVED = "RAW_MATERIAL_ADD_ITEM_RECIEVED";
+export const RAW_MATERIAL_ADD_ITEM_SUCCESS = "RAW_MATERIAL_ADD_ITEM_SUCCESS";
 export const RAW_MATERIAL_DELETE_ITEM = "RAW_MATERIAL_DELETE_ITEM";
 export const RAW_MATERIAL_HANDLE_FORM = "RAW_MATERIAL_HANDLE_FORM";
-export const GET_RAW_MATERIAL_ACTION = "get_raw_material_action";
-export const GET_RAW_MATERIAL_ACTION_RECIEVED =
-  "get_raw_material_action_received";
+export const RAW_MATERIAL_EDIT_ITEM = "raw_material_edit_item";
+export const LOAD_RAW_MATERIALS_SUCCESS = "load_raw_materials_success";
+export const LOAD_RAW_MATERIALS = "load_raw_materials";
+export const ON_BLUR_EMPTYING = "on_blur_emptying";
+

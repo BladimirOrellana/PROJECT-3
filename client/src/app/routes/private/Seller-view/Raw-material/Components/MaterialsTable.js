@@ -8,15 +8,14 @@ import TableFooter from "@material-ui/core/TableFooter";
 import TablePagination from "@material-ui/core/TablePagination";
 import TableRow from "@material-ui/core/TableRow";
 import IconButton from "@material-ui/core/IconButton";
+import "./index.css";
 import { connect } from "react-redux";
-import { loadUsersP } from "../../../../../../actions/User";
-import { selectingClientP } from "../../../../../../actions/Project";
-import Modal from "./Modal";
-import TableHead from "@material-ui/core/TableHead";
+import {
+  loadRawMaterials,
+  onBlurEmptying
+} from "../../../../../../actions/RawMaterialsAction";
+import MaterialsModal from "./MaterialsModal";
 import { withRouter } from "react-router-dom";
-import Moment from "react-moment";
-import "moment-timezone";
-import "../index.css";
 
 const actionsStyles = theme => ({
   root: {
@@ -128,9 +127,9 @@ const styles = theme => ({
   }
 });
 
-class ProjectsTable extends React.Component {
-  componentDidMount() {
-    this.props.loadUsersP();
+class UsersTable extends React.Component {
+  componentWillMount() {
+    this.props.loadRawMaterials();
   }
 
   handleChangePage = (event, page) => {
@@ -145,36 +144,13 @@ class ProjectsTable extends React.Component {
 
     this.state = {
       page: 0,
-      rowsPerPage: 10
+      rowsPerPage: 8
     };
   }
-
-  projectsArray = users => {
-    const projects = [];
-    if (users) {
-      users.map(user => {
-        if (user.project) {
-          user.project.map(project => {
-            if (project.state === "Confirmed") {
-              projects.push({
-                _id: project._id,
-                name: user.name,
-                phone: user.phone,
-                address: project.address,
-                estimatedPrice: project.estimatedPrice[0].$numberDecimal,
-                createdAt: project.createdAt
-              });
-            }
-          });
-        }
-      });
-    }
-    return projects;
-  };
   render() {
     const { classes } = this.props;
     const { rowsPerPage, page } = this.state;
-    const data = this.projectsArray(this.props.users);
+    const data = this.props.materialItemList;
     const emptyRows =
       rowsPerPage -
       Math.min(rowsPerPage, data ? data.length : 0 - page * rowsPerPage);
@@ -182,37 +158,25 @@ class ProjectsTable extends React.Component {
     return (
       <div className={classes.tableWrapper}>
         <Table className={classes.table}>
-          <TableHead>
-            <TableRow>
-              <TableCell>Name</TableCell>
-              <TableCell>Phone</TableCell>
-              <TableCell>Address</TableCell>
-              <TableCell>Cost</TableCell>
-              <TableCell>Submited Date</TableCell>
-              <TableCell></TableCell>
-              <TableCell></TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
+          <TableBody
+            onClick={e => {
+              e.preventDefault();
+              this.props.onBlurEmptying();
+            }}
+          >
             {data
               ? data
                   .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                   .map(n => {
                     return (
                       <TableRow key={n._id}>
-                        <TableCell>{n.name}</TableCell>
-                        <TableCell>{n.phone}</TableCell>
-                        <TableCell>{n.address}</TableCell>
-                        <TableCell>{"$" + n.estimatedPrice}</TableCell>
-                        <TableCell>
-                          <Moment format="YYYY/MM/DD">{n.createdAt}</Moment>
-                        </TableCell>
+                        <TableCell>{n.materialItem}</TableCell>
 
-                        <TableCell className="iconsColumn" align="right">
-                          <Modal activate={{ _id: n._id }} />
+                        <TableCell id="iconsColumn" align="right">
+                          <MaterialsModal edit={{ material: n }} />
                         </TableCell>
-                        <TableCell className="iconsColumn" align="right">
-                          <Modal cancel={{ _id: n._id }} />
+                        <TableCell id="iconsColumn" align="right">
+                          <MaterialsModal delete={{ material: n }} />
                         </TableCell>
                       </TableRow>
                     );
@@ -220,14 +184,14 @@ class ProjectsTable extends React.Component {
               : ""}
             {emptyRows > 0 && (
               <TableRow style={{ height: 48 * emptyRows }}>
-                <TableCell colSpan={7} />
+                <TableCell colSpan={3} />
               </TableRow>
             )}
           </TableBody>
           <TableFooter>
             <TableRow>
               <TablePagination
-                colSpan={7}
+                colSpan={3}
                 count={data ? data.length : 0}
                 rowsPerPage={rowsPerPage}
                 page={page}
@@ -243,15 +207,17 @@ class ProjectsTable extends React.Component {
   }
 }
 
-ProjectsTable.propTypes = {
+UsersTable.propTypes = {
   classes: PropTypes.object.isRequired
 };
-const mapStateToProps = ({ user }) => {
-  const { users, _id } = user;
-  return { users, _id };
+const mapStateToProps = ({ user, rawMaterials }) => {
+  const { materialItemList } = rawMaterials;
+  const { selected, users, _id } = user;
+  return { selected, users, _id, materialItemList };
 };
 export default withRouter(
-  connect(mapStateToProps, { loadUsersP, selectingClientP })(
-    withStyles(styles)(ProjectsTable)
-  )
+  connect(mapStateToProps, {
+    loadRawMaterials,
+    onBlurEmptying
+  })(withStyles(styles)(UsersTable))
 );
