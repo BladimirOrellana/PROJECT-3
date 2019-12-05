@@ -4,7 +4,7 @@ import { getUsersWithQuotesAction } from "./../../../../../actions/GetUsersWithQ
 import Table from "./table";
 class Activeusers extends React.Component {
   componentWillMount() {
-    this.props.getUsersWithQuotesAction("");
+    // this.props.getUsersWithQuotesAction("");
   }
 
   render() {
