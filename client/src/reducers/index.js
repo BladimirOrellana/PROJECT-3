@@ -9,6 +9,7 @@ import Quotes from "./Your-quotes-reducers";
 import QuoteDetails from "./Quote-details";
 import ActiveProjects from "./add-miscellaneous";
 import UsersWithQuotes from "./GetUsersWithQuotes";
+import Email from './Email';
 
 export default history =>
   combineReducers({
@@ -21,5 +22,6 @@ export default history =>
     quoteDetails: QuoteDetails,
     activeProjects: ActiveProjects,
     usersWithQuotes: UsersWithQuotes,
-    rawMaterials: RawMaterials
+    rawMaterials: RawMaterials,
+    email: Email
   });

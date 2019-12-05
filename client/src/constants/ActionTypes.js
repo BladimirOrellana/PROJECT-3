@@ -196,3 +196,8 @@ export const LOAD_RAW_MATERIALS_SUCCESS = "load_raw_materials_success";
 export const LOAD_RAW_MATERIALS = "load_raw_materials";
 export const ON_BLUR_EMPTYING = "on_blur_emptying";
 
+// SEND EMAIL 
+
+// SEND_EMAIL_ACTION, SEND_EMAIL_ACTION_RECEIVED
+export const SEND_EMAIL_ACTION = "send_email_action";
+export const SEND_EMAIL_ACTION_RECEIVED = "send_email_action_received";
