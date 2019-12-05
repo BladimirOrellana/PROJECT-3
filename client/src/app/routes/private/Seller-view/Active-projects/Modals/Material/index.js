@@ -35,32 +35,31 @@ class ModalDialog extends React.Component {
       itemQuantity: this.state.itemQuantity,
       itemPrice: this.state.itemPrice,
       quotedId: this.props.quoteInfo.quoteId,
-      errorMessage: ''
+      errorMessage: ""
     };
-    if(this.state.itemMaterial === ""){
-      
-this.setState({
-  errorMessage: "Please enter Material"
-})
-    }else if(this.state.itemQuantity === ""){
+    if (this.state.itemMaterial === "") {
+      this.setState({
+        errorMessage: "Please enter Material"
+      });
+    } else if (this.state.itemQuantity === "") {
       this.setState({
         errorMessage: "Please enter Quantity"
-      })
-    }else if(this.state.itemPrice === ""){
+      });
+    } else if (this.state.itemPrice === "") {
       this.setState({
         errorMessage: "Please enter Price"
-      })
-    }else{
+      });
+    } else {
       this.props.onClose(this.state.value);
       this.props.quoteInfo.addPaymentAction(data);
       this.setState({
-          itemMaterial: "",
+        itemMaterial: "",
         itemQuantity: "",
         itemPrice: ""
-      })
-    };
+      });
     }
-  
+  };
+
   handleOnChange = event => {
     console.log(event.target.value);
     this.setState({
@@ -85,7 +84,14 @@ this.setState({
         <DialogTitle>Add Material</DialogTitle>
         <p className="alertMessage">{this.state.errorMessage}</p>
         <DialogContent className="modalContainer">
-          <form onSubmit={(e) =>  this.handleSubmit(e)} noValidate autoComplete="off">
+          <form
+            onSubmit={e => {
+              e.preventDefault();
+              this.handleSubmit(e);
+            }}
+            noValidate
+            autoComplete="off"
+          >
             <TextField
               onChange={this.handleOnChange}
               className="textInput"
