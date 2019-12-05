@@ -29,6 +29,7 @@ export default  {
   },
   // Update the Project with the given id
   updateProject: function(id, projectData) {
+    console.log("F API",projectData)
     return axios.put("/api/projects/" + id, projectData);
   },
   // Saves a Project to the database

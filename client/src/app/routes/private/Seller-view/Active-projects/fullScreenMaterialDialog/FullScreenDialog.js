@@ -35,8 +35,10 @@ class FullScreenDialog extends React.Component {
   }
   componentWillMount() {
     this.props.loadRawMaterials();
+    console.log("LOADING mate", this.props)
   }
   handleSubmit = event => {
+   
     event.preventDefault();
     const data = {
       title: "material",
@@ -44,7 +46,8 @@ class FullScreenDialog extends React.Component {
       itemQuantity: this.state.itemQuantity,
       itemPrice: this.state.itemPrice,
       quotedId: this.props.project._id,
-      errorMessage: ""
+      userId: this.props.userinfo.id
+      
     };
     if (this.state.itemMaterial === "") {
       this.setState({
@@ -89,22 +92,40 @@ class FullScreenDialog extends React.Component {
   };
 
   render() {
+    const total = () => {
+      const getArrayOfPrice = this.props.project.material.map(
+        amount => {
+          return parseInt(amount.itemPrice.$numberDecimal);
+        }
+      );
+      let total = getArrayOfPrice.reduce((a, b) => a + b, 0);
+      return total;
+    };
     const materialCall = () => {
       if (!this.props.material) {
         return <div></div>;
       } else {
-        const materials = this.props.material.map(item => {
+        
+        const materials = this.props.project.material.map(item => {
+          console.log("LOADING item", item)
           return (
-            <ListItem button>
-              <ListItemText
-                value={item.materialItem}
-                onClick={() =>
-                  this.setState({ itemMaterial: item.materialItem })
-                }
-                className="text-center"
-              >
-                {item.materialItem}
+            <ListItem button 
+            value={item.materialItem}
+            onClick={() =>
+              this.setState({ itemMaterial: item.materialItem })
+            }
+            className=" text-black text-center"
+            >
+              <ListItemText >
+               {item.itemMaterial}
               </ListItemText>
+              <ListItemText >
+               {item.itemQuantity.$numberDecimal}
+            </ListItemText>
+            <ListItemText >
+               ${item.itemPrice.$numberDecimal}
+            </ListItemText>
+           
             </ListItem>
           );
         });
@@ -113,7 +134,7 @@ class FullScreenDialog extends React.Component {
     };
 
     return (
-      <div>
+      <div >
         <div className=" text-black" onClick={this.handleClickOpen}>
           Add Material
         </div>
@@ -124,18 +145,23 @@ class FullScreenDialog extends React.Component {
           TransitionComponent={Transition}
         >
         <Toolbar>
-        <IconButton onClick={this.handleRequestClose} aria-label="Close">
+        <Button color="primary"
+        variant="contained" onClick={this.handleRequestClose} aria-label="Close">
+        
           <CloseIcon />
-        </IconButton>
+        </Button>
         <Typography
           variant="title"
           style={{
             flex: 1
           }}
         ></Typography>
-        <Button onClick={this.handleSubmit}>save</Button>
+        <Button color="primary"
+        variant="contained" onClick={this.handleSubmit}>save</Button>
       </Toolbar>
+      <div className="form-and-material-container"> 
           <div className="form-container">
+          <h1 className="text-center section-title-bold">Add Material To Project</h1>
             <form
               onSubmit={e => this.handleSubmit(e)}
               noValidate
@@ -166,16 +192,34 @@ class FullScreenDialog extends React.Component {
                 label="$ Price"
                 variant="outlined"
               />
-              <InputLabel id="demo-mutiple-name-label">Select Material</InputLabel>
-           
-              
-            </form>
+             </form>
           </div>
+          
 
           <List className="material-list">
+          <h1 className="section-title-bold">Material Purchased</h1>
+          <ListItem className="text-center">
+          <ListItemText>
+           
+            Item
+          </ListItemText>
+          <ListItemText>
+           
+            Units
+          </ListItemText>
+          <ListItemText>
+           
+            Price
+          </ListItemText>
+           
+            </ListItem>
+            <Divider />
           {materialCall()}
           <Divider />
+         <span  className="section-title-bold text-right">Total ${total()}</span> 
+         
           </List>
+          </div>
         </Dialog>
       </div>
     );
@@ -184,7 +228,7 @@ class FullScreenDialog extends React.Component {
 const mapStateToProps = state => {
   return {
     payment: state.activeProjects,
-    material: state.rawMaterials.payload
+    material: state.rawMaterials.materialItemList
   };
 };
 

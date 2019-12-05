@@ -1,4 +1,4 @@
-import { all, call, put, fork, takeEvery } from "redux-saga/effects";
+import { all, call, put, fork, takeEvery, takeLatest} from "redux-saga/effects";
 import { GET_ALL_ACTIVES_QUOTES_FROM_DATABASE,ADD_PAYMENT_ACTION} from './../constants/ActionTypes';
 import {getAllActiveQuotesFromDatabaseActionReceived,addPaymentActionReceived} from './../actions/Add-miscellaneous';
 import API from './../api/MiscellaneousAPI';
@@ -25,7 +25,7 @@ function* getAllActiveQuotesFromDatabaseListener(){
 
 //PAYMENT SAGA
 const addPaymentRequest = async (payment) =>{
-    console.log("SAGA request", payment)
+    
     return await API.addExpenses(payment)
     .then(result => result)
     .catch(err => err)
@@ -36,12 +36,11 @@ function* addPaymentReceived({payload}){
   
     yield call(addPaymentRequest, payload)
   
-   
    yield put(getUserWithQuoteAction({userId: payload.userId, projectId: payload.quotedId}))
 
 }
 function* addPymentListener(){
-    yield takeEvery(ADD_PAYMENT_ACTION,addPaymentReceived);
+    yield takeLatest(ADD_PAYMENT_ACTION,addPaymentReceived);
 }
 
 
