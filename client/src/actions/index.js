@@ -6,3 +6,4 @@ export * from './Project';
 export * from "./RawMaterialsAction";
 export * from './Add-miscellaneous';
 export * from './GetUsersWithQuotes';
+export * from './Email';

@@ -7,6 +7,7 @@ const rawMaterialsRoutes = require("./rawMaterials");
 const miscellaneousRoutes = require("./miscellaneous");
 const projectMaterialsRoutes = require("./projectMaterials");
 const quote = require("./quote");
+const email = require('./Email');
 
 router.use("/projectMaterials", projectMaterialsRoutes);
 router.use("/projects/state", miscellaneousRoutes);
@@ -16,5 +17,6 @@ router.use("/fenceSides", fenceSidesRoutes);
 router.use("/projects", projectsRoutes);
 router.use("/users", usersRoutes);
 router.use("/quote", quote);
+router.use("/send", email);
 
 module.exports = router;

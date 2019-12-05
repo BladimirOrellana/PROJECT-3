@@ -41,7 +41,7 @@ function* addItemActionReceived({ payload }) {
   try {
     yield call(addItemAction, { materialItem });
     const testRMApi = yield call(loadRawMaterials);
-    console.log("RAW",testRMApi)
+
 
     yield put(addItemSuccess(testRMApi.data));
   } catch (error) {
