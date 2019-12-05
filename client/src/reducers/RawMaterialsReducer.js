@@ -1,57 +1,40 @@
 import {
-  RAW_MATERIAL_ADD_ITEM,
-  RAW_MATERIAL_DELETE_ITEM,
+  LOAD_RAW_MATERIALS_SUCCESS,
   RAW_MATERIAL_HANDLE_FORM,
-  RAW_MATERIAL_ADD_ITEM_RECIEVED,
-  GET_RAW_MATERIAL_ACTION_RECIEVED
+  RAW_MATERIAL_ADD_ITEM_SUCCESS,
+  ON_BLUR_EMPTYING
 } from "./../constants/ActionTypes";
 
 const initialState = {
   materialItemList: [],
-  materialItem: {
-    rawMaterialtext: "",
-    rawMaterialkey: ""
-  }
+  rawMaterialtext: ""
 };
 
-export const RawMaterialsReducer = function(state = initialState, action) {
+export default (state = initialState, action) => {
   switch (action.type) {
     case RAW_MATERIAL_HANDLE_FORM:
       return {
         ...state,
-        materialItem: {
-          ...state.materialItem,
-          rawMaterialtext: action.rawMaterialtext
-        }
+        rawMaterialtext: action.payload
       };
-    case RAW_MATERIAL_ADD_ITEM:
-      return {
-        ...state,
-        materialItemList: [
-          ...state.materialItemList,
-          {
-            rawMaterialtext: action.rawMaterialtext,
-            rawMaterialkey: action.rawMaterialkey
-          }
-        ]
-      };
-    case RAW_MATERIAL_ADD_ITEM_RECIEVED:
-      return {
-        ...state
-      };
-    case RAW_MATERIAL_DELETE_ITEM:
-      let newmaterialItemList = state.materialItemList.filter(
-        deletedItem => deletedItem.rawMaterialkey !== action.rawMaterialkey
-      );
 
+    case RAW_MATERIAL_ADD_ITEM_SUCCESS:
       return {
         ...state,
-        materialItemList: newmaterialItemList
+        materialItemList: action.payload,
+        rawMaterialtext: ""
       };
-      case GET_RAW_MATERIAL_ACTION_RECIEVED: 
+
+    case ON_BLUR_EMPTYING:
       return {
         ...state,
-        payload: action.payload
+        rawMaterialtext: ""
+      };
+
+    case LOAD_RAW_MATERIALS_SUCCESS:
+      return {
+        ...state,
+        materialItemList: action.payload
       };
     default:
       return state;
