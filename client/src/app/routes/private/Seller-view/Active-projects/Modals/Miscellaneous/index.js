@@ -14,14 +14,13 @@ import { addPaymentAction } from "./../../../../../../../actions/Add-miscellaneo
 import "./../index.css";
 
 class ModalDialog extends React.Component {
-  
   constructor(props) {
     super(props);
     this.state = {
       value: undefined,
-      item: '',
-      amount: '',
-      errorMessage: ''
+      item: "",
+      amount: "",
+      errorMessage: ""
     };
   }
 
@@ -30,36 +29,32 @@ class ModalDialog extends React.Component {
   };
   handleSubmit = event => {
     event.preventDefault();
-    const userId = this.props.projectInfo.userinfo.id 
+    const userId = this.props.projectInfo.userinfo.id;
     const data = {
-        title: 'miscellaneous',
-        description: this.state.item,
-        amount: this.state.amount,
-        quotedId: this.props.projectInfo.project._id,
-        userId: this.props.projectInfo.userinfo.id 
+      title: "miscellaneous",
+      description: this.state.item,
+      amount: this.state.amount,
+      quotedId: this.props.projectInfo.project._id,
+      userId: this.props.projectInfo.userinfo.id
     };
-    if(this.state.item === ""){
-      
+    if (this.state.item === "") {
       this.setState({
         errorMessage: "Please Add Item"
-      })
-          }else if(this.state.amount === ""){
-            this.setState({
-              errorMessage: "Please Add Amount"
-            })
-          }else{
-            this.props.onClose(this.state.value);
-            
-           
-            this.props.projectInfo.addPaymentAction(data);
-           
-    this.setState({
-        item: '',
-        amount: '',
-    })
-   
-          }
-    
+      });
+    } else if (this.state.amount === "") {
+      this.setState({
+        errorMessage: "Please Add Amount"
+      });
+    } else {
+      this.props.onClose(this.state.value);
+
+      this.props.projectInfo.addPaymentAction(data);
+
+      this.setState({
+        item: "",
+        amount: ""
+      });
+    }
   };
   handleOnChange = event => {
     this.setState({
@@ -71,7 +66,6 @@ class ModalDialog extends React.Component {
   };
 
   render() {
-   
     const { payment } = this.state;
 
     const { value, ...other } = this.props;
@@ -87,7 +81,7 @@ class ModalDialog extends React.Component {
         <DialogTitle>Add Miscellaneous</DialogTitle>
         <p className="alertMessage">{this.state.errorMessage}</p>
         <DialogContent className="modalContainer">
-          <form onSubmit={this.handleSubmit} noValidate autoComplete="off">
+          <form noValidate autoComplete="off">
             <TextField
               onChange={this.handleOnChange}
               className="textInput"
@@ -96,19 +90,26 @@ class ModalDialog extends React.Component {
               variant="outlined"
             />
             <TextField
-            onChange={this.handleOnChange}
-            className="textInput"
-            name="amount"
-            label="$ Amount"
-            variant="outlined"
-          />
+              onChange={this.handleOnChange}
+              className="textInput"
+              name="amount"
+              label="$ Amount"
+              variant="outlined"
+            />
           </form>
         </DialogContent>
         <DialogActions>
-          <Button onClick={this.handleCancel} className="modalActionButtons" >
+          <Button onClick={this.handleCancel} className="modalActionButtons">
             Cancel
           </Button>
-          <Button onClick={this.handleSubmit} className="modalActionButtons">
+          <Button
+            type="submit"
+            onClick={e => {
+              e.preventDefault();
+              this.handleSubmit(e);
+            }}
+            className="modalActionButtons"
+          >
             Add
           </Button>
         </DialogActions>
@@ -123,7 +124,6 @@ ModalDialog.propTypes = {
 };
 
 class MiscellaneousModal extends React.Component {
-  
   state = {
     open: false
   };
@@ -139,19 +139,20 @@ class MiscellaneousModal extends React.Component {
   };
 
   render() {
-   
-   
     return (
       <div className="d-inline-block w-100">
         <List>
-          <ListItem className="ModalButtton" button onClick={this.handleClickListItem}>
-            <ListItemText  primary="Add" />
+          <ListItem
+            className="ModalButtton"
+            button
+            onClick={this.handleClickListItem}
+          >
+            <ListItemText primary="Add" />
           </ListItem>
           <ModalDialog
             projectInfo={this.props}
             open={this.state.open}
             onClose={this.handleRequestClose}
-            
           />
         </List>
       </div>
@@ -162,9 +163,11 @@ class MiscellaneousModal extends React.Component {
 const mapStateToProps = state => {
   return {
     payment: state.activeProjects,
-    
+
     project: state.usersWithQuotes.projectData
   };
 };
 
-export default connect(mapStateToProps, { addPaymentAction})(MiscellaneousModal);
+export default connect(mapStateToProps, { addPaymentAction })(
+  MiscellaneousModal
+);

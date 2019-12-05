@@ -161,7 +161,7 @@ class ProjectsTable extends React.Component {
                 name: user.name,
                 phone: user.phone,
                 address: project.address,
-                estimatedPrice: project.estimatedPrice[0].$numberDecimal,
+                estimatedPrice: project.estimatedPrice,
                 createdAt: project.createdAt
               });
             }
@@ -171,6 +171,18 @@ class ProjectsTable extends React.Component {
     }
     return projects;
   };
+
+  totalPrice = Pricearray => {
+    let total = 0;
+    if (Pricearray) {
+      const getArrayOfPrice = Pricearray.map(price => {
+        return parseInt(price.$numberDecimal);
+      });
+      total = getArrayOfPrice.reduce((a, b) => a + b, 0);
+    }
+    return total;
+  };
+
   render() {
     const { classes } = this.props;
     const { rowsPerPage, page } = this.state;
@@ -203,7 +215,9 @@ class ProjectsTable extends React.Component {
                         <TableCell>{n.name}</TableCell>
                         <TableCell>{n.phone}</TableCell>
                         <TableCell>{n.address}</TableCell>
-                        <TableCell>{"$" + n.estimatedPrice}</TableCell>
+                        <TableCell>
+                          ${this.totalPrice(n.estimatedPrice)}
+                        </TableCell>
                         <TableCell>
                           <Moment format="YYYY/MM/DD">{n.createdAt}</Moment>
                         </TableCell>
