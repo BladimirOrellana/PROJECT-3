@@ -75,15 +75,15 @@ class SellerRoutes extends Component {
         <Route
           path={`${match.url}/raw-material`}
           component={asyncComponent(() =>
-            import("./../routes/private/Seller-view/Raw-material")
+            import("../routes/private/Seller-view/Raw-material")
           )}
         />
         <Route
-        path={`${match.url}/profile`}
-        component={asyncComponent(() =>
-          import('./../routes/private/Profile')
-        )}
-      />
+          path={`${match.url}/profile`}
+          component={asyncComponent(() =>
+            import("./../routes/private/Profile")
+          )}
+        />
 
         <Route
           component={asyncComponent(() => import("./../routes/public/Home"))}

@@ -1,0 +1,65 @@
+tbody {
+  border-top: 2px solid rgba(224, 224, 224, 1) !important;
+}
+
+tfoot td {
+  border-bottom: 0 !important;
+}
+
+#iconsColumn {
+  width: 50px !important;
+  padding: 1px 0 1px 0 !important;
+}
+
+#editIcon,
+#deleteIcon,
+#addIcon {
+  color: rgb(98, 131, 99);
+  background-color: rgba(201, 115, 115, 0);
+  border-radius: 50px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+#editIcon:hover,
+#deleteIcon:hover,
+#addIcon:hover {
+  color: rgb(78, 78, 78);
+  background-color: rgba(177, 209, 179, 0.74);
+}
+
+#usersHeader {
+  margin-right: 30px;
+  margin-left: 16px;
+}
+
+#roleUsers {
+  text-align: right !important;
+  width: 100%;
+}
+
+.margin-20 {
+  margin-top: 20px !important;
+}
+
+#modalDiv {
+  width: 48px !important;
+  margin: 0 !important;
+}
+
+.closeButton {
+  top: -189px !important;
+  right: 47px !important;
+}
+
+#cancelButtonClose {
+  margin-left: 30px;
+}
+
+#addQuoteToClient {
+  width: 130px !important;
+  padding-left: 0 !important;
+}
+
+#addMatbtn {
+  padding-top: 11px !important;
+}

@@ -2,11 +2,6 @@ import React from "react";
 import Button from "@material-ui/core/Button";
 import { NotificationContainer } from "react-notifications";
 import { connect } from "react-redux";
-import {
-  addUserP,
-  removeUserP,
-  editUserP
-} from "../../../../../../actions/User";
 import { updateProjectP } from "../../../../../../actions/Project";
 import CloseTwoToneIcon from "@material-ui/icons/CloseTwoTone";
 import Tooltip from "@material-ui/core/Tooltip";
@@ -84,8 +79,5 @@ const mapStateToProps = ({ user }) => {
 };
 
 export default connect(mapStateToProps, {
-  addUserP,
-  removeUserP,
-  editUserP,
   updateProjectP
 })(UserForm);
