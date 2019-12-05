@@ -48,9 +48,11 @@ class UserForm extends React.Component {
 
           <div className="login-form">
             <form
-              onSubmit={e => {
-                this.onSubmitForm(e);
-              }}
+            // onSubmit={e => {
+            //   e.preventDefault();
+            //   this.onSubmitForm(e);
+            //   console.log("YYYYYYYYYYYYYY ");
+            // }}
             >
               {!this.props.delete && (
                 <div>
@@ -58,9 +60,11 @@ class UserForm extends React.Component {
                     type="text"
                     id="signUpName"
                     label="Name"
-                    onChange={event =>
-                      this.setState({ materialItem: event.target.value })
-                    }
+                    onChange={event => {
+                      event.preventDefault();
+
+                      this.setState({ materialItem: event.target.value });
+                    }}
                     fullWidth
                     defaultValue={materialItem}
                     margin="normal"
@@ -76,6 +80,10 @@ class UserForm extends React.Component {
                   variant="contained"
                   className="text-white"
                   type="submit"
+                  onClick={e => {
+                    e.preventDefault();
+                    this.onSubmitForm(e);
+                  }}
                 >
                   {this.props.edit ? "Edit" : "Remove"}
                 </Button>
