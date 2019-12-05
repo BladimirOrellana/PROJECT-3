@@ -1,5 +1,5 @@
 import React from 'react';
-import ContainerHeader from 'components/ContainerHeader/index';
+import ContainerHeader from 'components/ContainerHeader';
 import BasicCard from './basicCards/BasicCard';
 import NormalCard from './normalCard/NormalCard';
 import TitleCards from './titleCards/TitleCards';

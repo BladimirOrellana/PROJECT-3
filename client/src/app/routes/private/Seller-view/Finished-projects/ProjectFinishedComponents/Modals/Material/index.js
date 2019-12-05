@@ -11,7 +11,7 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import TextField from "@material-ui/core/TextField";
 import { addPaymentAction } from "./../../../../../../../actions/Add-miscellaneous";
-import "./../index.css";
+import "../index.css";
 
 class ModalDialog extends React.Component {
   constructor(props) {

@@ -11,7 +11,6 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import TextField from "@material-ui/core/TextField";
 import { addPaymentAction } from "./../../../../../../../actions/Add-miscellaneous";
-import {getUserWithQuoteAction} from './../../../../../../../actions/GetUsersWithQuotes';
 import "./../index.css";
 
 class ModalDialog extends React.Component {
@@ -31,11 +30,13 @@ class ModalDialog extends React.Component {
   };
   handleSubmit = event => {
     event.preventDefault();
+    const userId = this.props.projectInfo.userinfo.id 
     const data = {
         title: 'miscellaneous',
         description: this.state.item,
         amount: this.state.amount,
-        quotedId: this.props.projectInfo.project._id
+        quotedId: this.props.projectInfo.project._id,
+        userId: this.props.projectInfo.userinfo.id 
     };
     if(this.state.item === ""){
       
@@ -48,9 +49,9 @@ class ModalDialog extends React.Component {
             })
           }else{
             this.props.onClose(this.state.value);
-            const userId = this.props.projectInfo.userinfo.id 
+            
            
-            this.props.projectInfo.addPaymentAction({data,userId: userId });
+            this.props.projectInfo.addPaymentAction(data);
            
     this.setState({
         item: '',
@@ -166,4 +167,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { addPaymentAction,getUserWithQuoteAction})(MiscellaneousModal);
+export default connect(mapStateToProps, { addPaymentAction})(MiscellaneousModal);

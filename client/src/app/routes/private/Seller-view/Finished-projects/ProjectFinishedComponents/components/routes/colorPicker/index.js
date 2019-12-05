@@ -14,14 +14,14 @@ import {
   TwitterPicker,
 } from 'react-color';
 
-import CardBox from 'components/CardBox/index';
+import CardBox from 'components/CardBox';
 import Basic from '../../../pickers/routes/Color/basic/index';
 import BasicToggle from '../../../pickers/routes/Color/basicToggle';
 import BasicPositioning from '../../../pickers/routes/Color/basicPositioning';
 import CustomPicker from '../../../pickers/routes/Color/customPicker';
 import CustomPointer from '../../../pickers/routes/Color/customPointer';
 import WithRedux from '../../../pickers/routes/Color/withRedux';
-import ContainerHeader from 'components/ContainerHeader/index';
+import ContainerHeader from 'components/ContainerHeader';
 import IntlMessages from 'util/IntlMessages';
 
 const ColorPicker = ({match}) => {

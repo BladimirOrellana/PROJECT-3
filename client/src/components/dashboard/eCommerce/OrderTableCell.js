@@ -50,12 +50,12 @@ menuStateHanler(){
 
     total = getArrayOfPrice.reduce((a, b) => a + b, 0);
     const stateStyle = state.includes("Done")
-      ? "text-white bg-primary"
+      ? "text-white bg-success"
       : state.includes("Confirm")
-      ? "bg-amber"
+      ? "text-white bg-success"
       : state.includes("Active")
       ? "text-white bg-success"
-      : "text-white bg-grey";
+      : "text-white bg-success";
     return (
       <tr tabIndex={-1} key={_id}>
         <NavLink to={`/app/your-quote/details/${_id}`}>
@@ -76,19 +76,22 @@ menuStateHanler(){
         </td>
 
         <td className="text-right">
-          <IconButton onClick={this.onOptionMenuSelect.bind(this)}>
-            <i className="zmdi zmdi-more-vert" />
-          </IconButton>
-          <CardMenu
-          id={_id}
-          user={this.props.user}
-         
-          updateStateorCancel={this.updateStateorCancel.bind(this)}
-            menuState={menuState}
-            menuStateHandler={this.menuStateHanler.bind(this)}
-            anchorEl={anchorEl}
-           
-          />
+        {(state === "Estimated" || state === "Confirmed") && (
+          <div>
+            <IconButton onClick={this.onOptionMenuSelect.bind(this)}>
+              <i className="zmdi zmdi-more-vert" />
+            </IconButton>
+            <CardMenu
+              id={_id}
+              user={this.props.user}
+              updateStateorCancel={this.updateStateorCancel.bind(this)}
+              menuState={menuState}
+              menuStateHandler={this.menuStateHanler.bind(this)}
+              anchorEl={anchorEl}
+              state={state}
+            />
+          </div>
+        )}
         </td>
       </tr>
     );

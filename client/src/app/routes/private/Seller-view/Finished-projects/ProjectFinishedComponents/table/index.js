@@ -47,8 +47,8 @@ function BasicTable(props) {
               <TableCell align="right">{project.address}</TableCell>
               <TableCell align="right"><Moment format="YYYY/MM/DD">{project.createdAt}</Moment></TableCell>
               <TableCell align="right">${total}</TableCell>
-              <TableCell> <Dialog user={userInfo} projectInfo={projectInfo}/>
-              </TableCell>
+            {/*<TableCell> <Dialog user={userInfo} projectInfo={projectInfo}/>
+          </TableCell>*/}
               
             </TableRow>
            
@@ -68,7 +68,7 @@ function BasicTable(props) {
               <TableCell align="right">Adress</TableCell>
               <TableCell align="right">Date</TableCell>
               <TableCell align="right">Cost</TableCell>
-              <TableCell align="right"></TableCell>
+              {/*<TableCell align="right"></TableCell>*/}
             </TableRow>
           </TableHead>
           <TableBody>{users}</TableBody>

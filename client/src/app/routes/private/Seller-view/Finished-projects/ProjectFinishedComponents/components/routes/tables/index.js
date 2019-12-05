@@ -1,8 +1,8 @@
 import React from 'react';
 import BasicTable from './basic/BasicTable';
 import EnhancedTable from './enhanced/EnhancedTable';
-import ContainerHeader from 'components/ContainerHeader/index';
-import CardBox from 'components/CardBox/index';
+import ContainerHeader from 'components/ContainerHeader';
+import CardBox from 'components/CardBox';
 import IntlMessages from 'util/IntlMessages';
 
 const Tables = ({match}) => {

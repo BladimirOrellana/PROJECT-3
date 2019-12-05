@@ -37,6 +37,7 @@ export const selectingClientP = payload => {
   };
 };
 export const updateProjectP = payload => {
+  
   return {
     type: UPDATE_PROJECT_P,
     payload: payload
