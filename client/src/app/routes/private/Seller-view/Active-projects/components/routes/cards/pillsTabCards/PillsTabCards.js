@@ -133,7 +133,7 @@ class PillsTabCards extends React.Component {
               </NavItem>
               <NavItem>
               <NavLink >
-              <MaterialDialog project={this.props.allProjectInfo.project}/>
+              <MaterialDialog userinfo={this.props.allProjectInfo.user} project={this.props.allProjectInfo.project}/>
               </NavLink>
               </NavItem>
             </Nav>
@@ -157,7 +157,7 @@ class PillsTabCards extends React.Component {
               <CardBody>
                 <h3 className="card-title section-title-bold">Payment</h3>
                 <CardText>
-                  <PaymentModal project={this.props.allProjectInfo.project} />
+                  <PaymentModal userinfo={this.props.allProjectInfo.user} project={this.props.allProjectInfo.project} />
                   <CardText className="alignCenter">{payments()}</CardText>
                   <CardText>
                     <span className="section-title-bold">Total</span>

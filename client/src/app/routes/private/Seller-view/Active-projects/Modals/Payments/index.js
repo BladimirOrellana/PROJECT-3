@@ -30,11 +30,15 @@ class ModalDialog extends React.Component {
   };
   handleSubmit = event => {
     event.preventDefault();
+   
     const data = {
         title: 'payment',
         payment: this.state.payment,
-        quotedId: this.props.paymentInfo.project._id
+        quotedId: this.props.paymentInfo.project._id,
+        userId: this.props.paymentInfo.userinfo.id
+        
     };
+    
     if(this.state.payment === 0){
       this.setState({
         errorMessage: "Please Enter Amount"

@@ -18,7 +18,7 @@ class GetQuote extends React.Component {
 
     return (
       <div className="app-wrapper">
-        <div className="d-flex justify-content-center">Finished Project</div>
+        
         <ProjectFinishedComponents />
       </div>
     );

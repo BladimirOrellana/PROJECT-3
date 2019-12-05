@@ -22,7 +22,7 @@ class OrderTable extends Component {
 
   render() {
     
-    // console.log("ALL QUOTES", this.props.data)
+    console.log("ALL QUOTES", this.props.data)
     const {data} = this.props.data ;
 
     if(data){

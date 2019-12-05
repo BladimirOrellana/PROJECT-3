@@ -11,9 +11,10 @@ const getUsersWithQuotesRequest = async dataRequest => {
 };
 
 function* getUsersWithQuotesReceived({ payload }) {
+  
   const data = yield call(getUsersWithQuotesRequest, payload);
   const users = data.data;
-
+ 
   yield put(getUsersWithQuotesActionReceived(users));
 }
 
@@ -33,7 +34,6 @@ const getUserWithQuoteRequest = async (dataRequest) => {
 
 function* getUserWithQuoteReceived({ payload }) {
   
-  console.log("PALOAD USER SAGA", payload)
   const data = yield call(getUserWithQuoteRequest, payload);
   
   const users = data.data;

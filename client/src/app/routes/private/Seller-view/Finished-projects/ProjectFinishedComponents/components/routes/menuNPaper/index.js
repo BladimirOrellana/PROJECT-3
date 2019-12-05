@@ -4,7 +4,7 @@ import SimpleListMenu from './selected/SimpleListMenu';
 import LongMenu from './long/LongMenu';
 import CardBox from 'components/CardBox';
 import ContainerHeader from 'components/ContainerHeader';
-import UserInfo from 'components/UserInfo/index';
+import UserInfo from 'components/UserInfo';
 import PaperSheet from './paper/PaperSheet';
 import IntlMessages from 'util/IntlMessages';
 

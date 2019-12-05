@@ -3,8 +3,10 @@ import {
   showAuthMessage,
   getQuoteSuccess,
   hideAuthLoader,
-  hideMessage
+  hideMessage,
+  
 } from "actions";
+import {getUsersWithQuotesAction} from './../actions/GetUsersWithQuotes';
 import {
   GET_QUOTE_P,
   ACCEPT_QUOTE_P,
@@ -122,11 +124,14 @@ function* acceptQuoteGF({ payload }) {
 }
 
 function* updateProjectGF({ payload }) {
+  console.log('sa==========', payload)
   const { _id, data } = payload;
 
   try {
     yield call(UpDateProject, _id, data);
     yield put(loadUsersP());
+    
+    
   } catch (error) {
     yield put(showAuthMessage(error));
     yield put(hideMessage());

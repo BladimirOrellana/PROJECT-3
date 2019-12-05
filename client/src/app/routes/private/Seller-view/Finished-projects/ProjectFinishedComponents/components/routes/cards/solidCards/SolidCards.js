@@ -1,6 +1,6 @@
 import React from "react";
 import { Card, CardBody, CardSubtitle, CardText } from "reactstrap";
-import "./../../../../index.css";
+import "../../../../index.css";
 const SolidCards = (props, { headerText, cardStyle }) => {
   if (!props.allProjectInfo.project) {
     return <div></div>;

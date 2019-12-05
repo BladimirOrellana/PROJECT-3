@@ -1,8 +1,8 @@
 import React from 'react';
 import SimpleAppBar from './simple/SimpleAppBar';
 import ButtonAppBar from './button/ButtonAppBar';
-import ContainerHeader from 'components/ContainerHeader/index';
-import CardBox from 'components/CardBox/index';
+import ContainerHeader from 'components/ContainerHeader';
+import CardBox from 'components/CardBox';
 import FullFeatured from './fullyFeatured/FullFeatured';
 import IntlMessages from 'util/IntlMessages';
 

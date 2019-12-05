@@ -25,6 +25,7 @@ function* getAllActiveQuotesFromDatabaseListener(){
 
 //PAYMENT SAGA
 const addPaymentRequest = async (payment) =>{
+    console.log("SAGA request", payment)
     return await API.addExpenses(payment)
     .then(result => result)
     .catch(err => err)
@@ -32,11 +33,11 @@ const addPaymentRequest = async (payment) =>{
 
 
 function* addPaymentReceived({payload}){
-   
-    yield call(addPaymentRequest, payload.data)
+  
+    yield call(addPaymentRequest, payload)
   
    
-   yield put(getUserWithQuoteAction({userId: payload.userId, projectId: payload.data.quotedId}))
+   yield put(getUserWithQuoteAction({userId: payload.userId, projectId: payload.quotedId}))
 
 }
 function* addPymentListener(){

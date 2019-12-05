@@ -14,7 +14,7 @@ class Activeusers extends React.Component {
           <div className="col-12">
             <div className="jr-card">
               <div className="jr-card-header d-flex align-items-center">
-                <div className="ml-3">Active Projects</div>
+                <h1 className="ml-3">Active Projects</h1>
               </div>
 
               <Table users={this.props} />
@@ -28,7 +28,8 @@ class Activeusers extends React.Component {
 const mapStateToProps = state => {
   return {
     activeusers: state.activeusers,
-    usersWithQuotes: state.usersWithQuotes
+    usersWithQuotes: state.usersWithQuotes,
+
   };
 };
 

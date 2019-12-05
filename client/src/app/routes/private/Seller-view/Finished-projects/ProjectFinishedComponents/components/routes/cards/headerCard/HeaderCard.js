@@ -1,7 +1,7 @@
 import React from 'react';
 import {Card, CardBody, CardHeader, CardSubtitle, CardText} from 'reactstrap';
 import Button from '@material-ui/core/Button';
-import './../../../../index.css';
+import '../../../../index.css';
 
 const HeaderCard = (props) => {
   const user = props.allProjectInfo.user
