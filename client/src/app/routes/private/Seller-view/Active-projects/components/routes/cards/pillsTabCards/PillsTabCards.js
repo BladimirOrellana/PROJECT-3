@@ -116,7 +116,7 @@ class PillsTabCards extends React.Component {
                     this.toggle("1");
                   }}
                 >
-                  Micsellaneous
+                  Miscellaneous
                 </NavLink>
               </NavItem>
               <NavItem>
@@ -133,7 +133,7 @@ class PillsTabCards extends React.Component {
               </NavItem>
               <NavItem>
               <NavLink >
-              <MaterialDialog userinfo={this.props.allProjectInfo.user} project={this.props.allProjectInfo.project}/>
+             {/*<MaterialDialog userinfo={this.props.allProjectInfo.user} project={this.props.allProjectInfo.project}/>*/}
               </NavLink>
               </NavItem>
             </Nav>

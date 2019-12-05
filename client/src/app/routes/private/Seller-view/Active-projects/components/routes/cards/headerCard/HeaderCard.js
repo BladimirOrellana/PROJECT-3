@@ -16,8 +16,7 @@ const HeaderCard = (props) => {
         <CardText>
         {user.email}
          </CardText>
-       <a href={"tel:" + user.phone}> <button  className="btn  btn-block text-black">Call {user.phone}</button></a>
-      </CardBody>
+       </CardBody>
     </Card>
   );
 };
