@@ -1,13 +1,16 @@
+require('dotenv').config()
 const nodemailer = require("nodemailer");
 const db = require("../models");
+
 
 // Defining methods for the RawMaterialsController
 module.exports = {
   sendEmail: function(req, res) {
     console.log("EMAIL", req.body);
+    console.log("EMAIL", process.env.EMAIL_PASSWORD, process.env.EMAIL_SENDER);
     ("use strict");
     const user = req.body;
-    console.log("USER");
+    
     // async..await is not allowed in global scope, must use a wrapper
     async function main() {
       // Generate test SMTP service account from ethereal.email
@@ -20,14 +23,14 @@ module.exports = {
         port: 587,
         secure: false, // true for 465, false for other ports
         auth: {
-          user: "hbgroup@hbfencingandlandscaping.com", // generated ethereal user
-          pass: "testing3" // generated ethereal password
+          user: process.env.EMAIL_SENDER, // generated ethereal user
+          pass: process.env.EMAIL_PASSWORD // generated ethereal password
         }
       });
 
       // send mail with defined transport object
       let info = await transporter.sendMail({
-        from: '"H&B Fencing" <hbgroup@hbfencingandlandscaping.com>', // sender address
+        from: '"H&B FENCING" <hbgroup@hbfencingandlandscaping.com>', // sender address
         to: user.email, // list of receivers
         subject: "Hello " + user.firstName, // Subject line
         text: "hola", // plain text body
