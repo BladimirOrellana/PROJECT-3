@@ -16,11 +16,14 @@
 H&B Fencing is an application to provide online quotes for fence projects for the end user.
 
 # How It Works
-Users can visit the application and request a quote for their project. First they need to create an account after they are logged in. They can begin the process of acquiring a quote.
+Users can visit the application and request a quote for their project.
+
+ First they need to create an account, after they are logged in, They can begin the process of acquiring a quote.
+
 They start entering their home address and choose how many sides
 from their fence they need to install.
-Then enter the information on each side of the fence either the right side or the back side or any side of the fence
-they choose if they need a gate on either side of the fence and the width of the gate, and if the gate is sigle gate or double gate
+
+Then enter the information on each side of the fence either the right side or the back side or any side of the fence, they choose if they need a gate on either side of the fence and the width of the gate,  and if the gate is sigle gate or double gate
 depending on what they choose, the price of each gate is reflected
 
 
