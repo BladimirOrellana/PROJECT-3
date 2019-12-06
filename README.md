@@ -43,20 +43,20 @@ And the quote is stored in the database and displayed for the end user in their 
 In the admin view we have options to keek track
 of each step of each project according to its state.
 
-The initial state is ** Estimate State ** where the end user required a quota but did not confirm it.
+The initial state is **Estimate State** where the end user required a quota but did not confirm it.
+
 In this state we can only see the information since the end user did not ask for the service.
 
 
 ## About
 
-## Team
+## Meet The Developers
 
-> Or Contributors/People
 
-| <a href="" target="_blank">**Bladimir**</a> | <a href="" target="_blank">**Esteban**</a> <a href="" target="_blank">**Tahsin**</a> |
-| :---: |:---:| :---:| :---:|
-| [![HBFencing](https://avatars0.githubusercontent.com/u/50064963?s=200&v=3)](http://fvcproductions.com)    | [![HBFencing](https://avatars2.githubusercontent.com/u/26130079?s=200&v=3)](http://fvcproductions.com) | [![HBFencing](https://avatars1.githubusercontent.com/u/29633764?s=200&v=3)](http://fvcproductions.com)  | [![HBFencing](https://avatars3.githubusercontent.com/u/51348247?s=200&v=3)](http://fvcproductions.com)  |
-| <a href="https://github.com/BladimirOrellana" target="_blank">`github`</a> | <a href="https://github.com/vitawork" target="_blank">`github`</a>  <a href="https://github.com/tnazmee" target="_blank">`github`</a> |
+
+
+
+
 
 ---
 
