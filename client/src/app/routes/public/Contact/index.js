@@ -28,6 +28,8 @@ class ContactUs extends Component {
     console.log("INFO",data)
     console.log("KK",this.props)
     this.props.sendEmailAction(data)
+
+   
   }
 
 
