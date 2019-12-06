@@ -17,7 +17,7 @@ H&B Fencing is an application to provide online quotes for fence projects for th
 
 # How It Works
 
-# Client View
+## Client View
 Users can visit the application and request a quote for their project.
 
  First they need to create an account, after they are logged in, They can begin the process of acquiring a quote.
@@ -36,34 +36,27 @@ After entering the information for each side, they receive a quote with the pric
 so that they can show their neighbors the price of each side in case they decide to share the cost of the fence.
 
 They have the option of accepting the quote and when accepting, the admin receives the quote in the admin account.
-And the quote is stored in the database and displayed for the end user in their account in case you want to print the quote
+And the quote is stored in the database and displayed for the end user in their account in case They want to print the quote
 
+## Admin View
 
+In the admin view we have options to keek track
+of each step of each project according to its state.
+
+The initial state is ** Estimate State ** where the end user required a quota but did not confirm it.
+In this state we can only see the information since the end user did not ask for the service.
 
 
 ## About
-
-The application provides a  
-
-The application provides
-
-* A quick online estimate of the project
-* The user can   track the project, by login
-* Track Project material inventory
-* Allows the administrator to track cost and revenue per project
-
----
-
----
 
 ## Team
 
 > Or Contributors/People
 
-| <a href="" target="_blank">**Bladimir**</a> | <a href="" target="_blank">**Esteban**</a> | <a href="" target="_blank">**Ahmed**</a> |<a href="" target="_blank">**Tahsin**</a> |
+| <a href="" target="_blank">**Bladimir**</a> | <a href="" target="_blank">**Esteban**</a> <a href="" target="_blank">**Tahsin**</a> |
 | :---: |:---:| :---:| :---:|
 | [![HBFencing](https://avatars0.githubusercontent.com/u/50064963?s=200&v=3)](http://fvcproductions.com)    | [![HBFencing](https://avatars2.githubusercontent.com/u/26130079?s=200&v=3)](http://fvcproductions.com) | [![HBFencing](https://avatars1.githubusercontent.com/u/29633764?s=200&v=3)](http://fvcproductions.com)  | [![HBFencing](https://avatars3.githubusercontent.com/u/51348247?s=200&v=3)](http://fvcproductions.com)  |
-| <a href="https://github.com/BladimirOrellana" target="_blank">`github`</a> | <a href="https://github.com/vitawork" target="_blank">`github`</a> | <a href="https://github.com/anw1986" target="_blank">`github`</a> | <a href="https://github.com/tnazmee" target="_blank">`github`</a> |
+| <a href="https://github.com/BladimirOrellana" target="_blank">`github`</a> | <a href="https://github.com/vitawork" target="_blank">`github`</a>  <a href="https://github.com/tnazmee" target="_blank">`github`</a> |
 
 ---
 
