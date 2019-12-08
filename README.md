@@ -81,7 +81,6 @@ where the information of all finished projects is reflected.
 
   Bladimir Orellana     |  Esteban Morell Batista   |   Tahsin Nazmee   
 ----------------------- | ------------------------- | ------------------
-http://github.com - automatic!
 [Linkedin](https://www.linkedin.com/in/bladimir-orellana-b9b661185/)             |   Linkedin                | Linkedin
   
 
