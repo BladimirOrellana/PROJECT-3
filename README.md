@@ -43,9 +43,34 @@ And the quote is stored in the database and displayed for the end user in their 
 In the admin view we have options to keek track
 of each step of each project according to its state.
 
-The initial state is **Estimate State** where the end user required a quota but did not confirm it.
+## Estimated State
+The initial state is Call **Estimate** State where the end user required a quot but did not confirm it.
 
 In this state we can only see the information since the end user did not ask for the service.
+
+
+## Comfirmed State
+The second state is called **Comfirmed** in this state the end user Comfirmed the quote, this means that the end user accepted the price and requires the services to install the fence
+
+whether the end user confirmed it at the time the quote was requested or days or months after requesting it. They have the option of starting the installation process.
+by login into their account.
+
+After accepting the quote the admin receive the information
+as a confirmed project.
+at this point the admin has the option to start the project and move on to the other state called ** Active ** state
+
+## Active State
+In the active state, we have options to add expenses related to that project as 
+miscellaneous
+worker payments 
+and material used in that project.
+
+At this point the administrator has the option to cancel or finalize the project
+
+## Done State
+completed projects go to the state **Done**
+where the information of all finished projects is reflected
+
 
 
 ## About
