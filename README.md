@@ -68,14 +68,21 @@ and material used in that project.
 At this point the administrator has the option to cancel or finalize the project
 
 ## Done State
-completed projects go to the state **Done**
-where the information of all finished projects is reflected
+completed projects go to the **Done** state 
+where the information of all finished projects is reflected.
+
 
 
 
 ## About
 
+
 ## Meet The Developers
+
+  Bladimir Orellana     |  Esteban Morell Batista   |   Tahsin Nazmee   
+----------------------- | ------------------------- | ------------------
+Linkedin                |   Linkedin                | Linkedin
+                        |                           |
 
 
 
