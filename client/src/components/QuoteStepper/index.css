@@ -1,6 +1,6 @@
 #nextBackButtonsDiv {
   text-align: center !important;
-  margin-top: 50px;
+  /* margin-top: 50px; */
 }
 
 #nextButtonsDiv:disabled {
@@ -13,7 +13,7 @@
 
 #gatesCard,
 .jr-card {
-  margin-bottom: 0 !important;
+  /* margin-bottom: 0 !important; */
   margin-top: 15px !important;
 }
 

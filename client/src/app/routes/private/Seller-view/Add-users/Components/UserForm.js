@@ -205,7 +205,7 @@ class UserForm extends React.Component {
           </div>
         </div>
         {!this.props.delete && (
-          <Tooltip className="closeButton" title="Close">
+          <Tooltip className="closeButtonUsers" title="Close">
             <IconButton
               className="closeButton"
               aria-label="add"
