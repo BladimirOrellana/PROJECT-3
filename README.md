@@ -25,7 +25,7 @@ Users can visit the application and request a quote for their project.
 They start entering their home address and choose how many sides
 from their fence they need to install.
 
-Then enter the information "Length in ft" on each side of the fence either the right side or the back side or any side of the fence.
+Then enter the information Length in **ft** on each side of the fence either the right side or the back side or any side of the fence.
 
 And depending on what type of wood they want to use,  the price of the fence changes
 
@@ -44,7 +44,7 @@ In the admin view we have options to keek track
 of each step of each project according to its state.
 
 ## Estimated State
-The initial state is Call **Estimate** State where the end user required a quot but did not confirm it.
+The initial state is Call **Estimate** State where the end user required a quote but did not confirm it.
 
 In this state we can only see the information since the end user did not ask for the service.
 
@@ -57,7 +57,7 @@ by login into their account.
 
 After accepting the quote the admin receive the information
 as a confirmed project.
-at this point the admin has the option to start the project and move on to the other state called ** Active ** state
+at this point the admin has the option to start the project and move on to the other state called **Active** state
 
 ## Active State
 In the active state, we have options to add expenses related to that project as 
@@ -68,40 +68,39 @@ and material used in that project.
 At this point the administrator has the option to cancel or finalize the project
 
 ## Done State
-completed projects go to the state **Done**
-where the information of all finished projects is reflected
+completed projects go to the **Done** state 
+where the information of all finished projects is reflected.
+
 
 
 
 ## About
 
+
 ## Meet The Developers
 
+      
+| Bladimir Orellana | Esteban Morell Batista | Tahsin Nazmee |
+| :---:         |     :---:      |          :---: |
+| [Linkedin](https://www.linkedin.com/in/bladimir-orellana-b9b661185/)   | [Linkedin](https://www.linkedin.com/in/esteban-morell-52ba7911a/)     | [Linkedin](https://www.linkedin.com/in/tahsin-nazmee-0808b7197/)     |
+| [Github](https://github.com/BladimirOrellana)     | [Github](https://github.com/vitawork)       | [Github](https://github.com/tnazmee)      |
+
+  
 
 
 
+## TOOLS
+
+* React
+* Redux
+* Saga
+* Express
+* MongoDB
+* Rest API
+* Firebase
 
 
 
----
-
----
-
-## NPM Packages
-
-* React 
-* dotenv
-* mongoose
-
----
-<!-- 
-## Future ideas
-
-* Add user databse, so that articles/comments can be saved for individual users
-* Adding tags and datetime stamps for filtering/sorting articles -->
-## Wireframe
-
-[![wireframe](client/public/favicon_io/apple-touch-icon.png)](https://s3.amazonaws.com/assets.mockflow.com/app/wireframepro/fileexport/Export_D4e10b746a1e3dc0467ae17308335ffc0.pdf)
 
 ## License
 
