@@ -79,9 +79,11 @@ where the information of all finished projects is reflected.
 
 ## Meet The Developers
 
-  Bladimir Orellana     |  Esteban Morell Batista   |   Tahsin Nazmee   
------------------------ | ------------------------- | ------------------
-[Linkedin](https://www.linkedin.com/in/bladimir-orellana-b9b661185/)|[Linkedin](https://www.linkedin.com/in/esteban-morell-52ba7911a/)|[Linkedin](https://www.linkedin.com/in/tahsin-nazmee-0808b7197/)
+      
+| Bladimir Orellana | Esteban Morell Batista | Tahsin Nazmee |
+| :---         |     :---:      |          ---: |
+| git status   | git status     | git status    |
+| git diff     | git diff       | git diff      |
   
 
 
