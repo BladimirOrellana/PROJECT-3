@@ -90,13 +90,13 @@ where the information of all finished projects is reflected.
 
 ## TOOLS
 
-*React
-*Redux
-*Saga
-*Express
-*MongoDB
-*Rest API
-*Firebase
+* React
+* Redux
+* Saga
+* Express
+* MongoDB
+* Rest API
+* Firebase
 
 
 
