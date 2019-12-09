@@ -81,7 +81,12 @@ where the information of all finished projects is reflected.
 
   Bladimir Orellana     |  Esteban Morell Batista   |   Tahsin Nazmee   
 ----------------------- | ------------------------- | ------------------
-[Linkedin](https://www.linkedin.com/in/bladimir-orellana-b9b661185/) |   [Linkedin](https://www.linkedin.com/in/esteban-morell-52ba7911a/)                | [Linkedin](https://www.linkedin.com/in/tahsin-nazmee-0808b7197/)
+[Linkedin](https://www.linkedin.com/in/bladimir-orellana-b9b661185/) 
+[Github](https://www.linkedin.com/in/bladimir-orellana-b9b661185/)      |
+[Linkedin](https://www.linkedin.com/in/esteban-morell-52ba7911a/)       
+[Github](https://github.com/vitawork)       |
+[Linkedin](https://www.linkedin.com/in/tahsin-nazmee-0808b7197/)        
+[Github](https://github.com/tnazmee)       
   
 
 
@@ -94,21 +99,18 @@ where the information of all finished projects is reflected.
 
 ---
 
-## NPM Packages
+## TOOLS
 
-* React 
-* dotenv
-* mongoose
+*React
+*Redux
+*Saga
+*Express
+*MongoDB
+*Rest API
+*Firebase
 
----
-<!-- 
-## Future ideas
 
-* Add user databse, so that articles/comments can be saved for individual users
-* Adding tags and datetime stamps for filtering/sorting articles -->
-## Wireframe
 
-[![wireframe](client/public/favicon_io/apple-touch-icon.png)](https://s3.amazonaws.com/assets.mockflow.com/app/wireframepro/fileexport/Export_D4e10b746a1e3dc0467ae17308335ffc0.pdf)
 
 ## License
 
