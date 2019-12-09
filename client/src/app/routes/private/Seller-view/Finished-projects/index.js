@@ -2,9 +2,10 @@ import React from "react";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { setInitUrl } from "../../../../../actions/Auth";
-import ProjectFinishedComponents from "./ProjectFinishedComponents";
+import ProjectsTable from "./Components/ProjectsTable";
+import "./index.css";
 
-class GetQuote extends React.Component {
+class ConfirmedProjects extends React.Component {
   //it will save the path in initURL state
   componentWillMount() {
     this.props.setInitUrl(this.props.history.location.pathname);
@@ -18,8 +19,18 @@ class GetQuote extends React.Component {
 
     return (
       <div className="app-wrapper">
-        
-        <ProjectFinishedComponents />
+        <div className="row mb-md-3">
+          <div className="offset-lg-2 col-lg-8 col-md-12">
+            <div className="jr-card">
+              <div className="jr-card-header d-flex align-items-center">
+                <h1 className="mb-0" id="usersHeader">
+                  Confirmed Projects
+                </h1>
+              </div>
+              <ProjectsTable />
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
@@ -30,4 +41,6 @@ const mapStateToProps = ({ auth }) => {
   return { authUser, initURL };
 };
 
-export default connect(mapStateToProps, { setInitUrl })(GetQuote);
+export default connect(mapStateToProps, {
+  setInitUrl
+})(ConfirmedProjects);

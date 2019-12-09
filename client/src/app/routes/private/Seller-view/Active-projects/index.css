@@ -1,76 +1,66 @@
-
-.dialog{
- 
-}
-.fullScreenDialogTollBar{
-  
-}
-.fullDialogList{
-    padding: 10px;
-    width: 70%;
-    margin: 0 auto;
-   
+.fullDialogList {
+  padding: 10px;
+  width: 70%;
+  margin: 0 auto;
 }
 
-.address{
-    padding: 10px;
+.address {
+  padding: 10px;
 }
-.alignCenter{
-   text-align: right;
+.alignCenter {
+  text-align: right;
 }
-.section-title-bold{
-    font-size: 40px;
-    font-weight: bold;
+.section-title-bold {
+  font-size: 40px;
+  font-weight: bold;
 }
-.total-miscellaneous{
-    font-size: 20px;
-    padding-top: 10px;
+.total-miscellaneous {
+  font-size: 20px;
+  padding-top: 10px;
 }
-.cardComponentHeader{
+.cardComponentHeader {
   padding: 10px;
 }
 
+.form-container {
+  width: 50%;
+  margin: 0 auto;
+}
+.material-list {
+  width: 50%;
+  margin: 0 auto;
+}
+.text-right {
+  float: right;
+}
+.form-and-material-container {
+  height: 100%;
+  overflow: scroll;
+}
 
-.form-container{
-    width: 50%;
-    margin: 0 auto;
+#fullView {
+  color: rgb(73, 141, 75);
+  background-color: rgba(201, 115, 115, 0);
+  border-radius: 50px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
 }
-.material-list{
-  
-    width: 50%;
-    margin: 0 auto;
-  
+#fullView:hover {
+  color: rgb(78, 78, 78);
+  background-color: rgba(177, 209, 179, 0.74);
+}
 
-   
-}
-.text-right{
-    float: right;
-}
-.form-and-material-container{
-   height: 100%;
-   overflow: scroll;
-}
-.material-purchased-container{
-
-}
 @media only screen and (max-width: 800px) {
-    .fullDialogList{
-        width: 100%;
-        margin: 0 auto;
-    }
-    .form-container{
-        width: 100%;
-        margin: 0 auto;
-    }
-    .material-list{
-      
-        width: 100%;
-        margin: 0 auto;
-      
-    
-       
-    }
-    .text-right{
-        
-    }
+  .fullDialogList {
+    width: 100%;
+    margin: 0 auto;
   }
+  .form-container {
+    width: 100%;
+    margin: 0 auto;
+  }
+  .material-list {
+    width: 100%;
+    margin: 0 auto;
+  }
+}

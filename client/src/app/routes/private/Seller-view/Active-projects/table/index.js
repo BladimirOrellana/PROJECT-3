@@ -22,9 +22,7 @@ class BasicTable extends React.Component {
   updateState(quoteId, changeState) {
     this.props.updateProjectP({
       _id: quoteId,
-      data: { state: changeState,finishDate: Date.now() }
-      
-
+      data: { state: changeState, finishDate: Date.now() }
     });
   }
 
@@ -66,7 +64,7 @@ class BasicTable extends React.Component {
 
   render() {
     const data = this.projectsArray(this.props.users);
-    
+
     return (
       <div className="table-responsive-material">
         <Table>
@@ -85,7 +83,7 @@ class BasicTable extends React.Component {
           <TableBody>
             {data
               ? data.map(n => {
-                return (
+                  return (
                     <TableRow key={n._id}>
                       <TableCell>{n.name}</TableCell>
                       <TableCell align="left">{n.phone}</TableCell>

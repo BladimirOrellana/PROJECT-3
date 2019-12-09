@@ -16,17 +16,18 @@ class GetQuote extends React.Component {
     //if none is signed redirect it to Sigin page
     if (this.props.authUser === null) {
       return <Redirect to={"/signin"} />;
-    }else{
-    if (
-      this.props.user.role === "Seller" &&
-      !this.props.client.name &&
-      this.props.estimatedPrice === 0
-    ) {
-      return <Redirect to={"/app/add-users"} />;
-    }}
+    } else {
+      if (
+        this.props.user.role === "Seller" &&
+        !this.props.client.name &&
+        this.props.estimatedPrice === 0
+      ) {
+        return <Redirect to={"/app/add-users"} />;
+      }
+    }
 
     return (
-      <div className="row homemaindiv mb-md-3">
+      <div className="row homemaindivQuote mb-md-3">
         {(this.props.user.role === "Client" ||
           this.props.client.name ||
           this.props.estimatedPrice !== 0) && (
