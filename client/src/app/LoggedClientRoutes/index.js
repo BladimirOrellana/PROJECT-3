@@ -44,12 +44,12 @@ class LoggedInClientRoutes extends Component {
             import("./../routes/private/Client-view/your-quotes")
           )}
         />
-        <Route
+       {/*  <Route
         path={`${match.url}/profile`}
         component={asyncComponent(() =>
           import('./../routes/private/Profile')
         )}
-      />
+        />*/}
      
 
         <Route
