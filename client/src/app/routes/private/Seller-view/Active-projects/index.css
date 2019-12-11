@@ -3,7 +3,6 @@
   width: 70%;
   margin: 0 auto;
 }
-
 .address {
   padding: 10px;
 }
@@ -11,22 +10,22 @@
   text-align: right;
 }
 .section-title-bold {
-  font-size: 40px;
-  font-weight: bold;
+  font-size: 21px;
+  /* font-weight: bold; */
 }
 .total-miscellaneous {
   font-size: 20px;
-  padding-top: 10px;
+  /* padding-top: 10px; */
 }
-.cardComponentHeader {
+/* .cardComponentHeader {
   padding: 10px;
-}
+} */
 
 .form-container {
   width: 50%;
   margin: 0 auto;
 }
-.material-list {
+#table-containerMatProj {
   width: 50%;
   margin: 0 auto;
 }
@@ -59,8 +58,73 @@
     width: 100%;
     margin: 0 auto;
   }
-  .material-list {
+  #table-containerMatProj {
     width: 100%;
     margin: 0 auto;
   }
+}
+
+#AddButtonMatToProjt {
+  text-align: right !important;
+  margin: 10px 0 10px 0;
+}
+
+#form-containerMatProj {
+  background-color: #fbfafa;
+  padding: 12px 20px 10px 20px;
+  border-radius: 5px;
+}
+
+#table-containerMatProj {
+  background-color: #fbfafa;
+  padding: 12px 20px 10px 20px;
+  border-radius: 5px;
+  padding-bottom: 40px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.textR {
+  text-align: right !important;
+}
+
+#closeButtonMatProjt {
+  margin-top: 5px;
+  margin-right: 25px;
+}
+
+.alertMessage {
+  margin: 0;
+  color: rgb(214, 96, 96);
+}
+
+#MiscellaneousModalMainDiv,
+#PaymentModalMainDiv {
+  padding: 12px;
+}
+
+.MuiDialogTitle-root {
+  padding: 10px 24px 0 24px !important;
+}
+
+.MuiDialogActions-root {
+  padding: 3px 24px 15px 24px !important;
+}
+
+.hoverTopNavButton:hover {
+  background-color: rgba(204, 218, 204, 0.596);
+  border-radius: 5px;
+}
+
+.w-70 .ModalButtton {
+  height: 38px !important;
+}
+
+.w-70 {
+  width: 100% !important;
+}
+
+.noPaddingTopBotton {
+  padding-bottom: 0 !important;
+  padding-top: 0 !important;
 }

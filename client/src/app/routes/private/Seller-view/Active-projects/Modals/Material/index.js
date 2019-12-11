@@ -80,6 +80,7 @@ class ModalDialog extends React.Component {
         maxWidth="xs"
         onEntering={this.handleEntering}
         {...other}
+        
       >
         <DialogTitle>Add Material</DialogTitle>
         <p className="alertMessage">{this.state.errorMessage}</p>
@@ -105,6 +106,7 @@ class ModalDialog extends React.Component {
               name="itemQuantity"
               label="Quantity"
               variant="outlined"
+              type="number"
             />
             <TextField
               onChange={this.handleOnChange}
@@ -112,6 +114,7 @@ class ModalDialog extends React.Component {
               name="itemPrice"
               label="$ Price"
               variant="outlined"
+              type="number"
             />
           </form>
         </DialogContent>

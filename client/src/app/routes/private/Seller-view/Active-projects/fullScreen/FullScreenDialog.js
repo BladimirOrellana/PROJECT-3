@@ -69,10 +69,18 @@ class FullScreenDialog extends React.Component {
             </IconButton>
           </Toolbar>
           <List className="fullDialogList ">
-            <HeaderCard allProjectInfo={this.props} />
-            <NormalCard allProjectInfo={this.props} />
-            <SolidCard allProjectInfo={this.props} />
-            <MiscellaneousCard allProjectInfo={this.props} />
+            <div className="row">
+              <div className="col-md-7 col-sm-12">
+                <HeaderCard allProjectInfo={this.props} />
+
+                {/* <NormalCard allProjectInfo={this.props} /> */}
+
+                {/* <SolidCard allProjectInfo={this.props} /> */}
+              </div>
+              <div className="col-md-5 col-sm-12">
+                <MiscellaneousCard allProjectInfo={this.props} />
+              </div>
+            </div>
           </List>
         </Dialog>
       </div>

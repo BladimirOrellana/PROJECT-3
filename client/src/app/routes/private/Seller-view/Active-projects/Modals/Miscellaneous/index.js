@@ -78,41 +78,51 @@ class ModalDialog extends React.Component {
         onEntering={this.handleEntering}
         {...other}
       >
-        <DialogTitle>Add Miscellaneous</DialogTitle>
-        <p className="alertMessage">{this.state.errorMessage}</p>
-        <DialogContent className="modalContainer">
-          <form noValidate autoComplete="off">
-            <TextField
-              onChange={this.handleOnChange}
-              className="textInput"
-              name="item"
-              label="description"
-              variant="outlined"
-            />
-            <TextField
-              onChange={this.handleOnChange}
-              className="textInput"
-              name="amount"
-              label="$ Amount"
-              variant="outlined"
-            />
-          </form>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={this.handleCancel} className="modalActionButtons">
-            Cancel
-          </Button>
-          <Button
-            type="submit"
-            onClick={e => {
-              e.preventDefault();
-              this.handleSubmit(e);
-            }}
-            className="modalActionButtons"
-          >
-            Add
-          </Button>
-        </DialogActions>
+        <div id="MiscellaneousModalMainDiv">
+          <DialogTitle>Add Miscellaneous</DialogTitle>
+          <p className="alertMessage">{this.state.errorMessage}</p>
+          <DialogContent className="modalContainer">
+            <form noValidate autoComplete="off">
+              <TextField
+                onChange={this.handleOnChange}
+                className="textInput"
+                name="item"
+                label="description"
+                variant="outlined"
+              />
+              <TextField
+                onChange={this.handleOnChange}
+                className="textInput"
+                name="amount"
+                label="$ Amount"
+                variant="outlined"
+                type="number"
+              />
+            </form>
+          </DialogContent>
+          <DialogActions>
+            <Button
+              color="primary"
+              onClick={this.handleCancel}
+              variant="contained"
+              className="modalActionButtons"
+            >
+              Cancel
+            </Button>
+            <Button
+              color="primary"
+              variant="contained"
+              type="submit"
+              onClick={e => {
+                e.preventDefault();
+                this.handleSubmit(e);
+              }}
+              className="modalActionButtons"
+            >
+              Add
+            </Button>
+          </DialogActions>
+        </div>
       </Dialog>
     );
   }
@@ -140,7 +150,7 @@ class MiscellaneousModal extends React.Component {
 
   render() {
     return (
-      <div className="d-inline-block w-100">
+      <div className="d-inline-block w-70">
         <List>
           <ListItem
             className="ModalButtton"
