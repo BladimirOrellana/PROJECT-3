@@ -80,6 +80,7 @@ class ModalDialog extends React.Component {
         maxWidth="xs"
         onEntering={this.handleEntering}
         {...other}
+        
       >
         <DialogTitle>Add Material</DialogTitle>
         <p className="alertMessage">{this.state.errorMessage}</p>

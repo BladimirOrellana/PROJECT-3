@@ -18,7 +18,7 @@ class NestedList extends React.Component {
     
    return (
       <List>
-      <ListItem button className="listItem">
+      <ListItem button  className="noPaddingTopBotton listItem">
          <ListItemText>{this.props.miscellaneousData.description}</ListItemText>
          <span className="align-right"> ${this.props.miscellaneousData.amount.$numberDecimal}</span>
 

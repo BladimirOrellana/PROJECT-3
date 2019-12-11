@@ -73,30 +73,42 @@ class ModalDialog extends React.Component {
         onEntering={this.handleEntering}
         {...other}
       >
-        <DialogTitle>Add A Payment</DialogTitle>
-        <p ref="alert" className="alertMessage">
-          {this.state.errorMessage}
-        </p>
-        <DialogContent className="modalContainer">
-          <form onSubmit={this.handleSubmit} noValidate autoComplete="off">
-            <TextField
-              onChange={this.handleOnChange}
-              className="textInput"
-              name="payment"
-              label="$ Amount"
-              variant="outlined"
-              type="number"
-            />
-          </form>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={this.handleCancel} className="modalActionButtons">
-            Cancel
-          </Button>
-          <Button onClick={this.handleSubmit} className="modalActionButtons">
-            Add
-          </Button>
-        </DialogActions>
+        <div id="PaymentModalMainDiv">
+          <DialogTitle>Add A Payment</DialogTitle>
+          <p ref="alert" className="alertMessage">
+            {this.state.errorMessage}
+          </p>
+          <DialogContent className="modalContainer">
+            <form onSubmit={this.handleSubmit} noValidate autoComplete="off">
+              <TextField
+                onChange={this.handleOnChange}
+                className="textInput"
+                name="payment"
+                label="$ Amount"
+                variant="outlined"
+                type="number"
+              />
+            </form>
+          </DialogContent>
+          <DialogActions>
+            <Button
+              onClick={this.handleCancel}
+              color="primary"
+              variant="contained"
+              className="modalActionButtons"
+            >
+              Cancel
+            </Button>
+            <Button
+              onClick={this.handleSubmit}
+              color="primary"
+              variant="contained"
+              className="modalActionButtons"
+            >
+              Add
+            </Button>
+          </DialogActions>
+        </div>
       </Dialog>
     );
   }
@@ -124,7 +136,7 @@ class PaymentModal extends React.Component {
 
   render() {
     return (
-      <div className="d-inline-block w-100">
+      <div className="d-inline-block w-70">
         <List>
           <ListItem
             className="ModalButtton"
