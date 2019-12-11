@@ -19,44 +19,40 @@ class ModalDialog extends React.Component {
     this.state = {
       value: undefined,
       payment: 0,
-      errorMessage: ''
+      errorMessage: ""
     };
   }
 
   handleCancel = () => {
     this.props.onClose(this.props.value);
-   
-   
   };
   handleSubmit = event => {
     event.preventDefault();
-   
+
     const data = {
-        title: 'payment',
-        payment: this.state.payment,
-        quotedId: this.props.paymentInfo.project._id,
-        userId: this.props.paymentInfo.userinfo.id
-        
+      title: "payment",
+      payment: this.state.payment,
+      quotedId: this.props.paymentInfo.project._id,
+      userId: this.props.paymentInfo.userinfo.id
     };
-    
-    if(this.state.payment === 0){
+
+    if (this.state.payment === 0) {
       this.setState({
         errorMessage: "Please Enter Amount"
-      })
-          }else{
-            this.refs.alert.remove()
-       this.props.onClose(this.state.value);
-            this.props.paymentInfo.addPaymentAction(data);
-            this.setState({
-                payment: 0,
-                errorMessage: ''
-            })
-          }
-   
+      });
+    } else {
+      this.refs.alert.remove();
+      this.props.onClose(this.state.value);
+      this.props.paymentInfo.addPaymentAction(data);
+      this.setState({
+        payment: 0,
+        errorMessage: ""
+      });
+    }
   };
 
   handleOnChange = event => {
-   this.setState({
+    this.setState({
       [event.target.name]: event.target.value
     });
   };
@@ -65,7 +61,7 @@ class ModalDialog extends React.Component {
   };
 
   render() {
-   const { payment } = this.state;
+    const { payment } = this.state;
 
     const { value, ...other } = this.props;
 
@@ -78,7 +74,9 @@ class ModalDialog extends React.Component {
         {...other}
       >
         <DialogTitle>Add A Payment</DialogTitle>
-        <p ref="alert" className="alertMessage">{this.state.errorMessage}</p>
+        <p ref="alert" className="alertMessage">
+          {this.state.errorMessage}
+        </p>
         <DialogContent className="modalContainer">
           <form onSubmit={this.handleSubmit} noValidate autoComplete="off">
             <TextField
@@ -87,13 +85,12 @@ class ModalDialog extends React.Component {
               name="payment"
               label="$ Amount"
               variant="outlined"
-            
+              type="number"
             />
-
           </form>
         </DialogContent>
         <DialogActions>
-          <Button onClick={this.handleCancel} className="modalActionButtons" >
+          <Button onClick={this.handleCancel} className="modalActionButtons">
             Cancel
           </Button>
           <Button onClick={this.handleSubmit} className="modalActionButtons">
@@ -129,14 +126,17 @@ class PaymentModal extends React.Component {
     return (
       <div className="d-inline-block w-100">
         <List>
-          <ListItem className="ModalButtton" button onClick={this.handleClickListItem}>
-            <ListItemText  primary="Add" />
+          <ListItem
+            className="ModalButtton"
+            button
+            onClick={this.handleClickListItem}
+          >
+            <ListItemText primary="Add" />
           </ListItem>
           <ModalDialog
             paymentInfo={this.props}
             open={this.state.open}
             onClose={this.handleRequestClose}
-            
           />
         </List>
       </div>

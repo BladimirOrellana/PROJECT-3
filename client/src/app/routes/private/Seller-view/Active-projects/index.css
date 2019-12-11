@@ -11,7 +11,7 @@
   text-align: right;
 }
 .section-title-bold {
-  font-size: 40px;
+  font-size: 30px;
   font-weight: bold;
 }
 .total-miscellaneous {
@@ -26,7 +26,7 @@
   width: 50%;
   margin: 0 auto;
 }
-.material-list {
+#table-containerMatProj {
   width: 50%;
   margin: 0 auto;
 }
@@ -59,8 +59,37 @@
     width: 100%;
     margin: 0 auto;
   }
-  .material-list {
+  #table-containerMatProj {
     width: 100%;
     margin: 0 auto;
   }
+}
+
+#AddButtonMatToProjt {
+  text-align: right !important;
+  margin: 10px 0 10px 0;
+}
+
+#form-containerMatProj {
+  background-color: #fbfafa;
+  padding: 12px 20px 10px 20px;
+  border-radius: 5px;
+}
+
+#table-containerMatProj {
+  background-color: #fbfafa;
+  padding: 12px 20px 10px 20px;
+  border-radius: 5px;
+  padding-bottom: 40px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.textR {
+  text-align: right !important;
+}
+
+#closeButtonMatProjt {
+  margin-top: 5px;
+  margin-right: 25px;
 }

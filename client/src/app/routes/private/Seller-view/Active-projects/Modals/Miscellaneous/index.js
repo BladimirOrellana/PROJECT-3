@@ -95,6 +95,7 @@ class ModalDialog extends React.Component {
               name="amount"
               label="$ Amount"
               variant="outlined"
+              type="number"
             />
           </form>
         </DialogContent>

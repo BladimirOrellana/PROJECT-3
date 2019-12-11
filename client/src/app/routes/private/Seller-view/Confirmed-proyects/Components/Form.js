@@ -57,7 +57,7 @@ class UserForm extends React.Component {
             </form>
           </div>
         </div>
-        <Tooltip className="closeButton" title="Close">
+        <Tooltip className="closeB" title="Close">
           <IconButton
             className="closeButton"
             aria-label="add"

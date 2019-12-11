@@ -62,7 +62,7 @@ class PillsTabCards extends React.Component {
         if (miscellaneousData.length === 0) {
           return (
             <div>
-              <h1 className="text-center">No Data</h1>
+              <h1 className="text-center">No Data Yet</h1>
               <button className="btn btn-block">Add Miscellaneous</button>
               <MiscellaneousModal userinfo={this.props.allProjectInfo.user} project={this.props.allProjectInfo.project} />
             </div>
