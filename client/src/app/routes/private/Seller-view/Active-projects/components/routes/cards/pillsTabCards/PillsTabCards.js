@@ -1,9 +1,9 @@
 import React from "react";
-import {connect} from 'react-redux';
+import { connect } from "react-redux";
 import PaymentModal from "./../../../../Modals/Payments";
 import MiscellaneousModal from "./../../../../Modals/Miscellaneous";
-import MaterialDialog from './../../../../fullScreenMaterialDialog/FullScreenDialog';
-import {getUserWithQuoteAction} from './../../../../../../../../../actions/GetUsersWithQuotes';
+import MaterialDialog from "./../../../../fullScreenMaterialDialog/FullScreenDialog";
+import { getUserWithQuoteAction } from "./../../../../../../../../../actions/GetUsersWithQuotes";
 // import MaterialModal from './../Modals/Material';
 import "./../../../../index.css";
 import {
@@ -23,7 +23,6 @@ import NestedList from "./../../list/nestedList/NestedList";
 import classnames from "classnames";
 
 class PillsTabCards extends React.Component {
-  
   constructor(props) {
     super(props);
 
@@ -42,7 +41,7 @@ class PillsTabCards extends React.Component {
   }
 
   render() {
-    console.log("MISCELLANEOS modal ", this.props)
+    console.log("MISCELLANEOS modal ", this.props);
     if (!this.props.allProjectInfo.project) {
       return <div></div>;
     } else {
@@ -63,8 +62,11 @@ class PillsTabCards extends React.Component {
           return (
             <div>
               <h1 className="text-center">No Data Yet</h1>
-              <button className="btn btn-block">Add Miscellaneous</button>
-              <MiscellaneousModal userinfo={this.props.allProjectInfo.user} project={this.props.allProjectInfo.project} />
+              {/* <button className="btn w-70 btn-block">Add Miscellaneous</button> */}
+              <MiscellaneousModal
+                userinfo={this.props.allProjectInfo.user}
+                project={this.props.allProjectInfo.project}
+              />
             </div>
           );
         } else {
@@ -73,7 +75,10 @@ class PillsTabCards extends React.Component {
           });
           return (
             <div>
-              <MiscellaneousModal userinfo={this.props.allProjectInfo.user}  project={this.props.allProjectInfo.project} />
+              <MiscellaneousModal
+                userinfo={this.props.allProjectInfo.user}
+                project={this.props.allProjectInfo.project}
+              />
 
               {getMiscellaneous}
             </div>
@@ -100,14 +105,14 @@ class PillsTabCards extends React.Component {
         const getPaymentsFiltered = getPayments.filter(data => {
           return data.props.children !== "0";
         });
-        return <div>{getPaymentsFiltered}</div>;
+        return <div className="noPaddingTopBotton">{getPaymentsFiltered}</div>;
       };
 
       return (
         <Card className="shadow border-0">
           <CardHeader className=" pb-2">
             <Nav className="card-header-pills" pills>
-              <NavItem>
+              <NavItem className="hoverTopNavButton">
                 <NavLink
                   className={classnames({
                     active: this.state.activeTab === "1"
@@ -119,7 +124,7 @@ class PillsTabCards extends React.Component {
                   Miscellaneous
                 </NavLink>
               </NavItem>
-              <NavItem>
+              <NavItem className="hoverTopNavButton">
                 <NavLink
                   className={classnames({
                     active: this.state.activeTab === "2"
@@ -128,13 +133,16 @@ class PillsTabCards extends React.Component {
                     this.toggle("2");
                   }}
                 >
-                  Payment
+                  Payments
                 </NavLink>
               </NavItem>
-              <NavItem>
-              <NavLink >
-             <MaterialDialog userinfo={this.props.allProjectInfo.user} project={this.props.allProjectInfo.project}/>
-              </NavLink>
+              <NavItem className="hoverTopNavButton">
+                <NavLink>
+                  <MaterialDialog
+                    userinfo={this.props.allProjectInfo.user}
+                    project={this.props.allProjectInfo.project}
+                  />
+                </NavLink>
               </NavItem>
             </Nav>
           </CardHeader>
@@ -142,7 +150,7 @@ class PillsTabCards extends React.Component {
           <TabContent activeTab={this.state.activeTab}>
             <TabPane tabId="1">
               <CardBody>
-                <h3 className="card-title section-title-bold">Miscellaneous</h3>
+                {/* <h3 className="card-title section-title-bold">Miscellaneous</h3> */}
                 <CardText>{miscellaneous()}</CardText>
                 <CardText>
                   <span className="section-title-bold">Total</span>
@@ -155,9 +163,12 @@ class PillsTabCards extends React.Component {
 
             <TabPane tabId="2">
               <CardBody>
-                <h3 className="card-title section-title-bold">Payment</h3>
+                {/* <h3 className="card-title section-title-bold">Payment</h3> */}
                 <CardText>
-                  <PaymentModal userinfo={this.props.allProjectInfo.user} project={this.props.allProjectInfo.project} />
+                  <PaymentModal
+                    userinfo={this.props.allProjectInfo.user}
+                    project={this.props.allProjectInfo.project}
+                  />
                   <CardText className="alignCenter">{payments()}</CardText>
                   <CardText>
                     <span className="section-title-bold">Total</span>
@@ -168,19 +179,18 @@ class PillsTabCards extends React.Component {
                 </CardText>
               </CardBody>
             </TabPane>
-            <TabPane tabId="3">
-            
-           </TabPane>
+            <TabPane tabId="3"></TabPane>
           </TabContent>
         </Card>
       );
     }
   }
 }
-const  mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     project: state.usersWithQuotes.projectData
-  }
-}
-export default connect(mapStateToProps,{getUserWithQuoteAction})(PillsTabCards);
-
+  };
+};
+export default connect(mapStateToProps, { getUserWithQuoteAction })(
+  PillsTabCards
+);

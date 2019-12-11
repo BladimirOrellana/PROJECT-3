@@ -59,6 +59,13 @@ class BasicTable extends React.Component {
         }
       });
     }
+
+    projects.sort(function(a, b) {
+      a = new Date(a.createdAt);
+      b = new Date(b.createdAt);
+      return a > b ? -1 : a < b ? 1 : 0;
+    });
+
     return projects;
   };
 

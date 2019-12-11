@@ -1,0 +1,45 @@
+.mainRow {
+  background-color: #bbc9bc62;
+}
+
+.rct-scroll {
+  border: solid 2px #bbc9bc62;
+}
+
+.alignRight {
+  text-align: right;
+  font-size: 40px;
+  padding-top: 25px;
+}
+
+#receipt {
+  border: solid 1px #bbc9bc62;
+  padding-top: 25px;
+  padding-bottom: 15px;
+  background-color: #bbc9bc2d;
+  margin-bottom: 35px;
+}
+
+#cardT {
+  margin-top: 5px;
+}
+
+#rigth {
+  text-align: right;
+}
+
+.gatesP {
+  margin-bottom: 0;
+}
+
+#receiptInfo {
+  width: 100% !important;
+}
+
+.SomeMarginLeft {
+  padding-left: 40px !important;
+}
+
+#tableGeneralInfo {
+  margin-bottom: 35px;
+}
