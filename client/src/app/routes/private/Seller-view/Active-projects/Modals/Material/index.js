@@ -105,6 +105,7 @@ class ModalDialog extends React.Component {
               name="itemQuantity"
               label="Quantity"
               variant="outlined"
+              type="number"
             />
             <TextField
               onChange={this.handleOnChange}
@@ -112,6 +113,7 @@ class ModalDialog extends React.Component {
               name="itemPrice"
               label="$ Price"
               variant="outlined"
+              type="number"
             />
           </form>
         </DialogContent>
