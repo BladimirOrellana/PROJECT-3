@@ -55,7 +55,7 @@ class UserInfo extends React.Component {
             }
           }}
         >
-          <MenuItem onClick={this.handleRequestClose}>
+         {/*  <MenuItem onClick={this.handleRequestClose}>
            
          
               <NavLink to="/app/profile">
@@ -66,7 +66,7 @@ class UserInfo extends React.Component {
               </NavLink>
            
           </MenuItem>
-          {/* <MenuItem onClick={this.handleRequestClose}>
+          <MenuItem onClick={this.handleRequestClose}>
             <i className="zmdi zmdi-settings zmdi-hc-fw mr-2" />
             <IntlMessages id="popup.setting" />
           </MenuItem> */}

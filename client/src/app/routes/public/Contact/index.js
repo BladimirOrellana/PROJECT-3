@@ -7,13 +7,15 @@ class ContactUs extends Component {
   constructor(props) {
     super(props);
     this.state = {
-     data: {
+     
        firstName: '',
        lastaName: '',
        phone: '',
        email:'',
-       message:''
-     }
+       message:'',
+       successMessage: '',
+       errorMessage: ''
+     
     };
   }
   sendEmailHandeler(event){
@@ -25,16 +27,43 @@ class ContactUs extends Component {
       email: this.state.email,
       message: this.state.message
     }
-    console.log("INFO",data)
-    console.log("KK",this.props)
-    this.props.sendEmailAction(data)
+    if(data){
+      this.props.sendEmailAction(data)
+      this.setState({
+        successMessage: "Thank you "+this.state.firstName + " message sent"
 
+      })
+      setTimeout(() => {
+        this.setState({
+          successMessage: ""
+  
+        })
+      }, 3000);
+    }else{
+      this.setState({
+        errorMessage: "Please enter all fields"
+
+      })
+    }
+    
+
+   this.setState({
+    
+      firstName: '',
+      lastName: '',
+      phone: '',
+      email:'',
+      message:''
+    
+   })
+
+   
    
   }
 
 
   handleOnChange = event => {
-    console.log(event.target.value);
+  console.log(event.target.value)
     this.setState({
       [event.target.name]: event.target.value
     });
@@ -43,6 +72,7 @@ class ContactUs extends Component {
   return (
     <div id="contact-us" className="animated slideInUpTiny animation-duration-3">
     <h1 className="contact-us-container-title">Get in touch</h1>
+    <div className="text-center text-green"><h3>{this.state.successMessage}</h3></div>
       <div className="row">
         <div className="col-lg-9 col-md-8 col-sm-7 col-12">
           <form onSubmit={(event) => this.sendEmailHandeler(event)} className="contact-form jr-card">
@@ -51,7 +81,7 @@ class ContactUs extends Component {
                 <div className="form-group">
                   <label form="firstName">Name</label>
                   <input value={this.state.firstName} onChange={this.handleOnChange} className="form-control form-control-lg" name="firstName" id="firstName" type="text"
-                         placeholder="First Name"/>
+                  required    placeholder="First Name"/>
                 </div>
               </div>
 
@@ -59,7 +89,7 @@ class ContactUs extends Component {
                 <div className="form-group">
                   <label htmlFor="lastName">&nbsp;</label>
                   <input value={this.state.lastName} onChange={this.handleOnChange} className="form-control form-control-lg" name="lastName" type="text"
-                         placeholder="Last Name"/>
+                  required   placeholder="Last Name"/>
                 </div>
               </div>
             </div>
@@ -69,7 +99,7 @@ class ContactUs extends Component {
                 <div className="form-group">
                   <label htmlFor="email">Email</label>
                   <input value={this.state.email} onChange={this.handleOnChange} className="form-control form-control-lg" id="email" name="email" type="email"
-                         placeholder="E-mail"/>
+                  required    placeholder="E-mail"/>
                 </div>
               </div>
 
@@ -77,7 +107,7 @@ class ContactUs extends Component {
                 <div className="form-group">
                   <label htmlFor="phoneNumber">Phone Number</label>
                   <input value={this.state.phone} onChange={this.handleOnChange} className="form-control form-control-lg" id="phoneNumber" name="phone" type="tel"
-                         placeholder="Phone"/>
+                  required placeholder="Phone"/>
                 </div>
               </div>
             </div>
@@ -85,7 +115,7 @@ class ContactUs extends Component {
               <div className="col-12">
                 <div className="form-group">
                   <label>How can we help you?</label>
-                  <textarea value={this.state.message} onChange={this.handleOnChange} className="form-control form-control-lg" name="message" rows="6"/>
+                  <textarea  value={this.state.message} onChange={this.handleOnChange} className="form-control form-control-lg" name="message" rows="6"/>
                 </div>
               </div>
             </div>
@@ -164,7 +194,7 @@ class ContactUs extends Component {
   }
 };
 const  mapStateToProps = (state) => {
-  console.log("KKK", state)
+
   return {
     email: state.email
   }
