@@ -27,13 +27,18 @@ class UserInfo extends React.Component {
   };
 
   render() {
+    console.log("USER INFO HB ", this.props);
     return (
       <div className="user-profile d-flex flex-row align-items-center">
         <div className="user-detail">
           <h4 className="user-name" onClick={this.handleClick}>
             {!this.props.authUser ? (
               <Link to="/signin"> SignIn </Link>
-            ) : this.props.user ?  this.props.user.name : "Robert B"}
+            ) : this.props.user ? (
+              this.props.user.name
+            ) : (
+              "Robert B"
+            )}
             {this.props.authUser ? (
               <i className="zmdi zmdi-caret-down zmdi-hc-fw align-middle" />
             ) : (
@@ -55,7 +60,7 @@ class UserInfo extends React.Component {
             }
           }}
         >
-         {/*  <MenuItem onClick={this.handleRequestClose}>
+          {/*  <MenuItem onClick={this.handleRequestClose}>
            
          
               <NavLink to="/app/profile">
