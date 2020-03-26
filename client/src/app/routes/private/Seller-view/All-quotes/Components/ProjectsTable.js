@@ -197,6 +197,7 @@ class ProjectsTable extends React.Component {
     const emptyRows =
       rowsPerPage -
       Math.min(rowsPerPage, data ? data.length : 0 - page * rowsPerPage);
+    console.log("DATA ALL ", data);
 
     return (
       <div className={classes.tableWrapper}>

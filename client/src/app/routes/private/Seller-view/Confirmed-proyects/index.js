@@ -7,20 +7,22 @@ import "./index.css";
 
 class ConfirmedProjects extends React.Component {
   //it will save the path in initURL state
+
   componentWillMount() {
     this.props.setInitUrl(this.props.history.location.pathname);
   }
 
   render() {
+    const width = window.innerWidth;
     //if none is signed redirect it to Sigin page
     if (this.props.authUser === null) {
       return <Redirect to={"/signin"} />;
     }
 
     return (
-      <div className="app-wrapper">
-        <div className="row mb-md-3">
-          <div className="offset-lg-1 col-lg-10 col-md-12">
+      <div className="">
+        <div className="row mb-md-12">
+          <div className="col-sm-12 col-lg-12 col-md-12">
             <div className="jr-card">
               <div className="jr-card-header d-flex align-items-center">
                 <h1 className="mb-0" id="usersHeader">

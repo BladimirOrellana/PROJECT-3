@@ -2,7 +2,7 @@ const db = require("../models");
 //This function was created to used multipletimes to get all quotes from client
 function getProjetcts(userId, res) {
   db.User.findById(userId)
-  .sort({createdAt: -1})
+    .sort({ createdAt: -1 })
     .populate("project")
     .then(result => {
       if (result) {
@@ -11,6 +11,7 @@ function getProjetcts(userId, res) {
         res.json(result);
       }
     })
+
     .catch(err => {
       console.log(err);
       res.json(err);
@@ -35,7 +36,6 @@ module.exports = {
       });
   },
   upDateStateOfProjectByClientProjectId: function(req, res) {
-  
     db.Project.findOneAndUpdate(
       { _id: req.params.projectId },
       { state: req.body.state }
@@ -81,13 +81,12 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   create: function(req, res) {
-    
     db.Project.create(req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   update: function(req, res) {
-    console.log("BODY",req.body)
+    console.log("BODY", req.body);
     db.Project.findOneAndUpdate({ _id: req.params.id }, req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
