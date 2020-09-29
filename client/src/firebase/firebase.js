@@ -1,5 +1,5 @@
-import firebase from 'firebase'
-import key from 'firebase/firebasekey';
+import firebase from "firebase";
+import key from "firebase/firebasekey";
 
 // Initialize Firebase
 const config = {
@@ -10,7 +10,7 @@ const config = {
   storageBucket: key.storageBucket,
   messagingSenderId: key.messagingSenderId,
   appId: key.appId,
-  measurementId: key.measurementId
+  measurementId: key.measurementId,
 };
 
 firebase.initializeApp(config);
@@ -28,5 +28,5 @@ export {
   googleAuthProvider,
   githubAuthProvider,
   facebookAuthProvider,
-  twitterAuthProvider
+  twitterAuthProvider,
 };
