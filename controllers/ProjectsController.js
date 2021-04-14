@@ -34,11 +34,7 @@ module.exports = {
         res.json(err);
       });
   },
-<<<<<<< HEAD
-  upDateStateOfProjectByClientProjectId: function(req, res) {
-=======
   upDateStateOfProjectByClientProjectId: function (req, res) {
->>>>>>> 31f6a0f578023d75e7a7cb9ee99234fb614587f9
     db.Project.findOneAndUpdate(
       { _id: req.params.projectId },
       { state: req.body.state }
@@ -83,20 +79,12 @@ module.exports = {
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
   },
-<<<<<<< HEAD
-  create: function(req, res) {
-=======
   create: function (req, res) {
->>>>>>> 31f6a0f578023d75e7a7cb9ee99234fb614587f9
     db.Project.create(req.body)
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
   },
-<<<<<<< HEAD
-  update: function(req, res) {
-=======
   update: function (req, res) {
->>>>>>> 31f6a0f578023d75e7a7cb9ee99234fb614587f9
     console.log("BODY", req.body);
     db.Project.findOneAndUpdate({ _id: req.params.id }, req.body)
       .then((dbModel) => res.json(dbModel))
