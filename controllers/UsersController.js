@@ -50,7 +50,7 @@ module.exports = {
           model: "FenceSide",
           populate: {
             path: "gates",
-          model: "Gate",
+            model: "Gate"
           }
         }
       })

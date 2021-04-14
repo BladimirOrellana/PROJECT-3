@@ -18,9 +18,11 @@ if (process.env.NODE_ENV === "production") {
 app.use(routes);
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/HBdata");
+mongoose.connect(
+  process.env.REACT_APP_MONGO_ATLAS_DB || "mongodb://localhost/HBdata"
+);
 
 // Start the API server
-app.listen(PORT, function() {
+app.listen(PORT, function () {
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
 });
