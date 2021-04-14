@@ -18,13 +18,13 @@ class EstimatedProjects extends React.Component {
     }
 
     return (
-      <div className="app-wrapper">
-        <div className="row mb-md-3">
-          <div className="offset-lg-1 col-lg-10 col-md-12">
+      <div className="">
+        <div className="row mb-md-12">
+          <div className=" col-lg-12 col-md-12">
             <div className="jr-card">
               <div className="jr-card-header d-flex align-items-center">
                 <h1 className="mb-0" id="usersHeader">
-                  Quotes
+                  All Quotes
                 </h1>
               </div>
               <ProjectsTable />
