@@ -43,7 +43,7 @@
     "moment-timezone": "^0.5.27",
     "mongoose": "^5.3.16",
     "node-sass": "^4.14.1",
-    "nodemailer": "^6.3.1",
+    "nodemailer": "^6.4.16",
     "proptypes": "^1.1.0",
     "react-fontawesome": "^1.7.1",
     "react-loader-spinner": "^3.1.5",
