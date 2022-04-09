@@ -39,7 +39,7 @@
     "express": "^4.16.3",
     "google-maps-react": "^2.0.2",
     "if-env": "^1.0.4",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "moment-timezone": "^0.5.27",
     "mongoose": "^5.3.16",
     "node-sass": "^4.14.1",
