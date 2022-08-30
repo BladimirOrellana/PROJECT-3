@@ -40,7 +40,7 @@
     "google-maps-react": "^2.0.2",
     "if-env": "^1.0.4",
     "moment": "^2.24.0",
-    "moment-timezone": "^0.5.27",
+    "moment-timezone": "^0.5.35",
     "mongoose": "^5.3.16",
     "node-sass": "^4.14.1",
     "nodemailer": "^6.3.1",
